@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BeMaker</title>
+    <link rel="icon" type="image/x-icon" href="img/logo/LOGO BEMAKER-24.png" />
+
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fuentes -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!--important link source from "https://bootsnipp.com/snippets/Vgqld"-->
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:500"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-logo">
+        <img
+          id="logo-image"
+          src="img/logo/LOGO BEMAKER-16 copy.png"
+          alt="logo BeMaker"
+        />
+      </div>
+      <nav class="header-nav">
+        <ul>
+          <li><a href="#services-section">Nuestros Servicios</a></li>
+          <li><a href="#about-us-section">Sobre Nosotros</a></li>
+          <li><a href="#ideas-section">Ideas</a></li>
+          <li><a href="#contact-us-section">Atención al Cliente</a></li>
+        </ul>
+      </nav>
+      <button class="header-cta" onclick="location.href = 'contacto.html'">
+        Comenzar
+      </button>
+      <button id="theme-switch" class="theme-switch-btn">🌙</button>
+    </header>
+
+    <main>
+        <!-- Sección Hero -->
+        <section class="hero-section">
+            <div class="hero-left-panel">
+                <div class="hero-image-card">
+                    <img src="/img/img3.avif" alt="Equipo en una reunión" />
+                </div>
+                <div class="hero-image-card">
+                    <img src="/img/img6.png" alt="Panel de finanzas" />
+                </div>
+                <div class="hero-image-card">
+                    <img src="/img/img5.png" alt="Equipo en una reunión" />
+                </div>
+            </div>
+            <div class="hero-right-panel">
+                <h1 class="hero-title">Innovando hoy para el mañana.</h1>
+                <p class="hero-text">
+                    Soluciones web y móviles personalizadas para pequeñas empresas. Optimiza operaciones, llega a más clientes y escala con tecnología diseñada para tus necesidades.
+                </p>
+                <button class="hero-cta">Empieza ahora</button>
+            </div>
+        </section>
+
+        <!-- Sección Expertise -->
+        <section class="expertise-section">
+            <p class="subtitle">Impulsando pioneros digitales</p>
+            <div class="expertise-grid">
+                <div class="expertise-card" data-aos="fade-up">
+                    <h4>Idea</h4>
+                    <p>Una nueva visión o un reto empresarial. Te ayudamos a explorar y definir tu camino.</p>
+                </div>
+                <div class="expertise-card" data-aos="fade-up">
+                    <h4>Diseño</h4>
+                    <p>Creando interfaces intuitivas y elegantes que cautivan y convierten a tus usuarios.</p>
+                </div>
+                <div class="expertise-card" data-aos="fade-up">
+                    <h4>Desarrollo</h4>
+                    <p>Llevamos tus ideas a la realidad con código robusto, escalable y seguro.</p>
+                </div>
+                <div class="expertise-card" data-aos="fade-up">
+                    <h4>Lanzamiento</h4>
+                    <p>Desplegamos tu solución digital y brindamos soporte continuo para tu crecimiento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección "Eleva tu presencia digital" -->
+        <section id="services-section" class="digital-presence-section">
+            <p class="subtitle"></p>
+            <h1 class="title">Eleva tu presencia digital</h1>
+            <p class="description">
+                Descubre soluciones personalizadas que impulsan el crecimiento y la innovación de tu negocio. Nuestros productos escalables e intuitivos están diseñados para mejorar tu impacto online.
+            </p>
+            <div class="content-grid">
+                <div class="image-box">
+                    <img data-aos="fade-up" src="/img/img2.avif" alt="Reunión de equipo" />
+                </div>
+                <div data-aos="fade-up" class="text-box">
+                    <h3>Sesiones estratégicas</h3>
+                    <p>Consultorías personalizadas para descubrir nuevas oportunidades y planificar tu camino digital.</p>
+                    <a href="#" class="cta-button">Comenzar</a>
+                </div>
+            </div>
+            <div class="services-section">
+                <div class="service-card">
+                    <img src="/img/SVG/desarrollo.png" alt="Icono de desarrollo web" class="service-icon-img">
+                    <h4>Desarrollo Web y Móvil</h4>
+                    <p>
+                        Creamos sitios web rápidos y seguros que impulsan la expansión online de tu negocio. También desarrollamos aplicaciones móviles personalizadas para conectar mejor con tus clientes.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <img src="/img/SVG/Arduino.png" alt="Icono de prototipos con arduino" class="service-icon-img">
+                    <h4>Prototipos con Arduino</h4>
+                    <p>
+                        Traemos las ideas a la realidad desarrollados con Arduino para validar conceptos y acelerar la innovación.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <img src="/img/SVG/3d.png" alt="Icono de 3d" class="service-icon-img">
+                    <h4>impresión 3D</h4>
+                    <p>
+                        Ofrecemos servicios de impresión 3D de alta calidad, creando objetos tangibles con gran precisión y detalle.    
+                    </p>
+                </div>
+                <div class="service-card">
+                    <img src="/img/SVG/clases.png" alt="Icono de clases" class="service-icon-img">
+                    <h4>Capacitaciones y Talleres</h4>
+                    <p>
+                        Impartimos talleres y capacitaciones en desarrollo web, móvil, Arduino e impresión 3D para potenciar tus habilidades técnicas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+      <!-- Sección "Sobre Nosotros" -->
+      <section id="about-us-section" class="about-us-section">
+        <h2 class="title">Una historia, un propósito.</h2>
+        <p class="description">
+          Más allá de la tecnología, somos un equipo de mentes apasionadas y
+          creativas dedicadas a construir el futuro. Creemos en el poder del
+          diseño para resolver problemas complejos y en la tecnología para
+          escalar el impacto.
+        </p>
+        <div class="about-us-grid">
+          <div data-aos="fade-up" class="about-us-card">
+            <img src="img/Sobre/vision.png" alt="Visión" />
+            <h4>Visión</h4>
+            <p>
+              Ser el socio tecnológico preferido para visionarios y empresas que
+              buscan transformar sus ideas en realidades digitales impactantes.
+            </p>
+          </div>
+          <div data-aos="fade-up" class="about-us-card">
+            <img src="img/Sobre/mision.png" alt="Misión" />
+            <h4>Misión</h4>
+            <p>
+              Facilitar el éxito de nuestros clientes a través de soluciones de
+              software innovadoras, escalables y centradas en el usuario.
+            </p>
+          </div>
+          <div data-aos="fade-up" class="about-us-card">
+            <img src="img/Sobre/Valores.png" alt="Valores" />
+            <h4>Valores</h4>
+            <p>
+              Innovación, Colaboración, Calidad, Integridad y Pasión por la
+              tecnología.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección "Ideas" -->
+      <section id="ideas-section" class="ideas-section">
+        <h2 class="title">Ideas que inspiran</h2>
+        <p class="description">
+          Echa un vistazo a algunos de nuestros proyectos recientes y cómo
+          ayudamos a otros a alcanzar sus metas digitales.
+        </p>
+        <div class="ideas-grid">
+          <div class="idea-card" data-aos="fade-up">
+            <img src="img/delacruz.png" alt="Proyecto 1" />
+            <div class="idea-card-content">
+              <h3>Software Trazabilidad (Proyecto Universitario)</h3>
+              <p>
+                Solución digital para monitorear y gestionar la trazabilidad de
+                productos y procesos en cada etapa, optimizando control y
+                eficiencia.
+              </p>
+              <p>
+                Proyecto desarrollado en colaboración con Nicolás González y
+                Christofer Ruiz, ambos ingenieros en informática, aportando
+                experiencia y creatividad al resultado final.
+              </p>
+            </div>
+            <button
+              class="play-button btn"
+              data-video-src="media/DeLaCruz.mp4"
+            >
+              Mirar
+            </button>
+          </div>
+          <div class="idea-card" data-aos="fade-up">
+            <img src="img/Contru.png" alt="Proyecto 2" />
+            <div class="idea-card-content">
+              <h3>Software de administración y gestión</h3>
+              <p>
+                Plataforma integral para gestionar gastos, inversiones y
+                asistencia de empleados, optimizando la administración y el
+                control financiero de tu empresa.
+              </p>
+            </div>
+          </div>
+          <div class="idea-card" data-aos="fade-up">
+            <img src="img/y.png" alt="Proyecto 3" />
+            <div class="idea-card-content">
+              <h3>¿El próximo proyecto?</h3>
+              <p>
+                Tu idea puede ser la siguiente en transformar el mundo digital.
+                ¡Cuéntanos tu visión y hagámoslo realidad juntos!
+              </p>
+            </div>
+            <button
+              class="btn"
+              onclick="window.location.href = 'contacto.html'"
+            >
+              Quiero ver mi proyecto aquí
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal para el video -->
+      <div id="video-modal" class="modal">
+        <div class="modal-content">
+          <button id="close-button" class="close-button">&times;</button>
+          <video id="video-player" controls autoplay></video>
+        </div>
+      </div>
+
+        <!-- Sección "Discute tu visión" -->
+        <section id="contact-us-section" class="discuss-vision-section">
+            <h2 class="title">Discute tu visión con nosotros</h2>
+            <p class="description">
+                Estamos listos para ayudarte a llevar tu proyecto al siguiente nivel. Contáctanos hoy para una consulta gratuita y exploremos juntos las posibilidades.
+            </p>
+            <a href="/contacto.html" class="hero-cta">Comienza tu proyecto</a>
+            <div class="contact-info-section">
+                <div class="contact-info-card">
+                    <h4>Ubicación</h4>
+                    <p>Donde tu quieras</p>
+                </div>
+                <div class="contact-info-card">
+                    <h4>Teléfono</h4>
+                    <p><a href="tel:+56912345678">+56 9 21236668</a></p>
+                </div>
+                <div class="contact-info-card">
+                    <h4>Email</h4>
+                    <p><a href="/contacto.html">bemaker.dev@gmail.com</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 BeMaker. Todos los derechos reservados.</p>
+        <div class="footer-social-media">
+          <a href="https://www.linkedin.com/in/pilar-bonnault-mancilla" target="_blank" rel="noopener noreferrer"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/bemaker.dev?igsh=MTV5NXR0MmN1ZHBkcA=="
+            target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://www.facebook.com/share/16bNj2comz/" target="_blank"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script externo -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      !(function (e) {
+        "undefined" == typeof module
+          ? (this.charming = e)
+          : (module.exports = e);
+      })(function (e, n) {
+        "use strict";
+        n = n || {};
+        var t = n.tagName || "span",
+          o = null != n.classPrefix ? n.classPrefix : "char",
+          r = 1,
+          a = function (e) {
+            for (
+              var n = e.parentNode, a = e.nodeValue, c = a.length, l = -1;
+              ++l < c;
+            ) {
+              var d = document.createElement(t);
+              (o && ((d.className = o + r), r++),
+                d.appendChild(document.createTextNode(a[l])),
+                n.insertBefore(d, e));
+            }
+            n.removeChild(e);
+          };
+        return (
+          (function c(e) {
+            for (
+              var n = [].slice.call(e.childNodes), t = n.length, o = -1;
+              ++o < t;
+            )
+              c(n[o]);
+            e.nodeType === Node.TEXT_NODE && a(e);
+          })(e),
+          e
+        );
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+  </body>
+</html>

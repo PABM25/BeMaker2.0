@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto - BeMaker</title>
+    <link rel="icon" type="image/x-icon" href="img/logo/LOGO BEMAKER-24.png" />
+
+    <!-- Fuentes y iconos -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Variables de color para modo oscuro y claro */
+      :root {
+        --background-dark: #000000;
+        --background-light: #f4f4f9;
+        --surface-dark: #1a1a1a;
+        --surface-light: #ffffff;
+        --text-dark: #ffffff;
+        --text-light: #000000;
+        --blue-primary: #0000ff;
+        --red-accent: #ff0000;
+        --text-secondary-dark: #b0b0b0;
+        --text-secondary-light: #555555;
+        --border-dark: #b0b0b0;
+        --border-light: #cccccc;
+
+        /* Por defecto, modo oscuro */
+        --bg-color: var(--background-dark);
+        --text-color: var(--text-dark);
+        --text-secondary-color: var(--text-secondary-dark);
+        --surface-color: var(--surface-dark);
+        --border-color: var(--border-dark);
+      }
+
+      /* Variables para el modo claro */
+      body.light-mode {
+        --bg-color: var(--background-light);
+        --text-color: var(--text-light);
+        --text-secondary-color: var(--text-secondary-light);
+        --surface-color: var(--surface-light);
+        --border-color: var(--border-light);
+      }
+
+      /* Estilos generales */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--text-color);
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* Header */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        border-bottom: 1px solid var(--border-color);
+        /* Salto de linea para diferenciar */
+        padding-bottom: 20px;
+      }
+
+      .header-logo img {
+        height: 50px;
+      }
+
+      .header-nav ul {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .header-nav a {
+        font-weight: 400;
+        transition: color 0.3s ease;
+      }
+
+      .header-nav a:hover {
+        color: var(--blue-primary);
+      }
+
+      .header-nav .contact-link a {
+        background-color: var(--blue-primary);
+        color: var(--text-dark);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      .header-nav .contact-link a:hover {
+        background-color: var(--text-secondary-color);
+      }
+
+      .theme-switch-btn {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--text-color);
+        transition: transform 0.3s ease;
+      }
+
+      .theme-switch-btn:hover {
+        transform: scale(1.1);
+      }
+
+      /* Estilos de la sección principal */
+      .main {
+        padding: 5rem 2rem 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      /* Estilos para la sección de contacto */
+      .contact-form-section {
+        background-color: var(--surface-color);
+        padding: 3rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .contact-form-section h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: border-color 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--blue-primary);
+      }
+
+      .form-group small {
+        color: var(--text-secondary-color);
+        font-size: 0.8rem;
+      }
+
+      .btn-submit {
+        display: block;
+        width: 100%;
+        padding: 0.75rem;
+        background-color: var(--blue-primary);
+        color: white;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .btn-submit:hover {
+        background-color: var(--red-accent);
+        transform: translateY(-3px);
+      }
+
+      /* Estilos del pie de página */
+      .footer {
+        background-color: var(--surface-color);
+        color: var(--text-secondary-color);
+        padding: 2rem 2rem;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-social-media {
+        margin-top: 1rem;
+      }
+
+      .footer-social-media a {
+        font-size: 1.5rem;
+        color: var(--text-secondary-color);
+        transition: color 0.3s ease;
+        margin: 0 0.5rem;
+      }
+
+      .footer-social-media a:hover {
+        color: var(--blue-primary);
+      }
+
+      /* Responsive design */
+      @media (max-width: 1024px) {
+        .header-nav {
+          display: none;
+        }
+
+        .header {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .contact-form-section {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header-logo">
+        <a href="index.html">
+          <img
+            id="logo-image"
+            src="img/logo/LOGO BEMAKER-16 copy.png"
+            alt="logo BeMaker"
+          />
+        </a>
+      </div>
+      <nav class="header-nav">
+        <ul>
+          <li><a href="index.html#services-section">Nuestros Servicios</a></li>
+          <li><a href="index.html#about-us-section">Sobre Nosotros</a></li>
+          <li><a href="index.html#projects-section">Proyectos</a></li>
+          <li class="contact-link"><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+      <button id="theme-switch" class="theme-switch-btn">🌙</button>
+    </header>
+
+    <main class="main">
+      <section class="contact-form-section">
+        <h2>Hablemos</h2>
+        <form action="https://formspree.io/f/mrbkvbaz" method="post" id="myContactForm">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Tu nombre"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="tu.email@ejemplo.com"
+              required
+            />
+            <small>Nunca compartiremos tu email con nadie más.</small>
+          </div>
+          <div class="form-group">
+            <label for="asunto">Asunto:</label>
+            <input
+              type="text"
+              id="asunto"
+              name="asunto"
+              placeholder="Motivo de tu mensaje"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje:</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              rows="5"
+              placeholder="Escribe tu mensaje aquí..."
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Enviar Mensaje</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 BeMaker. Todos los derechos reservados.</p>
+        <div class="footer-social-media">
+          <a
+            href="https://www.linkedin.com/in/pilar-bonnault-mancilla"
+            target="_blank"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/bemaker.dev?igsh=MTV5NXR0MmN1ZHBkcA=="
+            target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/share/16bNj1kH9hG93s9N/?mibextid=A7d6Rv"
+            target="_blank"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const themeSwitchBtn = document.getElementById("theme-switch");
+        const body = document.body;
+        const logoImage = document.getElementById("logo-image");
+        const themeStorageKey = 'bemaker-theme';
+
+        // URLs de los logos
+        const lightModeLogo = "img/logo/LOGO BEMAKER-14 copy.PNG";
+        const darkModeLogo = "img/logo/LOGO BEMAKER-16 copy.png";
+
+        function updateThemeUI(isLightMode) {
+          if (isLightMode) {
+            body.classList.add("light-mode");
+            logoImage.src = lightModeLogo;
+            themeSwitchBtn.textContent = "☀️";
+            localStorage.setItem(themeStorageKey, 'light');
+          } else {
+            body.classList.remove("light-mode");
+            logoImage.src = darkModeLogo;
+            themeSwitchBtn.textContent = "🌙";
+            localStorage.setItem(themeStorageKey, 'dark');
+          }
+        }
+
+        function toggleTheme() {
+          const isLight = !body.classList.contains("light-mode");
+          updateThemeUI(isLight);
+        }
+
+        function initTheme() {
+          const savedTheme = localStorage.getItem(themeStorageKey);
+          const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+          const useLight = savedTheme === 'light' || (!savedTheme && prefersLight);
+          updateThemeUI(useLight);
+        }
+
+        if (themeSwitchBtn && logoImage) {
+          initTheme();
+          themeSwitchBtn.addEventListener("click", toggleTheme);
+        }
+      });
+    </script>
+  </body>
+</html>
