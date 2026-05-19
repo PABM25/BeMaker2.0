@@ -1,0 +1,6 @@
+node_modules/
+desktop.png
+mobile.png
+server.log
+test_*.js
+fix_media*.py
