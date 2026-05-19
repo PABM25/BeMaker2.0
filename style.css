@@ -179,6 +179,19 @@ ul { list-style: none; padding: 0; }
 .footer-social-media a { color: var(--text-secondary-color); font-size: 1.5rem; transition: 0.3s; }
 .footer-social-media a:hover { color: var(--blue-primary); transform: translateY(-3px); }
 
+/* Responsivo */
+@media (max-width: 1024px) {
+    .hero-section { flex-direction: column; text-align: center; }
+    .hero-left-panel, .hero-right-panel { width: 100%; padding: 0; }
+    .expertise-grid, .services-section.bento-grid { grid-template-columns: 1fr 1fr; }
+    .bento-large, .bento-small-1, .bento-small-2 { grid-column: auto; grid-row: auto; }
+}
+@media (max-width: 768px) {
+    .header { flex-direction: column; gap: 15px; }
+    .header-nav ul { flex-wrap: wrap; justify-content: center; }
+    .about-us-grid, .contact-info-section, .content-grid, .expertise-grid, .services-section.bento-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 2.5rem; }
+}
 
 
 
@@ -203,106 +216,140 @@ ul { list-style: none; padding: 0; }
     width: 40px !important;
     height: 40px !important;
 }
-.bento-item {
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    border-radius: 20px;
-    padding: 40px;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1); /* Curva de animación suave */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+/* --- NUEVA SECCIÓN DE PLANES (PRICING GRID) --- */
+.plans-section {
+    padding: 80px 40px;
+    text-align: center;
 }
 
-/* Oscurecedor para que el texto sea legible sobre la imagen */
-.bento-item::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
-    border-radius: 20px;
-}
-
-.bento-item:hover {
-    transform: scale(1.03);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
-
-.bento-grid-container {
+.plans-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 250px;
-    gap: 20px;
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 40px;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    align-items: center; /* Centra las tarjetas verticalmente */
 }
 
-.bento-card {
-    position: relative;
+.plan-card {
     background: var(--surface-color);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 30px;
-    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    cursor: pointer;
-    overflow: hidden;
-    transition: all 0.5s ease;
-    /* Efecto de cristal */
-    backdrop-filter: blur(10px);
-    isolation: isolate; /* Create new stacking context for children */
-}
-
-.bento-main { grid-column: span 2; grid-row: span 2; }
-
-/* Efecto de borde brillante al hacer hover */
-.bento-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 25px;
-    padding: 2px;
-    background: linear-gradient(45deg, var(--blue-primary), var(--red-accent));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-.bento-card:hover::before { opacity: 1; }
-
-/* Posicionar el pixel canvas detras del contenido */
-.bento-card pixel-canvas {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none; /* Dejar que los eventos pasen al contenedor padre para activar el hover del js */
-}
-
-/* Asegurar que el contenido del bento card este sobre el canvas */
-.bento-card > *:not(pixel-canvas) {
+    height: 100%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+    text-align: left;
     position: relative;
-    z-index: 1;
 }
 
-.bento-card h3, .bento-card h4 { font-size: 1.5rem; margin-bottom: 10px; color: var(--text-color); }
-.bento-card i { font-size: 3rem; margin-bottom: 20px; display: block; }
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    border-color: var(--blue-light);
+}
 
-/* Responsivo */
+.plan-tier {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-secondary-color);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.plan-header h3 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.plan-target {
+    font-size: 0.95rem;
+    color: var(--text-secondary-color);
+    margin-bottom: 25px;
+    min-height: 45px;
+}
+
+.plan-body {
+    flex-grow: 1; /* Empuja el botón hacia abajo */
+    margin-bottom: 30px;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.plan-features li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.plan-features i {
+    color: var(--blue-light);
+    margin-top: 4px;
+    font-size: 1.1rem;
+}
+
+.plan-footer {
+    text-align: center;
+}
+
+.plan-btn {
+    width: 100%;
+    margin: 0;
+}
+
+/* Tarjeta Destacada (PRO) */
+.popular-plan {
+    border-color: var(--blue-primary);
+    box-shadow: 0 10px 30px rgba(1, 0, 102, 0.15);
+    transform: scale(1.05); /* Ligeramente más grande */
+    background: linear-gradient(to bottom, var(--surface-color), rgba(1, 0, 102, 0.05));
+    z-index: 2;
+}
+
+.popular-plan:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 20px 40px rgba(1, 0, 102, 0.25);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--red-accent), var(--red-light));
+    color: white;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(237, 8, 7, 0.3);
+}
+
+.popular-plan .plan-features i {
+    color: var(--red-accent);
+}
+
+/* Responsivo para los planes */
 @media (max-width: 1024px) {
-    .hero-section { flex-direction: column; text-align: center; }
-    .hero-left-panel, .hero-right-panel { width: 100%; padding: 0; }
-    .expertise-grid, .services-section.bento-grid, .bento-grid-container { grid-template-columns: 1fr 1fr; }
-    .bento-large, .bento-small-1, .bento-small-2 { grid-column: auto; grid-row: auto; }
-    .bento-main { grid-column: span 2; grid-row: auto; }
-}
-@media (max-width: 768px) {
-    .header { flex-direction: column; gap: 15px; }
-    .header-nav ul { flex-wrap: wrap; justify-content: center; }
-    .about-us-grid, .contact-info-section, .content-grid, .expertise-grid, .services-section.bento-grid, .bento-grid-container { grid-template-columns: 1fr; }
-    .hero-title { font-size: 2.5rem; }
-    .bento-main { grid-column: span 1; grid-row: auto; }
+    .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+    .popular-plan {
+        transform: scale(1);
+    }
+    .popular-plan:hover {
+        transform: translateY(-10px);
+    }
 }
