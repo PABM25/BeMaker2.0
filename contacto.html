@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -29,48 +30,124 @@
         </ul>
       </nav>
       <div>
-        <button class="header-cta" style="background-color: var(--blue-primary); color: white; border: none;">Contacto</button>
-        <button id="theme-switch" class="theme-switch-btn">🌙</button>
+        <button class="header-cta active-cta" onclick="location.href='contacto.html'">Contacto</button>
+        <button id="theme-switch" class="theme-switch-btn" aria-label="Cambiar tema">🌙</button>
       </div>
     </header>
 
-    <main class="main-contact">
-      <section class="contact-form-section">
-        <h2>Hablemos de tu idea</h2>
-        <form action="https://formspree.io/f/mrbkvbaz" method="post" id="myContactForm">
-          <div class="form-group">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+    <main class="main-contact-page">
+      <div class="contact-split-container" data-aos="fade-up" data-aos-duration="1000">
+        
+        <div class="contact-info-side">
+          <pixel-canvas data-gap="8" data-speed="35" data-colors="#010066, #2b2ab8, #ED0807"></pixel-canvas>
+          <div class="contact-info-content">
+            <h2>Construyamos el futuro de tu PYME.</h2>
+            <p>
+              Ya sea una landing page rápida, un catálogo interactivo o un diseño UX accesible para todos tus clientes. Transformamos tus ideas en código limpio y escalable.
+            </p>
+            
+            <div class="tech-tags">
+              <span><i class="fas fa-code"></i> Frontend</span>
+              <span><i class="fas fa-mobile-alt"></i> Mobile</span>
+              <span><i class="fas fa-universal-access"></i> UX Accesible</span>
+            </div>
+
+            <div class="contact-methods">
+              <div class="method-item">
+                <div class="method-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <h4>Email</h4>
+                  <p><a href="mailto:bemaker.dev@gmail.com">bemaker.dev@gmail.com</a></p>
+                </div>
+              </div>
+              <div class="method-item">
+                <div class="method-icon"><i class="fab fa-whatsapp"></i></div>
+                <div>
+                  <h4>Teléfono / WhatsApp</h4>
+                  <p><a href="tel:+56921236668">+56 9 21236668</a></p>
+                </div>
+              </div>
+              <div class="method-item">
+                <div class="method-icon"><i class="fas fa-globe-americas"></i></div>
+                <div>
+                  <h4>Ubicación</h4>
+                  <p>100% Remoto (Hacia todo el mundo)</p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="tu.email@ejemplo.com" required />
-            <small class="text-muted">Nunca compartiremos tu email con nadie más.</small>
-          </div>
-          <div class="form-group">
-            <label for="asunto">Asunto:</label>
-            <input type="text" id="asunto" name="asunto" placeholder="Motivo de tu mensaje" required />
-          </div>
-          <div class="form-group">
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
-          </div>
-          <button type="submit" class="hero-cta cta-final-animated" style="width: 100%;">Enviar Mensaje</button>
-        </form>
-      </section>
+        </div>
+
+        <div class="contact-form-side">
+          <h3>Cuéntanos tu idea</h3>
+          <p class="form-subtitle">Completa el formulario y te responderemos a la brevedad con una propuesta.</p>
+          
+          <form action="https://formspree.io/f/mrbkvbaz" method="post" id="myContactForm" class="modern-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nombre">Tu Nombre</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-user"></i>
+                  <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Tu Email</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-at"></i>
+                  <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="asunto">¿Qué necesitas?</label>
+              <div class="input-wrapper">
+                <i class="fas fa-rocket"></i>
+                <select id="asunto" name="asunto" required>
+                  <option value="" disabled selected>Selecciona un servicio...</option>
+                  <option value="Landing Express">Landing Express (Sitio rápido)</option>
+                  <option value="Landing Conectada">Landing Conectada (Con base de datos)</option>
+                  <option value="Catálogo/Agenda">Catálogo o Sistema de Agenda</option>
+                  <option value="Otro">Otro proyecto / Consultoría</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Detalles del Proyecto</label>
+              <div class="input-wrapper textarea-wrapper">
+                <i class="fas fa-comment-alt"></i>
+                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Háblanos sobre tu negocio, tus objetivos o el problema que buscas resolver..." required></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="hero-cta cta-final-animated form-submit-btn">
+              <span>Enviar Mensaje</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
     </main>
 
     <footer class="footer">
       <div class="footer-content">
         <p>&copy; 2025 BeMaker. Todos los derechos reservados.</p>
         <div class="footer-social-media">
-          <a href="https://www.linkedin.com/in/pilar-bonnault-mancilla" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/bemaker.dev" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/share/16bNj2comz/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/in/pilar-bonnault-mancilla" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/bemaker.dev" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/16bNj2comz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
         </div>
       </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    <script>
+      AOS.init({ once: true, duration: 800 });
+    </script>
   </body>
 </html>
