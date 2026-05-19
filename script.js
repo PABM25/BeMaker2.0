@@ -93,83 +93,86 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Inicializar el Carousel del Hero
-const heroSwiper = new Swiper('.hero-carousel', {
-    loop: true,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    effect: 'fade', // Opcional: efecto de desvanecimiento suave
-});
-
+if (document.querySelector('.hero-carousel')) {
+    const heroSwiper = new Swiper('.hero-carousel', {
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        effect: 'fade', // Opcional: efecto de desvanecimiento suave
+    });
+}
 
 // Animación Bento Cards con Anime.js
-document.querySelectorAll('.bento-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        anime({
-            targets: card,
-            scale: 1.05,
-            duration: 400,
-            easing: 'easeOutElastic(1, .5)'
+if (typeof anime !== 'undefined') {
+    document.querySelectorAll('.bento-card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            anime({
+                targets: card,
+                scale: 1.05,
+                duration: 400,
+                easing: 'easeOutElastic(1, .5)'
+            });
+
+            // Animamos el icono dentro de la tarjeta
+            anime({
+                targets: card.querySelector('i'),
+                translateY: -10,
+                color: '#ED0807', // Color rojo accent
+                duration: 600
+            });
         });
-        
-        // Animamos el icono dentro de la tarjeta
-        anime({
-            targets: card.querySelector('i'),
-            translateY: -10,
-            color: '#ED0807', // Color rojo accent
-            duration: 600
+
+        card.addEventListener('mouseleave', () => {
+            anime({
+                targets: card,
+                scale: 1,
+                duration: 400
+            });
+
+            anime({
+                targets: card.querySelector('i'),
+                translateY: 0,
+                color: '#010066', // Azul primary
+                duration: 600
+            });
         });
     });
 
-    card.addEventListener('mouseleave', () => {
-        anime({
-            targets: card,
-            scale: 1,
-            duration: 400
+    // Animación avanzada para el Bento Grid
+    const bentoCards = document.querySelectorAll('.bento-card');
+
+    bentoCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            anime({
+                targets: card,
+                rotateX: (y - rect.height / 2) / 10,
+                rotateY: (x - rect.width / 2) / 10,
+                duration: 100,
+                easing: 'linear'
+            });
         });
-        
-        anime({
-            targets: card.querySelector('i'),
-            translateY: 0,
-            color: '#010066', // Azul primary
-            duration: 600
-        });
-    });
-});
 
-// Animación avanzada para el Bento Grid
-const bentoCards = document.querySelectorAll('.bento-card');
-
-bentoCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        anime({
-            targets: card,
-            rotateX: (y - rect.height / 2) / 10,
-            rotateY: (x - rect.width / 2) / 10,
-            duration: 100,
-            easing: 'linear'
+        card.addEventListener('mouseleave', () => {
+            anime({
+                targets: card,
+                rotateX: 0,
+                rotateY: 0,
+                duration: 500,
+                easing: 'easeOutElastic(1, .5)'
+            });
         });
     });
-
-    card.addEventListener('mouseleave', () => {
-        anime({
-            targets: card,
-            rotateX: 0,
-            rotateY: 0,
-            duration: 500,
-            easing: 'easeOutElastic(1, .5)'
-        });
-    });
-});
+}
 
 // Efecto de inclinación para los servicios
 const serviceCards = document.querySelectorAll('.bento-item');
