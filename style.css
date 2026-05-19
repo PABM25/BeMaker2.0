@@ -285,6 +285,7 @@ ul { list-style: none; padding: 0; }
     border: 1px solid rgba(255,255,255,0.1);
     /* Efecto de cristal */
     backdrop-filter: blur(10px);
+    isolation: isolate; /* Create new stacking context for children */
 }
 
 /* Efecto de borde brillante al hacer hover */
@@ -305,5 +306,19 @@ ul { list-style: none; padding: 0; }
 
 .bento-card:hover::before { opacity: 1; }
 
-.bento-card h4 { font-size: 1.5rem; margin-bottom: 10px; color: var(--text-color); }
+/* Posicionar el pixel canvas detras del contenido */
+.bento-card pixel-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none; /* Dejar que los eventos pasen al contenedor padre para activar el hover del js */
+}
+
+/* Asegurar que el contenido del bento card este sobre el canvas */
+.bento-card > *:not(pixel-canvas) {
+    position: relative;
+    z-index: 1;
+}
+
+.bento-card h3, .bento-card h4 { font-size: 1.5rem; margin-bottom: 10px; color: var(--text-color); }
 .bento-card i { font-size: 3rem; margin-bottom: 20px; display: block; }
