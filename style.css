@@ -123,7 +123,7 @@ ul { list-style: none; padding: 0; }
 .header-logo img { height: 50px; }
 .header-nav ul { display: flex; gap: 30px; margin: 0; }
 .header-nav a { font-weight: 500; transition: color 0.3s ease; }
-.header-nav a:hover { color: var(--red-accent); }
+.header-nav a:hover { color: var(--text-color); text-shadow: 0 0 10px rgba(1, 0, 102, 0.5); }
 .header-cta {
     background-color: transparent;
     color: var(--text-color);
@@ -150,6 +150,22 @@ ul { list-style: none; padding: 0; }
 .hero-left-panel { display: flex; flex-direction: column; gap: 20px; width: 50%; }
 .hero-right-panel { width: 50%; padding-left: 20px; }
 .hero-title { font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 20px; min-height: 120px;}
+#typing-hero-title {
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+    display: inline-block;
+}
+#typing-hero-title.glitch {
+    animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
 #cursor { animation: blink 1s step-end infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 .hero-text { font-size: 1.1rem; color: var(--text-secondary-color); margin-bottom: 30px; max-width: 600px; }
@@ -160,32 +176,80 @@ ul { list-style: none; padding: 0; }
 }
 .hero-cta:hover { background-color: #c40606; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(237, 8, 7, 0.4); }
 
-/* Ajustes para el Carousel Hero */
-.hero-carousel {
+/* Terminal Window */
+.terminal-window {
     width: 100%;
-    height: 450px; 
-    border-radius: 20px;
+    height: 450px;
+    background-color: #0d0d0d;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(1, 0, 102, 0.4);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
 }
-.hero-carousel .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.terminal-header {
+    background-color: #2d2d2d;
+    padding: 12px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1a1a1a;
 }
-.swiper-button-next, .swiper-button-prev {
-    color: white !important;
-    background: rgba(0,0,0,0.3);
-    padding: 20px;
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+.terminal-buttons span {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    width: 40px !important;
-    height: 40px !important;
+    display: inline-block;
+}
+.close-btn { background-color: #ff5f56; }
+.min-btn { background-color: #ffbd2e; }
+.max-btn { background-color: #27c93f; }
+.terminal-title {
+    color: #a0a0a0;
+    font-size: 0.85rem;
+    margin-left: 15px;
+    flex-grow: 1;
+    text-align: center;
+    padding-right: 50px; /* Offset to keep text centered */
+}
+.terminal-body {
+    padding: 20px;
+    color: #00ff00;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex-grow: 1;
+    overflow-y: auto;
+    text-align: left;
+}
+.terminal-line {
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeIn 0.1s forwards;
+}
+.terminal-success {
+    color: #00ff00;
+}
+.terminal-info {
+    color: #3b82f6;
+}
+.terminal-highlight {
+    color: #ED0807;
+    font-weight: bold;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
 /* Secciones Generales */
 .expertise-section, .plans-section, .about-us-section, .ideas-section, .discuss-vision-section {
     padding: 80px 40px; text-align: center;
 }
-.subtitle { text-transform: uppercase; color: var(--red-accent); font-size: 0.9rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; }
+.subtitle { text-transform: uppercase; color: var(--blue-primary); font-size: 0.9rem; font-weight: 600; letter-spacing: 2px; margin-bottom: 10px; }
 .title { font-size: 3rem; font-weight: 700; margin-bottom: 20px; line-height: 1.2; color: var(--text-color); }
 .description { color: var(--text-secondary-color); font-size: 1.1rem; max-width: 700px; margin: 0 auto 40px; }
 
@@ -215,7 +279,7 @@ body.light-mode .step-number { color: rgba(1, 0, 102, 0.04); }
 .step-card h4 { margin-bottom: 10px; font-size: 1.2rem; color: var(--text-color); }
 .step-card p { color: var(--text-secondary-color); }
 .step-card:hover .step-number {
-    color: rgba(237, 8, 7, 0.1); 
+    color: rgba(1, 0, 102, 0.1);
     transform: scale(1.1) translateY(10px);
 }
 
@@ -241,14 +305,35 @@ body.light-mode .step-number { color: rgba(1, 0, 102, 0.04); }
 }
 .icon-wrapper img { width: 40px; margin: 0; }
 
-/* --- SECCIÓN DE PLANES (PRICING GRID) --- */
+/* --- SECCIÓN DE PLANES (BENTO GRID) --- */
 .plans-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 50px auto 0;
     align-items: stretch; 
+}
+
+/* Bento Layout Modifiers */
+.bento-large {
+    grid-column: span 2;
+}
+
+@media (min-width: 1025px) {
+    .plans-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2x2 grid style for 3 items (top one full width) */
+    }
+}
+.bento-icon {
+    font-size: 2.5rem;
+    color: var(--blue-primary);
+    margin-bottom: 20px;
+    display: block;
+    transition: color 0.3s ease;
+}
+.bento-card {
+    cursor: pointer;
 }
 
 .plan-card {
@@ -266,7 +351,7 @@ body.light-mode .step-number { color: rgba(1, 0, 102, 0.04); }
 
 .plan-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 35px rgba(1, 0, 102, 0.3);
     border-color: var(--blue-primary);
 }
 
@@ -405,7 +490,7 @@ body.light-mode .step-number { color: rgba(1, 0, 102, 0.04); }
     transition: all 0.3s ease;
 }
 .idea-card:hover .btn-icon { transform: translateY(0); }
-.btn-icon:hover { background: #ff4a4a; transform: scale(1.1) !important; }
+.btn-icon:hover { background: #c40606; transform: scale(1.1) !important; box-shadow: 0 0 15px rgba(237, 8, 7, 0.5); }
 
 .idea-card-content { padding: 25px; flex-grow: 1; text-align: left;}
 .idea-card-content h3 { margin-bottom: 10px; color: var(--blue-primary); }
@@ -440,6 +525,53 @@ body.light-mode .step-number { color: rgba(1, 0, 102, 0.04); }
 .cta-banner-content p { color: rgba(255,255,255,0.8); margin-bottom: 30px; font-size: 1.1rem; }
 .cta-banner-content .hero-cta { display: inline-flex; align-items: center; gap: 10px; }
 
+/* Secciones CTA Final */
+.final-cta-section {
+    padding: 80px 40px;
+    position: relative;
+    z-index: 1;
+}
+.gradient-border-cta {
+    position: relative;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: none;
+    z-index: 1;
+    overflow: hidden;
+    padding: 16px 36px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+.gradient-border-cta::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: conic-gradient(from 0deg, var(--blue-primary), var(--red-accent), var(--blue-primary));
+    z-index: -2;
+    border-radius: 32px;
+    animation: rotateGradient 3s linear infinite;
+}
+.gradient-border-cta::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    background-color: var(--bg-color);
+    z-index: -1;
+    border-radius: 28px;
+    transition: background-color 0.3s ease;
+}
+.gradient-border-cta:hover::after {
+    background-color: transparent;
+}
+.gradient-border-cta:hover {
+    color: white;
+    box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+}
+@keyframes rotateGradient {
+    100% { transform: rotate(360deg); }
+}
+
 /* Botón CTA Animado */
 .cta-final-animated { position: relative; overflow: hidden; z-index: 1; }
 .cta-final-animated::before {
@@ -462,7 +594,7 @@ body.light-mode .step-number { color: rgba(1, 0, 102, 0.04); }
 .minimal-card p, .minimal-card a { color: var(--text-secondary-color); }
 .minimal-card i {
     font-size: 2rem;
-    color: var(--red-accent);
+    color: var(--blue-primary);
     margin-bottom: 15px;
 }
 
