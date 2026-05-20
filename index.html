@@ -3,28 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="BeMaker - Soluciones web y móviles personalizadas para pequeñas empresas. Optimiza operaciones y llega a más clientes." />
     <title>BeMaker - Innovando hoy para el mañana</title>
     <link rel="icon" type="image/x-icon" href="img/logo/LOGO BEMAKER-24.png" />
 
     <link rel="stylesheet" href="style.css" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.min.css"
-    />
   </head>
   <body>
     <div class="animated-background"></div>
@@ -32,18 +21,14 @@
     <header class="header">
       <div class="header-logo">
         <a href="index.html">
-          <img
-            id="logo-image"
-            src="img/logo/LOGO BEMAKER-16 copy.png"
-            alt="logo BeMaker"
-          />
+          <img id="logo-image" src="img/logo/LOGO BEMAKER-16 copy.png" alt="logo BeMaker" />
         </a>
       </div>
       <nav class="header-nav">
         <ul>
-          <li><a href="#services-section">Nuestros Servicios</a></li>
+          <li><a href="#services-section">Planes PYME</a></li>
           <li><a href="#about-us-section">Sobre Nosotros</a></li>
-          <li><a href="#ideas-section">Ideas</a></li>
+          <li><a href="#ideas-section">Proyectos</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
@@ -89,7 +74,32 @@
 
       <section class="expertise-section">
         <p class="subtitle">Nuestro Flujo de Trabajo</p>
-        <h2 class="title" style="margin-bottom: 50px;">De la idea a la realidad</h2>
+        <h2 class="title" style="margin-bottom: 20px;">De la idea a la realidad</h2>
+        
+        <div class="code-magic-wrapper" data-aos="fade-up">
+          <div class="magic-editor">
+            <div class="window-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="window-title">index.html</span>
+            </div>
+            <div class="window-body">
+              <pre><code id="typing-code"></code><span class="cursor-blink">|</span></pre>
+            </div>
+          </div>
+          
+          <div class="magic-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+          
+          <div class="magic-preview">
+            <div class="window-header browser-header">
+              <span class="dot gray"></span><span class="dot gray"></span><span class="dot gray"></span>
+              <span class="window-title">localhost:3000</span>
+            </div>
+            <div class="window-body preview-container" id="live-preview-container">
+               </div>
+          </div>
+        </div>
         <div class="expertise-grid">
           <div class="expertise-card step-card" data-aos="fade-up" data-aos-delay="100">
             <div class="step-number">01</div>
@@ -139,44 +149,74 @@
       </section>
 
       <section id="services-section" class="plans-section">
-        <h2 class="title">Soluciones Digitales</h2>
+        <h2 class="title">Planes PYME Digital</h2>
         <p class="description">
-          Impulsa tu negocio con tecnología de vanguardia y diseño centrado en el usuario.
+          Desarrollo web de calidad superior diseñado para entregarse en tiempo récord. Estandarizamos procesos para que tu inversión sea rentable.
         </p>
 
-        <div class="plans-grid">
-          <div class="plan-card bento-card bento-large" data-aos="fade-up">
+        <div class="pricing-grid">
+          
+          <div class="pricing-card" data-aos="fade-up">
             <div class="plan-header">
-              <i class="fas fa-code bento-icon"></i>
-              <h3>Desarrollo Web</h3>
-              <p class="plan-target">Aplicaciones web escalables, rápidas y seguras.</p>
+              <h3>Landing Express</h3>
+              <p class="plan-target">Ideal para profesionales independientes (Abogados, Contadores, Terapeutas).</p>
+              <div class="plan-price">$120.000<span> CLP</span></div>
             </div>
             <div class="plan-body">
-              <p>Construimos plataformas personalizadas usando las últimas tecnologías (React, Node, etc.) para garantizar un rendimiento óptimo y una experiencia de usuario excepcional.</p>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Diseño Single Page (Una página)</li>
+                <li><i class="fas fa-check"></i> Sección "Quiénes somos" y Servicios</li>
+                <li><i class="fas fa-check"></i> Galería de imágenes simple</li>
+                <li><i class="fas fa-check"></i> Formulario directo a tu correo</li>
+                <li><i class="fas fa-check"></i> Diseño Responsivo (Móvil y Desktop)</li>
+              </ul>
+            </div>
+            <div class="plan-footer">
+              <button class="btn plan-btn" onclick="location.href='contacto.html'">Elegir Plan</button>
             </div>
           </div>
 
-          <div class="plan-card bento-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="pricing-card popular-plan" data-aos="fade-up" data-aos-delay="150">
+            <div class="popular-badge">El más elegido</div>
             <div class="plan-header">
-              <i class="fas fa-brain bento-icon"></i>
-              <h3>Inteligencia Artificial</h3>
-              <p class="plan-target">Automatización y análisis de datos.</p>
+              <h3>Landing Conectada</h3>
+              <p class="plan-target">Ideal para pequeños negocios locales (Barberías, Cafeterías, Consultoras).</p>
+              <div class="plan-price">$180.000<span> CLP</span></div>
             </div>
             <div class="plan-body">
-              <p>Integramos soluciones de IA para optimizar procesos, mejorar la toma de decisiones y crear experiencias predictivas.</p>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> <strong>Todo lo del plan Express</strong></li>
+                <li><i class="fas fa-check"></i> Automatización básica de datos</li>
+                <li><i class="fas fa-check"></i> Registros guardados en Google Sheets</li>
+                <li><i class="fas fa-check"></i> Correo automático de confirmación</li>
+                <li><i class="fas fa-check"></i> Botón flotante de WhatsApp</li>
+              </ul>
+            </div>
+            <div class="plan-footer">
+              <button class="hero-cta plan-btn" onclick="location.href='contacto.html'" style="width: 100%;">Elegir Plan</button>
             </div>
           </div>
 
-          <div class="plan-card bento-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
             <div class="plan-header">
-              <i class="fas fa-shield-alt bento-icon"></i>
-              <h3>Ciberseguridad</h3>
-              <p class="plan-target">Protección integral de datos y sistemas.</p>
+              <h3>Catálogo / Agenda</h3>
+              <p class="plan-target">Ideal para tiendas locales o servicios que requieren cita previa.</p>
+              <div class="plan-price">$280.000<span> CLP</span></div>
             </div>
             <div class="plan-body">
-              <p>Implementamos protocolos de seguridad avanzados para salvaguardar tu infraestructura digital contra amenazas modernas.</p>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> <strong>Todo lo del plan Conectado</strong></li>
+                <li><i class="fas fa-check"></i> Catálogo de productos interactivo</li>
+                <li><i class="fas fa-check"></i> O Integración de agenda (ej. Calendly)</li>
+                <li><i class="fas fa-check"></i> Optimización SEO básica</li>
+                <li><i class="fas fa-check"></i> UX enfocado 100% en conversión</li>
+              </ul>
+            </div>
+            <div class="plan-footer">
+              <button class="btn plan-btn" onclick="location.href='contacto.html'">Elegir Plan</button>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -188,7 +228,7 @@
         <div class="ideas-grid">
           <div class="idea-card" data-aos="fade-up">
             <div class="idea-img-container">
-              <img src="img/delacruz.png" alt="Proyecto 1" />
+              <img src="img/delacruz.png" alt="Proyecto 1" loading="lazy" />
               <div class="idea-overlay">
                 <button class="play-button btn-icon" data-video-src="media/DeLaCruz.mp4"><i class="fas fa-play"></i></button>
               </div>
@@ -204,7 +244,7 @@
           </div>
           <div class="idea-card" data-aos="fade-up" data-aos-delay="150">
             <div class="idea-img-container">
-              <img src="img/Contru.png" alt="Proyecto 2" />
+              <img src="img/Contru.png" alt="Proyecto 2" loading="lazy" />
             </div>
             <div class="idea-card-content">
               <h3>Software de Administración</h3>
@@ -247,37 +287,26 @@
       <div class="footer-content">
         <p>&copy; 2025 BeMaker. Todos los derechos reservados.</p>
         <div class="footer-social-media">
-          <a
-            href="https://www.linkedin.com/in/pilar-bonnault-mancilla"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
-          <a
-            href="https://www.instagram.com/bemaker.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a
-            href="https://www.facebook.com/share/16bNj2comz/"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
+          <a href="https://www.linkedin.com/in/pilar-bonnault-mancilla" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.instagram.com/bemaker.dev" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/16bNj2comz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
         </div>
       </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <div id="video-modal" class="modal">
+      <div class="modal-content">
+        <button id="close-button" class="close-button">&times;</button>
+        <video id="video-player" controls></video>
+      </div>
+    </div>
 
-    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js" defer></script>
     <script>
-      AOS.init({ once: true, duration: 800 });
+      document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ once: true, duration: 800 });
+      });
     </script>
-    
   </body>
 </html>
