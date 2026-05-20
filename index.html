@@ -308,5 +308,26 @@
         AOS.init({ once: true, duration: 800 });
       });
     </script>
+    <div class="chatbot-container">
+      <button class="chatbot-toggler" id="chatbot-toggler" aria-label="Abrir chat">
+        <i class="fas fa-comment-dots"></i>
+        <i class="fas fa-times close-icon"></i>
+      </button>
+      <div class="chatbot-window" id="chatbot-window">
+        <div class="chat-header">
+          <h3>BeMaker Bot</h3>
+          <p><span class="online-dot"></span> En línea</p>
+        </div>
+        <div class="chat-body" id="chat-body">
+          <div class="message bot-message">
+            ¡Hola! 👋 Soy el asistente virtual de BeMaker. ¿En qué te puedo ayudar hoy?
+          </div>
+        </div>
+        <div class="chat-footer">
+          <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off" />
+          <button id="chat-send-btn" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
