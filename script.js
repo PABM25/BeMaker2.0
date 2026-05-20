@@ -28,9 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     function initTheme() {
+      // Force dark mode by default unless explicitly saved as light mode
       const savedTheme = localStorage.getItem(themeStorageKey);
-      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-      const useLight = savedTheme === 'light' || (!savedTheme && prefersLight);
+      const useLight = savedTheme === 'light';
       updateThemeUI(useLight);
     }
   
@@ -48,8 +48,23 @@ document.addEventListener('DOMContentLoaded', () => {
         function typeWriter() {
             if (i < textToType.length) {
                 typingElement.innerHTML += textToType.charAt(i);
+
+                // Add temporary glitch effect occasionally
+                if (Math.random() > 0.8) {
+                    typingElement.classList.add('glitch');
+                    setTimeout(() => typingElement.classList.remove('glitch'), 150);
+                }
+
                 i++;
                 setTimeout(typeWriter, 80); // Velocidad de tipeo
+            } else {
+                // Occasional glitch effect after typing is done
+                setInterval(() => {
+                    if (Math.random() > 0.95) {
+                        typingElement.classList.add('glitch');
+                        setTimeout(() => typingElement.classList.remove('glitch'), 200);
+                    }
+                }, 1000);
             }
         }
         setTimeout(typeWriter, 500); // Retraso inicial
@@ -92,19 +107,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // Inicializar el Carousel del Hero
-if (document.querySelector('.hero-carousel')) {
-    const heroSwiper = new Swiper('.hero-carousel', {
-        loop: true,
-        autoplay: {
-            delay: 3000,
-            disableOnInteraction: false,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        effect: 'fade', // Opcional: efecto de desvanecimiento suave
+// Terminal Deployment Animation
+const terminalOutput = document.getElementById('terminal-output');
+if (terminalOutput) {
+    const deploymentSteps = [
+        { text: "> Initializing deployment process...", delay: 500, class: 'terminal-info' },
+        { text: "> Fetching latest commits from branch 'main'...", delay: 800, class: 'terminal-info' },
+        { text: "> Resolving dependencies...", delay: 1200, class: 'terminal-info' },
+        { text: "[OK] Dependencies resolved.", delay: 1500, class: 'terminal-success' },
+        { text: "> Building application bundle...", delay: 2000, class: 'terminal-info' },
+        { text: "[OK] Build completed in 2.4s.", delay: 2800, class: 'terminal-success' },
+        { text: "> Running test suite (142 tests)...", delay: 3200, class: 'terminal-info' },
+        { text: "[OK] All tests passed.", delay: 4500, class: 'terminal-success' },
+        { text: "> Deploying to production server...", delay: 5000, class: 'terminal-info' },
+        { text: "----------------------------------------", delay: 5800, class: 'terminal-info' },
+        { text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.", delay: 6500, class: 'terminal-highlight' },
+        { text: "----------------------------------------", delay: 6800, class: 'terminal-info' },
+        { text: "> System ready. Waiting for input...", delay: 7500, class: 'terminal-info' }
+    ];
+
+    deploymentSteps.forEach(step => {
+        setTimeout(() => {
+            const line = document.createElement('div');
+            line.className = `terminal-line ${step.class}`;
+            line.textContent = step.text;
+            terminalOutput.appendChild(line);
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }, step.delay);
     });
 }
 
@@ -123,9 +152,11 @@ if (typeof anime !== 'undefined') {
             anime({
                 targets: card.querySelector('i'),
                 translateY: -10,
-                color: '#ED0807', // Color rojo accent
+                color: '#010066', // Mantenemos azul
                 duration: 600
             });
+
+            // Add blue diffuse shadow dynamically (or assume handled by CSS hover)
         });
 
         card.addEventListener('mouseleave', () => {
