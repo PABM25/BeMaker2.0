@@ -101,31 +101,75 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Terminal Deployment Animation
     const terminalOutput = document.getElementById('terminal-output');
     if (terminalOutput) {
+        let currentStep = 0;
+        let charIndex = 0;
+        let currentLineElement = null;
+
         const deploymentSteps = [
-            { text: "> Initializing deployment process...", delay: 500, class: 'terminal-info' },
-            { text: "> Fetching latest commits from branch 'main'...", delay: 800, class: 'terminal-info' },
-            { text: "> Resolving dependencies...", delay: 1200, class: 'terminal-info' },
-            { text: "[OK] Dependencies resolved.", delay: 1500, class: 'terminal-success' },
-            { text: "> Building application bundle...", delay: 2000, class: 'terminal-info' },
-            { text: "[OK] Build completed in 2.4s.", delay: 2800, class: 'terminal-success' },
-            { text: "> Running test suite (142 tests)...", delay: 3200, class: 'terminal-info' },
-            { text: "[OK] All tests passed.", delay: 4500, class: 'terminal-success' },
-            { text: "> Deploying to production server...", delay: 5000, class: 'terminal-info' },
-            { text: "----------------------------------------", delay: 5800, class: 'terminal-info' },
-            { text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.", delay: 6500, class: 'terminal-highlight' },
-            { text: "----------------------------------------", delay: 6800, class: 'terminal-info' },
-            { text: "> System ready. Waiting for input...", delay: 7500, class: 'terminal-info' }
+            { text: "user@bemaker:~$ ./deploy.sh --production", class: 'terminal-info', type: 'typing' },
+            { text: "> Initializing high-speed deployment sequence...", class: 'terminal-info', type: 'instant' },
+            { text: "> Analyzing project architecture [██████████] 100%", class: 'terminal-info', type: 'instant' },
+            { text: "[OK] Microservices synchronized.", class: 'terminal-success', type: 'instant' },
+            { text: "> Compiling optimized assets...", class: 'terminal-info', type: 'instant' },
+            { text: "[█████     ] 50%", class: 'terminal-info', type: 'instant', replacePrev: true },
+            { text: "[██████████] 100%", class: 'terminal-success', type: 'instant', replacePrev: true },
+            { text: "[OK] Assets compiled in 0.8s.", class: 'terminal-success', type: 'instant' },
+            { text: "> Establishing secure connection to cluster...", class: 'terminal-info', type: 'instant' },
+            { text: "--------------------------------------------------", class: 'terminal-info', type: 'instant' },
+            { text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.", class: 'terminal-highlight', type: 'instant', glow: true },
+            { text: "--------------------------------------------------", class: 'terminal-info', type: 'instant' },
+            { text: "user@bemaker:~$ ", class: 'terminal-info', type: 'typing' }
         ];
 
-        deploymentSteps.forEach(step => {
-            setTimeout(() => {
-                const line = document.createElement('div');
-                line.className = `terminal-line ${step.class}`;
-                line.textContent = step.text;
-                terminalOutput.appendChild(line);
+        function processTerminalStep() {
+            if (currentStep >= deploymentSteps.length) {
+                // Restart animation after 5 seconds
+                setTimeout(() => {
+                    terminalOutput.innerHTML = '';
+                    currentStep = 0;
+                    processTerminalStep();
+                }, 5000);
+                return;
+            }
+
+            const step = deploymentSteps[currentStep];
+
+            if (step.type === 'typing') {
+                if (charIndex === 0) {
+                    currentLineElement = document.createElement('div');
+                    currentLineElement.className = `terminal-line ${step.class}`;
+                    terminalOutput.appendChild(currentLineElement);
+                }
+
+                if (charIndex < step.text.length) {
+                    currentLineElement.textContent += step.text.charAt(charIndex);
+                    charIndex++;
+                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                    setTimeout(processTerminalStep, Math.random() * 50 + 20); // Typing speed
+                } else {
+                    charIndex = 0;
+                    currentStep++;
+                    setTimeout(processTerminalStep, 500); // Pause after typing
+                }
+            } else {
+                if (step.replacePrev && terminalOutput.lastChild) {
+                    terminalOutput.lastChild.textContent = step.text;
+                    if(step.class === 'terminal-success') terminalOutput.lastChild.className = `terminal-line ${step.class}`;
+                } else {
+                    const line = document.createElement('div');
+                    line.className = `terminal-line ${step.class}`;
+                    if (step.glow) line.style.textShadow = "0 0 10px var(--red-accent)";
+                    line.textContent = step.text;
+                    terminalOutput.appendChild(line);
+                }
+
                 terminalOutput.scrollTop = terminalOutput.scrollHeight;
-            }, step.delay);
-        });
+                currentStep++;
+                setTimeout(processTerminalStep, 400 + Math.random() * 400); // Random delay between instant steps
+            }
+        }
+
+        setTimeout(processTerminalStep, 1000);
     }
 
     // 5. NUEVO: ANIMACIÓN DE CÓDIGO A WEB (De la idea a la realidad)
