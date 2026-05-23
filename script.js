@@ -41,18 +41,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. EFECTO DE ESCRITURA (TYPING EFFECT) EN EL HERO
     const textToType = "Transformamos ideas en código.";
     const typingElement = document.getElementById('typing-hero-title');
+    const chars = "!<>-_\\\\/[]{}—=+*^?#________";
     
     if (typingElement) {
         let i = 0;
         function typeWriter() {
             if (i < textToType.length) {
-                typingElement.innerHTML += textToType.charAt(i);
-                if (Math.random() > 0.8) {
-                    typingElement.classList.add('glitch');
-                    setTimeout(() => typingElement.classList.remove('glitch'), 150);
+                // Hacker scramble effect for the current character
+                let scrambleCount = 0;
+                const maxScrambles = 3; // Number of random chars to show before the real one
+
+                function typeScrambleChar() {
+                    if (scrambleCount < maxScrambles) {
+                        const randomChar = chars[Math.floor(Math.random() * chars.length)];
+                        typingElement.innerHTML = textToType.substring(0, i) + `<span class="scramble">${randomChar}</span>`;
+                        scrambleCount++;
+                        setTimeout(typeScrambleChar, 30);
+                    } else {
+                        typingElement.innerHTML = textToType.substring(0, i + 1);
+                        if (Math.random() > 0.8) {
+                            typingElement.classList.add('glitch');
+                            setTimeout(() => typingElement.classList.remove('glitch'), 150);
+                        }
+                        i++;
+                        setTimeout(typeWriter, 80);
+                    }
                 }
-                i++;
-                setTimeout(typeWriter, 80);
+                typeScrambleChar();
             } else {
                 setInterval(() => {
                     if (Math.random() > 0.95) {
@@ -101,31 +116,61 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Terminal Deployment Animation
     const terminalOutput = document.getElementById('terminal-output');
     if (terminalOutput) {
-        const deploymentSteps = [
-            { text: "> Initializing deployment process...", delay: 500, class: 'terminal-info' },
-            { text: "> Fetching latest commits from branch 'main'...", delay: 800, class: 'terminal-info' },
-            { text: "> Resolving dependencies...", delay: 1200, class: 'terminal-info' },
-            { text: "[OK] Dependencies resolved.", delay: 1500, class: 'terminal-success' },
-            { text: "> Building application bundle...", delay: 2000, class: 'terminal-info' },
-            { text: "[OK] Build completed in 2.4s.", delay: 2800, class: 'terminal-success' },
-            { text: "> Running test suite (142 tests)...", delay: 3200, class: 'terminal-info' },
-            { text: "[OK] All tests passed.", delay: 4500, class: 'terminal-success' },
-            { text: "> Deploying to production server...", delay: 5000, class: 'terminal-info' },
-            { text: "----------------------------------------", delay: 5800, class: 'terminal-info' },
-            { text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.", delay: 6500, class: 'terminal-highlight' },
-            { text: "----------------------------------------", delay: 6800, class: 'terminal-info' },
-            { text: "> System ready. Waiting for input...", delay: 7500, class: 'terminal-info' }
+        const deployModules = [
+            'core-routing', 'auth-service', 'payment-gateway', 'ai-chatbot-ui',
+            'dashboard-analytics', 'user-onboarding', 'email-notifications',
+            'database-migration', 'cdn-assets', 'api-rate-limiter', 'seo-meta-tags'
         ];
 
-        deploymentSteps.forEach(step => {
-            setTimeout(() => {
-                const line = document.createElement('div');
-                line.className = `terminal-line ${step.class}`;
-                line.textContent = step.text;
-                terminalOutput.appendChild(line);
-                terminalOutput.scrollTop = terminalOutput.scrollHeight;
-            }, step.delay);
-        });
+        let deploymentCount = 0;
+        let isDeploying = true;
+
+        function appendTerminalLine(text, className) {
+            const line = document.createElement('div');
+            line.className = `terminal-line ${className}`;
+            line.textContent = text;
+            terminalOutput.appendChild(line);
+            if (terminalOutput.childElementCount > 15) {
+                terminalOutput.removeChild(terminalOutput.firstChild);
+            }
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+
+        function runDeploymentSequence() {
+            if (!isDeploying) return;
+
+            if (deploymentCount === 0) {
+                terminalOutput.innerHTML = '';
+                appendTerminalLine('> Initializing multi-node deployment...', 'terminal-info');
+            }
+
+            if (deploymentCount < 150) {
+                const module = deployModules[Math.floor(Math.random() * deployModules.length)];
+                const ms = (Math.random() * 20 + 10).toFixed(2);
+                appendTerminalLine(`[OK] Deployed ${module} to production (${ms}ms)`, 'terminal-success');
+                deploymentCount++;
+
+                // Fast typing effect
+                setTimeout(runDeploymentSequence, Math.random() * 50 + 20);
+            } else {
+                appendTerminalLine("----------------------------------------", "terminal-info");
+                appendTerminalLine("🚀 SUCCESS: 150+ proyectos desplegados con éxito.", "terminal-highlight");
+                appendTerminalLine("----------------------------------------", "terminal-info");
+                appendTerminalLine("> System ready. Awaiting next command...", "terminal-info");
+
+                isDeploying = false;
+
+                // Restart sequence after a delay
+                setTimeout(() => {
+                    deploymentCount = 0;
+                    isDeploying = true;
+                    runDeploymentSequence();
+                }, 6000);
+            }
+        }
+
+        // Start sequence after short initial delay
+        setTimeout(runDeploymentSequence, 1000);
     }
 
     // 5. NUEVO: ANIMACIÓN DE CÓDIGO A WEB (De la idea a la realidad)
