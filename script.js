@@ -47,19 +47,19 @@ document.addEventListener('DOMContentLoaded', () => {
         function typeWriter() {
             if (i < textToType.length) {
                 typingElement.innerHTML += textToType.charAt(i);
-                if (Math.random() > 0.8) {
+                if (Math.random() > 0.6) { // More frequent glitch during typing
                     typingElement.classList.add('glitch');
-                    setTimeout(() => typingElement.classList.remove('glitch'), 150);
+                    setTimeout(() => typingElement.classList.remove('glitch'), 250); // Longer duration
                 }
                 i++;
-                setTimeout(typeWriter, 80);
+                setTimeout(typeWriter, 50); // Faster typing speed
             } else {
                 setInterval(() => {
-                    if (Math.random() > 0.95) {
+                    if (Math.random() > 0.85) { // More frequent idle glitch
                         typingElement.classList.add('glitch');
-                        setTimeout(() => typingElement.classList.remove('glitch'), 200);
+                        setTimeout(() => typingElement.classList.remove('glitch'), 350); // Longer duration
                     }
-                }, 1000);
+                }, 800);
             }
         }
         setTimeout(typeWriter, 500); 
@@ -112,18 +112,36 @@ document.addEventListener('DOMContentLoaded', () => {
             { text: "[OK] All tests passed.", delay: 4500, class: 'terminal-success' },
             { text: "> Deploying to production server...", delay: 5000, class: 'terminal-info' },
             { text: "----------------------------------------", delay: 5800, class: 'terminal-info' },
-            { text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.", delay: 6500, class: 'terminal-highlight' },
-            { text: "----------------------------------------", delay: 6800, class: 'terminal-info' },
-            { text: "> System ready. Waiting for input...", delay: 7500, class: 'terminal-info' }
+            { text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.", delay: 6500, class: 'terminal-highlight', type: true },
+            { text: "----------------------------------------", delay: 8000, class: 'terminal-info' },
+            { text: "> System ready. Waiting for input...", delay: 8500, class: 'terminal-info', type: true }
         ];
+
+        function typeTerminalLine(lineElement, text, speed) {
+            let i = 0;
+            function typeChar() {
+                if (i < text.length) {
+                    lineElement.textContent += text.charAt(i);
+                    i++;
+                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                    setTimeout(typeChar, speed);
+                }
+            }
+            typeChar();
+        }
 
         deploymentSteps.forEach(step => {
             setTimeout(() => {
                 const line = document.createElement('div');
                 line.className = `terminal-line ${step.class}`;
-                line.textContent = step.text;
                 terminalOutput.appendChild(line);
-                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+                if (step.type) {
+                    typeTerminalLine(line, step.text, 30);
+                } else {
+                    line.textContent = step.text;
+                    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                }
             }, step.delay);
         });
     }
