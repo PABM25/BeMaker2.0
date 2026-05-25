@@ -18,6 +18,9 @@
   
   <body class="no-scroll">
     
+    <!-- =========================
+         PRELOADER
+         ========================= -->
     <div id="preloader">
       <div class="code-magic-wrapper">
         <div class="magic-editor">
@@ -44,8 +47,14 @@
         </div>
       </div>
     </div>
+    <!-- =========================
+         BACKGROUND ANIMATION
+         ========================= -->
     <div class="animated-background"></div>
 
+    <!-- =========================
+         HEADER
+         ========================= -->
     <header class="header">
       <div class="header-logo">
         <a href="index.html">
@@ -68,7 +77,11 @@
       </div>
     </header>
 
+    <!-- =========================
+         MAIN CONTENT
+         ========================= -->
     <main>
+      <!-- HERO SECTION -->
       <section class="hero-section">
         <div class="hero-left-panel">
           <div class="terminal-window">
@@ -100,6 +113,7 @@
         </div>
       </section>
 
+      <!-- WORKFLOW SECTION -->
       <section class="expertise-section">
         <p class="subtitle">Nuestro Flujo de Trabajo</p>
         <h2 class="title" style="margin-bottom: 50px;">De la idea a la realidad</h2>
@@ -128,6 +142,7 @@
         </div>
       </section>
 
+      <!-- ABOUT US SECTION -->
       <section id="about-us-section" class="about-us-section">
         <h2 class="title">Una historia, un propósito.</h2>
         <p class="description">
@@ -152,6 +167,7 @@
         </div>
       </section>
 
+      <!-- PRICING PLANS SECTION -->
       <section id="services-section" class="plans-section">
         <h2 class="title">Planes PYME Digital</h2>
         <p class="description">
@@ -224,6 +240,7 @@
         </div>
       </section>
 
+      <!-- PORTFOLIO / IDEAS SECTION -->
       <section id="ideas-section" class="ideas-section">
         <h2 class="title">Ideas que inspiran</h2>
         <p class="description">
@@ -275,6 +292,7 @@
         </div>
       </section>
 
+      <!-- FINAL CTA SECTION -->
       <section class="final-cta-section">
         <div class="cta-banner-content" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 60px 40px; border-radius: 20px; position: relative;">
           <h2>¿Listo para construir?</h2>
@@ -287,6 +305,9 @@
 
     </main>
 
+    <!-- =========================
+         FOOTER
+         ========================= -->
     <footer class="footer">
       <div class="footer-content">
         <p>&copy; 2025 BeMaker. Todos los derechos reservados.</p>
@@ -298,6 +319,10 @@
       </div>
     </footer>
 
+    <!-- =========================
+         MODALS & CHATBOT
+         ========================= -->
+    <!-- VIDEO MODAL -->
     <div id="video-modal" class="modal">
       <div class="modal-content">
         <button id="close-button" class="close-button">&times;</button>
@@ -305,6 +330,7 @@
       </div>
     </div>
 
+    <!-- CHATBOT -->
     <div class="chatbot-container">
       <button class="chatbot-toggler" id="chatbot-toggler" aria-label="Abrir chat">
         <i class="fas fa-comment-dots"></i>
@@ -326,12 +352,8 @@
         </div>
       </div>
     </div>
+    <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js" defer></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        AOS.init({ once: true, duration: 800 });
-      });
-    </script>
   </body>
 </html>
