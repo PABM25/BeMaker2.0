@@ -4,8 +4,8 @@ export function initTheme() {
   const logoImage = document.getElementById("logo-image");
   const themeStorageKey = "bemaker-theme";
 
-  const lightModeLogo = "img/logo/LOGO BEMAKER-14 copy.webp";
-  const darkModeLogo = "img/logo/LOGO BEMAKER-16 copy.webp";
+  const lightModeLogo = "img/logo/LOGO BEMAKER-14 copy.png";
+  const darkModeLogo = "img/logo/LOGO BEMAKER-16 copy.png";
 
   function updateThemeUI(isLightMode) {
     if (isLightMode) {

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portafolio de BeMaker. Explora nuestros proyectos recientes en desarrollo web, móvil y UI/UX." />
+    <title>Portafolio - BeMaker</title>
+    <link rel="icon" type="image/x-icon" href="img/logo/LOGO BEMAKER-24.png" />
+
+    <link rel="stylesheet" href="css/main.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      .portfolio-page { padding: 100px 40px 60px; text-align: center; }
+      .portfolio-filters { margin-bottom: 40px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+      .filter-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-color); padding: 8px 20px; border-radius: 20px; cursor: pointer; transition: all 0.3s; font-family: 'Poppins', sans-serif;}
+      .filter-btn.active, .filter-btn:hover { background: var(--blue-primary); border-color: var(--blue-primary); color: white; }
+      .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+      .portfolio-item { transition: transform 0.4s ease, opacity 0.4s ease; }
+      .portfolio-item.hidden { display: none; }
+      .portfolio-tag { position: absolute; top: 15px; right: 15px; background: var(--blue-primary); color: white; font-size: 0.8rem; padding: 4px 12px; border-radius: 15px; z-index: 2;}
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================
+         BACKGROUND ANIMATION
+         ========================= -->
+    <div class="animated-background"></div>
+
+    <!-- =========================
+         HEADER
+         ========================= -->
+    <header class="header">
+      <div class="header-logo">
+        <a href="index.html">
+          <img id="logo-image" src="img/logo/LOGO BEMAKER-16 copy.png" alt="Logotipo de BeMaker, volver al inicio" />
+        </a>
+      </div>
+      <nav class="header-nav">
+        <ul>
+          <li><a href="index.html#services-section">Nuestros Servicios</a></li>
+          <li><a href="index.html#about-us-section">Sobre Nosotros</a></li>
+          <li><a href="portafolio.html" style="color: var(--text-color); text-shadow: 0 0 10px rgba(1, 0, 102, 0.5);">Portafolio</a></li>
+        </ul>
+      </nav>
+      <div>
+        <button class="header-cta" onclick="location.href='contacto.html'">Contacto</button>
+        <button id="theme-switch" class="theme-switch-btn" aria-label="Cambiar tema">🌙</button>
+      </div>
+    </header>
+
+    <!-- =========================
+         MAIN CONTENT
+         ========================= -->
+    <main class="portfolio-page">
+      <h1 class="title">Nuestro Portafolio</h1>
+      <p class="description">
+        Descubre cómo hemos ayudado a diferentes empresas a transformar sus ideas en realidades digitales.
+      </p>
+
+      <div class="portfolio-filters" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="ux">UI/UX</button>
+      </div>
+
+      <div class="portfolio-grid ideas-grid">
+        <!-- Project 1 -->
+        <div class="idea-card portfolio-item" data-category="web ux" data-aos="fade-up">
+          <div class="idea-img-container">
+            <span class="portfolio-tag">Web / UX</span>
+            <img src="img/delacruz.png" alt="Captura de pantalla del Software de Trazabilidad De La Cruz" loading="lazy" />
+            <div class="idea-overlay">
+              <button class="play-button btn-icon" data-video-src="media/DeLaCruz.mp4" aria-label="Reproducir video demostrativo"><i class="fas fa-play" aria-hidden="true"></i></button>
+            </div>
+          </div>
+          <div class="idea-card-content">
+            <h3>Software Trazabilidad</h3>
+            <p>Solución digital para monitorear y gestionar la trazabilidad de productos y procesos.</p>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="idea-card portfolio-item" data-category="web mobile" data-aos="fade-up" data-aos-delay="100">
+          <div class="idea-img-container">
+            <span class="portfolio-tag">Web / Mobile</span>
+            <img src="img/Contru.png" alt="Captura de pantalla del Software de Administración Contru" loading="lazy" />
+          </div>
+          <div class="idea-card-content">
+            <h3>Software de Administración</h3>
+            <p>Plataforma integral para gestionar gastos, inversiones y asistencia de empleados.</p>
+          </div>
+        </div>
+
+        <!-- Project 3 (Mocked for example) -->
+        <div class="idea-card portfolio-item" data-category="mobile ux" data-aos="fade-up" data-aos-delay="200">
+          <div class="idea-img-container">
+            <span class="portfolio-tag">Mobile / UX</span>
+            <!-- Just using an existing image as placeholder -->
+            <img src="img/img1.avif" alt="App de e-commerce" loading="lazy" style="object-fit: cover; width: 100%; height: 100%;"/>
+          </div>
+          <div class="idea-card-content">
+            <h3>E-Commerce App</h3>
+            <p>Diseño e implementación de una tienda en línea con una experiencia de usuario fluida.</p>
+          </div>
+        </div>
+
+        <!-- Project 4 (Mocked) -->
+        <div class="idea-card portfolio-item" data-category="web" data-aos="fade-up" data-aos-delay="300">
+          <div class="idea-img-container">
+            <span class="portfolio-tag">Web</span>
+            <img src="img/img2.avif" alt="Dashboard analítico" loading="lazy" style="object-fit: cover; width: 100%; height: 100%;"/>
+          </div>
+          <div class="idea-card-content">
+            <h3>Dashboard Analítico</h3>
+            <p>Panel de control interactivo para visualización de datos en tiempo real.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 BeMaker. Todos los derechos reservados.</p>
+        <div class="footer-social-media">
+          <a href="https://www.linkedin.com/in/pilar-bonnault-mancilla" target="_blank" rel="noopener noreferrer" aria-label="Visitar nuestro perfil de LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com/bemaker.dev" target="_blank" rel="noopener noreferrer" aria-label="Visitar nuestro perfil de Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.facebook.com/share/16bNj2comz/" target="_blank" rel="noopener noreferrer" aria-label="Visitar nuestra página de Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =========================
+         MODALS & CHATBOT
+         ========================= -->
+    <!-- VIDEO MODAL -->
+    <div id="video-modal" class="modal">
+      <div class="modal-content">
+        <button id="close-button" class="close-button" aria-label="Cerrar video">&times;</button>
+        <video id="video-player" controls></video>
+      </div>
+    </div>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-container">
+      <button class="chatbot-toggler" id="chatbot-toggler" aria-label="Abrir chat">
+        <i class="fas fa-comment-dots" aria-hidden="true"></i>
+        <i class="fas fa-times close-icon" aria-hidden="true"></i>
+      </button>
+      <div class="chatbot-window" id="chatbot-window">
+        <div class="chat-header">
+          <h3>BeMaker Bot</h3>
+          <p><span class="online-dot"></span> En línea</p>
+        </div>
+        <div class="chat-body" id="chat-body">
+          <div class="message bot-message">
+            ¡Hola! 👋 Soy el asistente virtual de BeMaker. ¿En qué te puedo ayudar hoy?
+          </div>
+        </div>
+        <div class="chat-footer">
+          <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off" aria-label="Mensaje" />
+          <button id="chat-send-btn" aria-label="Enviar mensaje"><i class="fas fa-paper-plane" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

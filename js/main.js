@@ -1,3 +1,4 @@
+import { initPortfolio } from './modules/portfolio.js';
 import { initTheme } from './modules/theme.js';
 import { initHeroAnimations } from './modules/animations.js';
 import { initModals } from './modules/modals.js';
@@ -16,5 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initTerminal();
   initPreloader();
   initChatbot();
+  initPortfolio();
 });
 initPixelCanvas();
