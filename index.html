@@ -15,7 +15,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
-  <body>
+  
+  <body class="no-scroll">
+    
+    <div id="preloader">
+      <div class="code-magic-wrapper">
+        <div class="magic-editor">
+          <div class="window-header">
+            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="window-title">index.html</span>
+          </div>
+          <div class="window-body">
+            <pre><code id="typing-code"></code><span class="cursor-blink">|</span></pre>
+          </div>
+        </div>
+        
+        <div class="magic-arrow">
+          <i class="fas fa-arrow-right"></i>
+        </div>
+        
+        <div class="magic-preview">
+          <div class="window-header browser-header">
+            <span class="dot gray"></span><span class="dot gray"></span><span class="dot gray"></span>
+            <span class="window-title">localhost:3000</span>
+          </div>
+          <div class="window-body preview-container" id="live-preview-container">
+             </div>
+        </div>
+      </div>
+    </div>
     <div class="animated-background"></div>
 
     <header class="header">
@@ -74,32 +102,8 @@
 
       <section class="expertise-section">
         <p class="subtitle">Nuestro Flujo de Trabajo</p>
-        <h2 class="title" style="margin-bottom: 20px;">De la idea a la realidad</h2>
+        <h2 class="title" style="margin-bottom: 50px;">De la idea a la realidad</h2>
         
-        <div class="code-magic-wrapper" data-aos="fade-up">
-          <div class="magic-editor">
-            <div class="window-header">
-              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-              <span class="window-title">index.html</span>
-            </div>
-            <div class="window-body">
-              <pre><code id="typing-code"></code><span class="cursor-blink">|</span></pre>
-            </div>
-          </div>
-          
-          <div class="magic-arrow">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-          
-          <div class="magic-preview">
-            <div class="window-header browser-header">
-              <span class="dot gray"></span><span class="dot gray"></span><span class="dot gray"></span>
-              <span class="window-title">localhost:3000</span>
-            </div>
-            <div class="window-body preview-container" id="live-preview-container">
-               </div>
-          </div>
-        </div>
         <div class="expertise-grid">
           <div class="expertise-card step-card" data-aos="fade-up" data-aos-delay="100">
             <div class="step-number">01</div>
@@ -301,13 +305,6 @@
       </div>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js" defer></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        AOS.init({ once: true, duration: 800 });
-      });
-    </script>
     <div class="chatbot-container">
       <button class="chatbot-toggler" id="chatbot-toggler" aria-label="Abrir chat">
         <i class="fas fa-comment-dots"></i>
@@ -329,5 +326,12 @@
         </div>
       </div>
     </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({ once: true, duration: 800 });
+      });
+    </script>
   </body>
 </html>

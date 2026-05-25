@@ -77,28 +77,24 @@ document.addEventListener('DOMContentLoaded', () => {
             videoModal.classList.add('open');
             videoPlayer.play();
         }
-    
         function closeModal() {
             videoModal.classList.remove('open');
             videoPlayer.pause();
             videoPlayer.currentTime = 0;
         }
-    
         playButtons.forEach(button => {
             button.addEventListener('click', (event) => {
                 const videoSrc = event.currentTarget.getAttribute('data-video-src');
                 if (videoSrc) openModal(videoSrc);
             });
         });
-    
         if(closeButton) closeButton.addEventListener('click', closeModal);
-    
         videoModal.addEventListener('click', (event) => {
             if (event.target === videoModal) closeModal();
         });
     }
 
-    // 4. Terminal Deployment Animation
+    // 4. TERMINAL DEPLOYMENT ANIMATION
     const terminalOutput = document.getElementById('terminal-output');
     if (terminalOutput) {
         const deploymentSteps = [
@@ -128,14 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 5. NUEVO: ANIMACIÓN DE CÓDIGO A WEB (De la idea a la realidad)
+    // 5. ANIMACIÓN DE PANTALLA DE CARGA (PRELOADER)
     const typingCodeElement = document.getElementById('typing-code');
     const livePreviewContainer = document.getElementById('live-preview-container');
-    const magicWrapper = document.querySelector('.code-magic-wrapper');
+    const preloader = document.getElementById('preloader');
 
-    if (typingCodeElement && livePreviewContainer && magicWrapper) {
-        
-        // El código que se simulará estar escribiendo
+    if (typingCodeElement && livePreviewContainer && preloader) {
         const codeLines = [
             { text: '<div class="card">', class: 'code-tag' },
             { text: '\n  <h3>Tu Negocio</h3>', class: 'code-element' },
@@ -144,7 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
             { text: '\n</div>', class: 'code-tag' }
         ];
 
-        // El HTML que aparecerá de golpe al terminar de escribir
         const finalHTML = `
             <div class="preview-result-card" style="transform: scale(0);">
                 <h3>Tu Negocio</h3>
@@ -155,14 +148,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let currentLine = 0;
         let currentChar = 0;
-        let isTyping = false;
 
         function typeMagicCode() {
             if (currentLine < codeLines.length) {
                 const line = codeLines[currentLine];
                 if (currentChar < line.text.length) {
-                    
-                    // Escapar caracteres para que no se interpreten como HTML en el editor
                     let charToType = line.text.charAt(currentChar);
                     if (charToType === '<') charToType = '&lt;';
                     else if (charToType === '>') charToType = '&gt;';
@@ -170,45 +160,83 @@ document.addEventListener('DOMContentLoaded', () => {
                     typingCodeElement.innerHTML += `<span class="${line.class}">${charToType}</span>`;
                     currentChar++;
                     
-                    // Velocidad de tipeo aleatoria para mayor realismo
-                    setTimeout(typeMagicCode, Math.random() * 40 + 20);
+                    setTimeout(typeMagicCode, Math.random() * 25 + 10);
                 } else {
                     currentLine++;
                     currentChar = 0;
-                    setTimeout(typeMagicCode, 300); // Pausa al final de cada línea
+                    setTimeout(typeMagicCode, 150); 
                 }
             } else {
-                // Al terminar de escribir, mostramos la tarjeta renderizada
                 setTimeout(() => {
                     livePreviewContainer.innerHTML = finalHTML;
                     
-                    // Pequeño timeout para activar la transición de CSS (Pop-in)
                     setTimeout(() => {
                         const card = livePreviewContainer.querySelector('.preview-result-card');
                         if(card) card.style.transform = 'scale(1)';
                     }, 50);
                     
-                    // Bucle infinito: Reinicia todo tras 6 segundos
+                    // Ocultar Preloader
                     setTimeout(() => {
-                        typingCodeElement.innerHTML = '';
-                        livePreviewContainer.innerHTML = '';
-                        currentLine = 0;
-                        currentChar = 0;
-                        typeMagicCode();
-                    }, 6000);
-                }, 400);
+                        preloader.classList.add('hidden');
+                        document.body.classList.remove('no-scroll');
+                    }, 1200);
+                }, 300);
             }
         }
 
-        // Usamos IntersectionObserver para iniciar la animación solo cuando el usuario baja a esa sección
-        const observer = new IntersectionObserver((entries) => {
-            if(entries[0].isIntersecting && !isTyping) {
-                isTyping = true;
-                setTimeout(typeMagicCode, 500);
+        setTimeout(typeMagicCode, 500);
+    }
+
+    // 6. LÓGICA DEL CHATBOT
+    const chatbotToggler = document.getElementById('chatbot-toggler');
+    const chatbotContainer = document.querySelector('.chatbot-container');
+    const chatInput = document.getElementById('chat-input');
+    const chatSendBtn = document.getElementById('chat-send-btn');
+    const chatBody = document.getElementById('chat-body');
+
+    if (chatbotToggler && chatbotContainer) {
+        chatbotToggler.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('open');
+        });
+
+        const appendMessage = (text, sender) => {
+            const msgDiv = document.createElement('div');
+            msgDiv.classList.add('message', `${sender}-message`);
+            msgDiv.textContent = text;
+            chatBody.appendChild(msgDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        };
+
+        const handleChatSend = () => {
+            const text = chatInput.value.trim();
+            if (!text) return;
+            
+            appendMessage(text, 'user');
+            chatInput.value = '';
+
+            setTimeout(() => {
+                const lowerText = text.toLowerCase();
+                let botReply = "¡Gracias por tu mensaje! Déjame tu correo o escríbenos desde la sección de Contacto y te responderemos enseguida.";
+
+                if(lowerText.includes('precio') || lowerText.includes('cuanto') || lowerText.includes('planes')) {
+                    botReply = "Contamos con planes desde $120.000 CLP diseñados especialmente para PYMES. Puedes revisar la sección de 'Planes PYME' para ver qué incluye cada uno.";
+                } else if (lowerText.includes('contacto') || lowerText.includes('hablar') || lowerText.includes('cotizar')) {
+                    botReply = "¡Perfecto! Puedes ir al formulario de Contacto en el menú superior o escribirnos directo a bemaker.dev@gmail.com";
+                } else if (lowerText.includes('hola') || lowerText.includes('buenos dias') || lowerText.includes('buenas')) {
+                    botReply = "¡Hola! ¿Buscas digitalizar tu negocio o necesitas una página web?";
+                }
+
+                appendMessage(botReply, 'bot');
+            }, 1000);
+        };
+
+        chatSendBtn.addEventListener('click', handleChatSend);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handleChatSend();
             }
-        }, { threshold: 0.5 });
-        
-        observer.observe(magicWrapper);
+        });
     }
 });
 
@@ -344,66 +372,3 @@ class PixelCanvas extends HTMLElement {
   }
 }
 PixelCanvas.register();
-
-
-
-// ==================================================
-    // LÓGICA DEL CHATBOT
-    // ==================================================
-    const chatbotToggler = document.getElementById('chatbot-toggler');
-    const chatbotContainer = document.querySelector('.chatbot-container');
-    const chatInput = document.getElementById('chat-input');
-    const chatSendBtn = document.getElementById('chat-send-btn');
-    const chatBody = document.getElementById('chat-body');
-
-    if (chatbotToggler && chatbotContainer) {
-        // Abrir/Cerrar chat
-        chatbotToggler.addEventListener('click', () => {
-            chatbotContainer.classList.toggle('open');
-        });
-
-        // Función para agregar mensajes al DOM
-        const appendMessage = (text, sender) => {
-            const msgDiv = document.createElement('div');
-            msgDiv.classList.add('message', `${sender}-message`);
-            msgDiv.textContent = text;
-            chatBody.appendChild(msgDiv);
-            chatBody.scrollTop = chatBody.scrollHeight; // Auto-scroll hacia abajo
-        };
-
-        // Función para procesar el envío
-        const handleChatSend = () => {
-            const text = chatInput.value.trim();
-            if (!text) return;
-            
-            // 1. Imprimir mensaje del usuario
-            appendMessage(text, 'user');
-            chatInput.value = '';
-
-            // 2. Simular que el bot "está pensando" y responde (Retraso de 1 segundo)
-            setTimeout(() => {
-                const lowerText = text.toLowerCase();
-                let botReply = "¡Gracias por tu mensaje! Déjame tu correo o escríbenos desde la sección de Contacto y te responderemos enseguida.";
-
-                // Respuestas automatizadas según palabras clave
-                if(lowerText.includes('precio') || lowerText.includes('cuanto') || lowerText.includes('planes')) {
-                    botReply = "Contamos con planes desde $120.000 CLP diseñados especialmente para PYMES. Puedes revisar la sección de 'Planes PYME' para ver qué incluye cada uno.";
-                } else if (lowerText.includes('contacto') || lowerText.includes('hablar') || lowerText.includes('cotizar')) {
-                    botReply = "¡Perfecto! Puedes ir al formulario de Contacto en el menú superior o escribirnos directo a bemaker.dev@gmail.com";
-                } else if (lowerText.includes('hola') || lowerText.includes('buenos dias')) {
-                    botReply = "¡Hola! ¿Buscas digitalizar tu negocio o necesitas una página web?";
-                }
-
-                appendMessage(botReply, 'bot');
-            }, 1000); // 1000 milisegundos = 1 segundo de retraso
-        };
-
-        // Eventos para enviar (Click en botón o Enter en teclado)
-        chatSendBtn.addEventListener('click', handleChatSend);
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                handleChatSend();
-            }
-        });
-    }
