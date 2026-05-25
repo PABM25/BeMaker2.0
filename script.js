@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => typingElement.classList.remove('glitch'), 150);
                 }
                 i++;
-                setTimeout(typeWriter, 80);
+                setTimeout(typeWriter, 40);
             } else {
                 setInterval(() => {
                     if (Math.random() > 0.95) {
@@ -101,31 +101,57 @@ document.addEventListener('DOMContentLoaded', () => {
     // 4. Terminal Deployment Animation
     const terminalOutput = document.getElementById('terminal-output');
     if (terminalOutput) {
-        const deploymentSteps = [
-            { text: "> Initializing deployment process...", delay: 500, class: 'terminal-info' },
-            { text: "> Fetching latest commits from branch 'main'...", delay: 800, class: 'terminal-info' },
-            { text: "> Resolving dependencies...", delay: 1200, class: 'terminal-info' },
-            { text: "[OK] Dependencies resolved.", delay: 1500, class: 'terminal-success' },
-            { text: "> Building application bundle...", delay: 2000, class: 'terminal-info' },
-            { text: "[OK] Build completed in 2.4s.", delay: 2800, class: 'terminal-success' },
-            { text: "> Running test suite (142 tests)...", delay: 3200, class: 'terminal-info' },
-            { text: "[OK] All tests passed.", delay: 4500, class: 'terminal-success' },
-            { text: "> Deploying to production server...", delay: 5000, class: 'terminal-info' },
-            { text: "----------------------------------------", delay: 5800, class: 'terminal-info' },
-            { text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.", delay: 6500, class: 'terminal-highlight' },
-            { text: "----------------------------------------", delay: 6800, class: 'terminal-info' },
-            { text: "> System ready. Waiting for input...", delay: 7500, class: 'terminal-info' }
+        let deployedCount = 0;
+        const totalProjects = 150;
+
+        const initialSteps = [
+            { text: "> Initializing BeMaker deployment cluster...", delay: 500, class: 'terminal-info' },
+            { text: "> Authenticating... [OK]", delay: 800, class: 'terminal-success' },
+            { text: "> Starting massive deployment process...", delay: 1200, class: 'terminal-info' }
         ];
 
-        deploymentSteps.forEach(step => {
+        initialSteps.forEach(step => {
             setTimeout(() => {
                 const line = document.createElement('div');
                 line.className = `terminal-line ${step.class}`;
                 line.textContent = step.text;
                 terminalOutput.appendChild(line);
-                terminalOutput.scrollTop = terminalOutput.scrollHeight;
             }, step.delay);
         });
+
+        setTimeout(() => {
+            const interval = setInterval(() => {
+                deployedCount += Math.floor(Math.random() * 5) + 1;
+                if (deployedCount > totalProjects) deployedCount = totalProjects;
+
+                const line = document.createElement('div');
+                line.className = 'terminal-line terminal-info';
+                line.textContent = `> Deploying project #${deployedCount}... [OK]`;
+                terminalOutput.appendChild(line);
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+                if (deployedCount === totalProjects) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        const successLine1 = document.createElement('div');
+                        successLine1.className = 'terminal-line terminal-info';
+                        successLine1.textContent = "----------------------------------------";
+                        terminalOutput.appendChild(successLine1);
+
+                        const successLine2 = document.createElement('div');
+                        successLine2.className = 'terminal-line terminal-highlight';
+                        successLine2.textContent = "🚀 SUCCESS: 150+ proyectos desplegados con éxito.";
+                        terminalOutput.appendChild(successLine2);
+
+                        const successLine3 = document.createElement('div');
+                        successLine3.className = 'terminal-line terminal-info';
+                        successLine3.textContent = "----------------------------------------";
+                        terminalOutput.appendChild(successLine3);
+                        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+                    }, 500);
+                }
+            }, 80);
+        }, 1500);
     }
 
     // 5. NUEVO: ANIMACIÓN DE CÓDIGO A WEB (De la idea a la realidad)
