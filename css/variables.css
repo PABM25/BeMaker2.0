@@ -1,0 +1,40 @@
+/* Variables de color para modo oscuro y claro */
+:root {
+  --background-dark: #050505;
+  --background-light: #f4f4f9;
+  --surface-dark: #1a1a1a;
+  --surface-light: #ffffff;
+
+  /* Textos en Modo Oscuro */
+  --text-dark: #ffffff;
+  --text-secondary-dark: #b0b0b0;
+
+  /* Textos en Modo Claro */
+  --text-light: #000000;
+  --text-secondary-light: #444444;
+
+  --blue-primary: #010066;
+  --red-accent: #ed0807;
+  --border-dark: #333333;
+  --border-light: #dddddd;
+
+  /* Brillos del fondo animado */
+  --blob-1: rgba(1, 0, 102, 0.4);
+  --blob-2: rgba(237, 8, 7, 0.15);
+
+  --bg-color: var(--background-dark);
+  --text-color: var(--text-dark);
+  --text-secondary-color: var(--text-secondary-dark);
+  --surface-color: var(--surface-dark);
+  --border-color: var(--border-dark);
+}
+
+body.light-mode {
+  --bg-color: var(--background-light);
+  --text-color: var(--text-light);
+  --text-secondary-color: var(--text-secondary-light);
+  --surface-color: var(--surface-light);
+  --border-color: var(--border-light);
+  --blob-1: rgba(43, 42, 184, 0.12);
+  --blob-2: rgba(237, 8, 7, 0.08);
+}
