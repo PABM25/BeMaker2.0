@@ -345,19 +345,24 @@ ul {
   padding-left: 20px;
 }
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
   margin-bottom: 20px;
-  min-height: 120px;
+  min-height: 140px;
+  text-shadow: 0 0 20px rgba(1, 0, 102, 0.5); /* Glow azul oscuro */
 }
 #typing-hero-title {
   font-family: "Courier New", Courier, monospace;
   position: relative;
   display: inline-block;
+  color: var(--text-color);
 }
 #typing-hero-title.glitch {
-  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  animation: glitch 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  text-shadow:
+    2px 2px var(--blue-primary),
+    -2px -2px var(--blue-primary);
 }
 @keyframes glitch {
   0% {
@@ -416,8 +421,8 @@ ul {
   height: 450px;
   background-color: #0d0d0d;
   border-radius: 12px;
-  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.4);
-  border: 1px solid var(--border-color);
+  box-shadow: 0 0 30px rgba(1, 0, 102, 0.6); /* Glow azul oscuro más pronunciado */
+  border: 1px solid rgba(1, 0, 102, 0.4);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -863,40 +868,46 @@ body.light-mode .step-number {
   border: none;
   z-index: 1;
   overflow: hidden;
-  padding: 16px 36px;
-  border-radius: 30px;
-  font-size: 1.1rem;
+  padding: 18px 40px;
+  border-radius: 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
   margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 .gradient-border-cta::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -3px;
   background: conic-gradient(
     from 0deg,
+    var(--blue-primary),
+    var(--red-accent),
     var(--blue-primary),
     var(--red-accent),
     var(--blue-primary)
   );
   z-index: -2;
-  border-radius: 32px;
-  animation: rotateGradient 3s linear infinite;
+  border-radius: 40px;
+  animation: rotateGradient 2s linear infinite;
 }
 .gradient-border-cta::after {
   content: "";
   position: absolute;
-  inset: 2px;
+  inset: 3px;
   background-color: var(--bg-color);
   z-index: -1;
-  border-radius: 28px;
-  transition: background-color 0.3s ease;
+  border-radius: 36px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 .gradient-border-cta:hover::after {
-  background-color: transparent;
+  background-color: rgba(5, 5, 5, 0.5); /* Semitransparente para ver el gradiente */
 }
 .gradient-border-cta:hover {
   color: white;
-  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+  box-shadow: 0 0 40px rgba(237, 8, 7, 0.6), 0 0 20px rgba(1, 0, 102, 0.8);
+  transform: scale(1.05);
 }
 @keyframes rotateGradient {
   100% {
@@ -1216,5 +1227,97 @@ body.light-mode .step-number {
   .chat-body {
     height: calc(100vh - 140px);
     padding-bottom: 80px;
+  }
+}
+
+/* =========================
+   BENTO GRID SECTION
+   ========================= */
+.bento-section {
+  padding: 100px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(250px, auto);
+  gap: 30px;
+  max-width: 1200px;
+  margin: 50px auto 0;
+}
+
+.bento-item {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bento-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--blue-primary);
+  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.3);
+}
+
+.bento-item-large {
+  grid-column: span 3;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.bento-icon {
+  font-size: 3rem;
+  color: var(--blue-primary);
+  margin-bottom: 20px;
+}
+
+.bento-item-large .bento-icon {
+  font-size: 5rem;
+  margin-bottom: 0;
+}
+
+.bento-content h3 {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-bottom: 15px;
+}
+
+.bento-content p {
+  color: var(--text-secondary-color);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.bento-btn {
+  align-self: flex-start;
+  padding: 12px 24px;
+  border-radius: 12px;
+}
+
+/* Responsividad Bento Grid */
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-item-large {
+    grid-column: span 1;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .bento-item-large .bento-icon {
+    margin-bottom: 20px;
+  }
+  .bento-btn {
+    align-self: center;
   }
 }

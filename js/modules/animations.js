@@ -7,21 +7,21 @@ export function initHeroAnimations() {
     function typeWriter() {
       if (i < textToType.length) {
         typingElement.innerHTML += textToType.charAt(i);
-        if (Math.random() > 0.8) {
+        if (Math.random() > 0.85) {
           typingElement.classList.add("glitch");
-          setTimeout(() => typingElement.classList.remove("glitch"), 150);
+          setTimeout(() => typingElement.classList.remove("glitch"), 100);
         }
         i++;
-        setTimeout(typeWriter, 80);
+        setTimeout(typeWriter, 60); // Más rápido
       } else {
         setInterval(() => {
-          if (Math.random() > 0.95) {
+          if (Math.random() > 0.90) { // Glitch más frecuente después de terminar
             typingElement.classList.add("glitch");
-            setTimeout(() => typingElement.classList.remove("glitch"), 200);
+            setTimeout(() => typingElement.classList.remove("glitch"), 150);
           }
-        }, 1000);
+        }, 800);
       }
     }
-    setTimeout(typeWriter, 500);
+    setTimeout(typeWriter, 400); // Empieza más rápido
   }
 }

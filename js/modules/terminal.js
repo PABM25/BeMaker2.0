@@ -11,18 +11,41 @@ export function initTerminal() {
       { text: "> Running test suite (142 tests)...", delay: 3200, class: "terminal-info" },
       { text: "[OK] All tests passed.", delay: 4500, class: "terminal-success" },
       { text: "> Deploying to production server...", delay: 5000, class: "terminal-info" },
-      { text: "----------------------------------------", delay: 5800, class: "terminal-info" },
-      { text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.", delay: 6500, class: "terminal-highlight" },
-      { text: "----------------------------------------", delay: 6800, class: "terminal-info" },
-      { text: "> System ready. Waiting for input...", delay: 7500, class: "terminal-info" },
+      { text: "> Uploading assets: [████████░░] 80%", delay: 5800, class: "terminal-info" },
+      { text: "> Uploading assets: [██████████] 100%", delay: 6100, class: "terminal-info" },
+      { text: "----------------------------------------", delay: 6500, class: "terminal-info" },
+      { text: "", delay: 6800, class: "terminal-highlight", isCounter: true },
+      { text: "----------------------------------------", delay: 8500, class: "terminal-info" },
+      { text: "> System ready. Waiting for input...", delay: 9000, class: "terminal-info" },
     ];
 
     deploymentSteps.forEach((step) => {
       setTimeout(() => {
-        const line = document.createElement("div");
-        line.className = `terminal-line ${step.class}`;
-        line.textContent = step.text;
-        terminalOutput.appendChild(line);
+        if (step.isCounter) {
+          const line = document.createElement("div");
+          line.className = `terminal-line ${step.class}`;
+          terminalOutput.appendChild(line);
+
+          let count = 0;
+          const target = 150;
+          const interval = setInterval(() => {
+            count += 5;
+            if (count >= target) {
+              count = target;
+              clearInterval(interval);
+              line.textContent = `🚀 SUCCESS: ${count}+ proyectos desplegados con éxito.`;
+            } else {
+              line.textContent = `🚀 Deploying: ${count} proyectos...`;
+            }
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+          }, 30);
+
+        } else {
+          const line = document.createElement("div");
+          line.className = `terminal-line ${step.class}`;
+          line.textContent = step.text;
+          terminalOutput.appendChild(line);
+        }
         terminalOutput.scrollTop = terminalOutput.scrollHeight;
       }, step.delay);
     });
