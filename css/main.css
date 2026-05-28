@@ -4,6 +4,26 @@
 @import url("carousel.css");
 @import url("variables.css");
 
+/* Extracted from inline styles */
+.portfolio-btn-container {
+  margin-top: 40px;
+}
+.portfolio-redirect-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  padding: 16px 40px;
+}
+.cta-banner-content {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  border-radius: 20px;
+  position: relative;
+}
+
 body,
 section,
 .text-box,
