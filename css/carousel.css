@@ -1,0 +1,101 @@
+/* Trusted Brands Carousel Styles */
+.trusted-section {
+  padding: 40px 0;
+  text-align: center;
+  overflow: hidden;
+  background: rgba(1, 0, 102, 0.05); /* Very subtle brand tint */
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  margin-top: 60px;
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  display: flex;
+}
+
+/* Gradient masks for smooth fading at the edges */
+.marquee-container::before,
+.marquee-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-color) 0%, transparent 100%);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-color) 0%, transparent 100%);
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding-left: 60px; /* Space between iterations */
+  animation: scrollMarquee 30s linear infinite;
+  width: max-content;
+}
+
+/* Pause animation on hover */
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.brand-item {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-secondary-color);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  transition:
+    opacity 0.3s,
+    color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Optional dot separator */
+.brand-item::after {
+  content: "•";
+  color: var(--blue-primary);
+  margin-left: 60px;
+  opacity: 0.3;
+}
+
+.brand-item:hover {
+  opacity: 1;
+  color: var(--blue-primary);
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate exactly half of the total width of the duplicated content */
+    transform: translateX(calc(-50% - 30px));
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-item {
+    font-size: 1.2rem;
+  }
+  .marquee-content {
+    animation-duration: 20s;
+  }
+}
