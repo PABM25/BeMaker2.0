@@ -1,18 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Contacta con BeMaker. Cuéntanos tu idea y construyamos el futuro de tu PYME con código limpio y escalable." />
+    <meta
+      name="description"
+      content="Contacta con BeMaker. Cuéntanos tu idea y construyamos el futuro de tu PYME con código limpio y escalable."
+    />
+    <meta property="og:title" content="Contacto - BeMaker" />
+    <meta
+      property="og:description"
+      content="Contacta a BeMaker para empezar a transformar tus ideas en realidades digitales. Soluciones web a medida."
+    />
+    <meta property="og:image" content="img/logo/LOGO BEMAKER-24.png" />
+    <meta property="og:type" content="website" />
     <title>Contacto - BeMaker</title>
     <link rel="icon" type="image/x-icon" href="img/logo/LOGO BEMAKER-24.png" />
 
     <link rel="stylesheet" href="css/main.min.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
 
@@ -23,7 +39,11 @@
     <header class="header">
       <div class="header-logo">
         <a href="index.html">
-          <img id="logo-image" src="img/logo/LOGO BEMAKER-16 copy.png" alt="logo BeMaker" />
+          <img
+            id="logo-image"
+            src="img/logo/LOGO BEMAKER-16 copy.png"
+            alt="logo BeMaker"
+          />
         </a>
       </div>
       <nav class="header-nav">
@@ -34,9 +54,23 @@
           <li><a href="portafolio.html">Portafolio</a></li>
         </ul>
       </nav>
-      <div>
-        <button class="header-cta active-cta" onclick="location.href='contacto.html'">Contacto</button>
-        <button id="theme-switch" class="theme-switch-btn" aria-label="Cambiar tema">🌙</button>
+      <div class="header-actions">
+        <button
+          class="header-cta active-cta"
+          onclick="location.href = 'contacto.html'"
+        >
+          Contacto
+        </button>
+        <button
+          id="theme-switch"
+          class="theme-switch-btn"
+          aria-label="Cambiar tema"
+        >
+          🌙
+        </button>
+        <button class="mobile-menu-btn" aria-label="Abrir menú">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </header>
 
@@ -44,16 +78,25 @@
          MAIN CONTENT
          ========================= -->
     <main class="main-contact-page">
-      <div class="contact-split-container" data-aos="fade-up" data-aos-duration="1000">
-        
+      <div
+        class="contact-split-container"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      >
         <div class="contact-info-side">
-          <pixel-canvas data-gap="8" data-speed="35" data-colors="#010066, #2b2ab8, #ED0807"></pixel-canvas>
+          <pixel-canvas
+            data-gap="8"
+            data-speed="35"
+            data-colors="#010066, #2b2ab8, #ED0807"
+          ></pixel-canvas>
           <div class="contact-info-content">
             <h2>Construyamos el futuro de tu PYME.</h2>
             <p>
-              Ya sea una landing page rápida, un catálogo interactivo o un diseño UX accesible para todos tus clientes. Transformamos tus ideas en código limpio y escalable.
+              Ya sea una landing page rápida, un catálogo interactivo o un
+              diseño UX accesible para todos tus clientes. Transformamos tus
+              ideas en código limpio y escalable.
             </p>
-            
+
             <div class="tech-tags">
               <span><i class="fas fa-code"></i> Frontend</span>
               <span><i class="fas fa-mobile-alt"></i> Mobile</span>
@@ -65,7 +108,11 @@
                 <div class="method-icon"><i class="fas fa-envelope"></i></div>
                 <div>
                   <h4>Email</h4>
-                  <p><a href="mailto:bemaker.dev@gmail.com">bemaker.dev@gmail.com</a></p>
+                  <p>
+                    <a href="mailto:bemaker.dev@gmail.com"
+                      >bemaker.dev@gmail.com</a
+                    >
+                  </p>
                 </div>
               </div>
               <div class="method-item">
@@ -76,7 +123,9 @@
                 </div>
               </div>
               <div class="method-item">
-                <div class="method-icon"><i class="fas fa-globe-americas"></i></div>
+                <div class="method-icon">
+                  <i class="fas fa-globe-americas"></i>
+                </div>
                 <div>
                   <h4>Ubicación</h4>
                   <p>100% Remoto (Hacia todo el mundo)</p>
@@ -88,22 +137,42 @@
 
         <div class="contact-form-side">
           <h3>Cuéntanos tu idea</h3>
-          <p class="form-subtitle">Completa el formulario y te responderemos a la brevedad con una propuesta.</p>
-          
-          <form action="https://formspree.io/f/mrbkvbaz" method="post" id="myContactForm" class="modern-form">
+          <p class="form-subtitle">
+            Completa el formulario y te responderemos a la brevedad con una
+            propuesta.
+          </p>
+
+          <form
+            action="https://formspree.io/f/mrbkvbaz"
+            method="post"
+            id="myContactForm"
+            class="modern-form"
+          >
             <div class="form-row">
               <div class="form-group">
                 <label for="nombre">Tu Nombre</label>
                 <div class="input-wrapper">
                   <i class="fas fa-user"></i>
-                  <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required />
+                  <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Ej. Juan Pérez"
+                    required
+                  />
                 </div>
               </div>
               <div class="form-group">
                 <label for="email">Tu Email</label>
                 <div class="input-wrapper">
                   <i class="fas fa-at"></i>
-                  <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required />
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="correo@ejemplo.com"
+                    required
+                  />
                 </div>
               </div>
             </div>
@@ -113,10 +182,18 @@
               <div class="input-wrapper">
                 <i class="fas fa-rocket"></i>
                 <select id="asunto" name="asunto" required>
-                  <option value="" disabled selected>Selecciona un servicio...</option>
-                  <option value="Landing Express">Landing Express (Sitio rápido)</option>
-                  <option value="Landing Conectada">Landing Conectada (Con base de datos)</option>
-                  <option value="Catálogo/Agenda">Catálogo o Sistema de Agenda</option>
+                  <option value="" disabled selected>
+                    Selecciona un servicio...
+                  </option>
+                  <option value="Landing Express">
+                    Landing Express (Sitio rápido)
+                  </option>
+                  <option value="Landing Conectada">
+                    Landing Conectada (Con base de datos)
+                  </option>
+                  <option value="Catálogo/Agenda">
+                    Catálogo o Sistema de Agenda
+                  </option>
                   <option value="Otro">Otro proyecto / Consultoría</option>
                 </select>
               </div>
@@ -126,17 +203,25 @@
               <label for="mensaje">Detalles del Proyecto</label>
               <div class="input-wrapper textarea-wrapper">
                 <i class="fas fa-comment-alt"></i>
-                <textarea id="mensaje" name="mensaje" rows="4" placeholder="Háblanos sobre tu negocio, tus objetivos o el problema que buscas resolver..." required></textarea>
+                <textarea
+                  id="mensaje"
+                  name="mensaje"
+                  rows="4"
+                  placeholder="Háblanos sobre tu negocio, tus objetivos o el problema que buscas resolver..."
+                  required
+                ></textarea>
               </div>
             </div>
 
-            <button type="submit" class="hero-cta cta-final-animated form-submit-btn">
+            <button
+              type="submit"
+              class="hero-cta cta-final-animated form-submit-btn"
+            >
               <span>Enviar Mensaje</span>
               <i class="fas fa-paper-plane"></i>
             </button>
           </form>
         </div>
-
       </div>
     </main>
 
@@ -147,9 +232,24 @@
       <div class="footer-content">
         <p>&copy; 2025 BeMaker. Todos los derechos reservados.</p>
         <div class="footer-social-media">
-          <a href="https://www.linkedin.com/in/pilar-bonnault-mancilla" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/bemaker.dev" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/share/16bNj2comz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+          <a
+            href="https://www.linkedin.com/in/pilar-bonnault-mancilla"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/bemaker.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/share/16bNj2comz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
         </div>
       </div>
     </footer>

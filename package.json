@@ -1,0 +1,13 @@
+{
+  "name": "bemaker",
+  "version": "1.0.0",
+  "description": "BeMaker Landing Page",
+  "scripts": {
+    "build:css": "cleancss -o css/main.min.css css/main.css",
+    "format": "prettier --write \"**/*.{js,css,html}\""
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "prettier": "^3.8.3"
+  }
+}

@@ -3,21 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="BeMaker - Soluciones web y móviles personalizadas para pequeñas empresas. Optimiza operaciones y llega a más clientes." />
+    <meta
+      name="description"
+      content="BeMaker - Soluciones web y móviles personalizadas para pequeñas empresas. Optimiza operaciones y llega a más clientes."
+    />
+    <meta
+      property="og:title"
+      content="BeMaker - Innovando hoy para el mañana"
+    />
+    <meta
+      property="og:description"
+      content="Soluciones web y móviles personalizadas para pequeñas empresas. Optimiza operaciones y llega a más clientes."
+    />
+    <meta property="og:image" content="img/logo/LOGO BEMAKER-24.png" />
+    <meta property="og:type" content="website" />
     <title>BeMaker - Innovando hoy para el mañana</title>
     <link rel="icon" type="image/x-icon" href="img/logo/LOGO BEMAKER-24.png" />
 
     <link rel="stylesheet" href="css/main.min.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
-  
+
   <body class="no-scroll">
-    
     <!-- =========================
          PRELOADER
          ========================= -->
@@ -25,25 +43,29 @@
       <div class="code-magic-wrapper">
         <div class="magic-editor">
           <div class="window-header">
-            <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+            <span class="dot red"></span><span class="dot yellow"></span
+            ><span class="dot green"></span>
             <span class="window-title">index.html</span>
           </div>
           <div class="window-body">
             <pre><code id="typing-code"></code><span class="cursor-blink">|</span></pre>
           </div>
         </div>
-        
+
         <div class="magic-arrow">
           <i class="fas fa-arrow-right"></i>
         </div>
-        
+
         <div class="magic-preview">
           <div class="window-header browser-header">
-            <span class="dot gray"></span><span class="dot gray"></span><span class="dot gray"></span>
+            <span class="dot gray"></span><span class="dot gray"></span
+            ><span class="dot gray"></span>
             <span class="window-title">localhost:3000</span>
           </div>
-          <div class="window-body preview-container" id="live-preview-container">
-             </div>
+          <div
+            class="window-body preview-container"
+            id="live-preview-container"
+          ></div>
         </div>
       </div>
     </div>
@@ -55,28 +77,7 @@
     <!-- =========================
          HEADER
          ========================= -->
-    <header class="header">
-      <div class="header-logo">
-        <a href="index.html">
-          <img id="logo-image" src="img/logo/LOGO BEMAKER-16 copy.png" alt="logo BeMaker" />
-        </a>
-      </div>
-      <nav class="header-nav">
-        <ul>
-          <li><a href="#services-section">Planes PYME</a></li>
-          <li><a href="#about-us-section">Sobre Nosotros</a></li>
-          <li><a href="#ideas-section">Proyectos</a></li>
-          <li><a href="portafolio.html">Portafolio</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-      <div>
-        <button class="header-cta" onclick="location.href = 'contacto.html'">
-          Comenzar
-        </button>
-        <button id="theme-switch" class="theme-switch-btn">🌙</button>
-      </div>
-    </header>
+    <app-header></app-header>
 
     <!-- =========================
          MAIN CONTENT
@@ -94,8 +95,7 @@
               </div>
               <div class="terminal-title">bash - be-maker/deploy</div>
             </div>
-            <div class="terminal-body" id="terminal-output">
-            </div>
+            <div class="terminal-body" id="terminal-output"></div>
           </div>
         </div>
 
@@ -117,28 +117,58 @@
       <!-- WORKFLOW SECTION -->
       <section class="expertise-section">
         <p class="subtitle">Nuestro Flujo de Trabajo</p>
-        <h2 class="title" style="margin-bottom: 50px;">De la idea a la realidad</h2>
-        
+        <h2 class="title" style="margin-bottom: 50px">
+          De la idea a la realidad
+        </h2>
+
         <div class="expertise-grid">
-          <div class="expertise-card step-card" data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="expertise-card step-card"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             <div class="step-number">01</div>
             <h4>Idea & Estrategia</h4>
-            <p>Comprendemos tu negocio, tus metas y definimos el camino tecnológico más rentable para tu PYME.</p>
+            <p>
+              Comprendemos tu negocio, tus metas y definimos el camino
+              tecnológico más rentable para tu PYME.
+            </p>
           </div>
-          <div class="expertise-card step-card" data-aos="fade-up" data-aos-delay="200">
+          <div
+            class="expertise-card step-card"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
             <div class="step-number">02</div>
             <h4>Diseño UX/UI</h4>
-            <p>Creamos interfaces accesibles, intuitivas y elegantes que cautivan a todo tipo de usuarios.</p>
+            <p>
+              Creamos interfaces accesibles, intuitivas y elegantes que cautivan
+              a todo tipo de usuarios.
+            </p>
           </div>
-          <div class="expertise-card step-card" data-aos="fade-up" data-aos-delay="300">
+          <div
+            class="expertise-card step-card"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <div class="step-number">03</div>
             <h4>Desarrollo</h4>
-            <p>Escribimos código limpio, robusto y escalable para que tu plataforma funcione sin fallos.</p>
+            <p>
+              Escribimos código limpio, robusto y escalable para que tu
+              plataforma funcione sin fallos.
+            </p>
           </div>
-          <div class="expertise-card step-card" data-aos="fade-up" data-aos-delay="400">
+          <div
+            class="expertise-card step-card"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
             <div class="step-number">04</div>
             <h4>Lanzamiento</h4>
-            <p>Desplegamos tu solución digital y te acompañamos para asegurar tu crecimiento continuo.</p>
+            <p>
+              Desplegamos tu solución digital y te acompañamos para asegurar tu
+              crecimiento continuo.
+            </p>
           </div>
         </div>
       </section>
@@ -147,23 +177,127 @@
       <section id="about-us-section" class="about-us-section">
         <h2 class="title">Una historia, un propósito.</h2>
         <p class="description">
-          Somos mentes apasionadas dedicadas a construir el futuro. Creemos en el poder del diseño accesible para resolver problemas y en la tecnología para escalar negocios.
+          Somos mentes apasionadas dedicadas a construir el futuro. Creemos en
+          el poder del diseño accesible para resolver problemas y en la
+          tecnología para escalar negocios.
         </p>
         <div class="about-us-grid">
           <div data-aos="fade-up" class="about-us-card glass-card">
-            <div class="icon-wrapper"><img src="img/Sobre/vision.png" alt="Visión" loading="lazy" /></div>
+            <div class="icon-wrapper">
+              <img src="img/Sobre/vision.png" alt="Visión" loading="lazy" />
+            </div>
             <h4>Visión</h4>
-            <p>Ser el socio tecnológico de confianza para empresas que buscan transformar sus ideas en realidades digitales impactantes.</p>
+            <p>
+              Ser el socio tecnológico de confianza para empresas que buscan
+              transformar sus ideas en realidades digitales impactantes.
+            </p>
           </div>
-          <div data-aos="fade-up" data-aos-delay="150" class="about-us-card glass-card">
-            <div class="icon-wrapper"><img src="img/Sobre/mision.png" alt="Misión" loading="lazy" /></div>
+          <div
+            data-aos="fade-up"
+            data-aos-delay="150"
+            class="about-us-card glass-card"
+          >
+            <div class="icon-wrapper">
+              <img src="img/Sobre/mision.png" alt="Misión" loading="lazy" />
+            </div>
             <h4>Misión</h4>
-            <p>Facilitar el éxito a través de soluciones de software innovadoras, rápidas y centradas absolutamente en el usuario final.</p>
+            <p>
+              Facilitar el éxito a través de soluciones de software innovadoras,
+              rápidas y centradas absolutamente en el usuario final.
+            </p>
           </div>
-          <div data-aos="fade-up" data-aos-delay="300" class="about-us-card glass-card">
-            <div class="icon-wrapper"><img src="img/Sobre/Valores.png" alt="Valores" loading="lazy" /></div>
+          <div
+            data-aos="fade-up"
+            data-aos-delay="300"
+            class="about-us-card glass-card"
+          >
+            <div class="icon-wrapper">
+              <img src="img/Sobre/Valores.png" alt="Valores" loading="lazy" />
+            </div>
             <h4>Valores</h4>
-            <p>Innovación, Colaboración, Calidad, Integridad y una profunda Pasión por la accesibilidad tecnológica.</p>
+            <p>
+              Innovación, Colaboración, Calidad, Integridad y una profunda
+              Pasión por la accesibilidad tecnológica.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS SECTION -->
+      <section
+        class="testimonials-section"
+        style="padding: 60px 40px; text-align: center"
+      >
+        <h2 class="title">Lo que dicen nuestros clientes</h2>
+        <p class="description">
+          Testimonios de empresas que ya dieron el salto digital.
+        </p>
+        <div
+          class="testimonials-grid"
+          style="
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+          "
+        >
+          <div
+            class="testimonial-card glass-card"
+            data-aos="fade-up"
+            style="
+              max-width: 300px;
+              padding: 20px;
+              border-radius: 10px;
+              border: 1px solid var(--border-color);
+            "
+          >
+            <p style="font-style: italic">
+              "Gracias a BeMaker, pudimos digitalizar nuestro sistema de
+              trazabilidad en tiempo récord. El diseño es increíblemente
+              intuitivo."
+            </p>
+            <h5 style="margin-top: 15px; color: var(--blue-primary)">
+              — Constructora De La Cruz
+            </h5>
+          </div>
+          <div
+            class="testimonial-card glass-card"
+            data-aos="fade-up"
+            data-aos-delay="150"
+            style="
+              max-width: 300px;
+              padding: 20px;
+              border-radius: 10px;
+              border: 1px solid var(--border-color);
+            "
+          >
+            <p style="font-style: italic">
+              "El equipo entendió perfectamente lo que necesitábamos. Nuestra
+              Landing Page aumentó las consultas en un 40% el primer mes."
+            </p>
+            <h5 style="margin-top: 15px; color: var(--blue-primary)">
+              — Clínica Estética Nova
+            </h5>
+          </div>
+          <div
+            class="testimonial-card glass-card"
+            data-aos="fade-up"
+            data-aos-delay="300"
+            style="
+              max-width: 300px;
+              padding: 20px;
+              border-radius: 10px;
+              border: 1px solid var(--border-color);
+            "
+          >
+            <p style="font-style: italic">
+              "Soporte rápido y código impecable. Totalmente recomendados para
+              cualquier PYME que quiera profesionalizarse."
+            </p>
+            <h5 style="margin-top: 15px; color: var(--blue-primary)">
+              — Consultora Legal
+            </h5>
           </div>
         </div>
       </section>
@@ -172,72 +306,136 @@
       <section id="services-section" class="plans-section">
         <h2 class="title">Planes PYME Digital</h2>
         <p class="description">
-          Desarrollo web de calidad superior diseñado para entregarse en tiempo récord. Estandarizamos procesos para que tu inversión sea rentable.
+          Desarrollo web de calidad superior diseñado para entregarse en tiempo
+          récord. Estandarizamos procesos para que tu inversión sea rentable.
         </p>
 
         <div class="pricing-grid">
-          
           <div class="pricing-card" data-aos="fade-up">
             <div class="plan-header">
               <h3>Landing Express</h3>
-              <p class="plan-target">Ideal para profesionales independientes (Abogados, Contadores, Terapeutas).</p>
+              <p class="plan-target">
+                Ideal para profesionales independientes (Abogados, Contadores,
+                Terapeutas).
+              </p>
               <div class="plan-price">$120.000<span> CLP</span></div>
             </div>
             <div class="plan-body">
               <ul class="plan-features">
-                <li><i class="fas fa-check"></i> Diseño Single Page (Una página)</li>
-                <li><i class="fas fa-check"></i> Sección "Quiénes somos" y Servicios</li>
+                <li>
+                  <i class="fas fa-check"></i> Diseño Single Page (Una página)
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Sección "Quiénes somos" y
+                  Servicios
+                </li>
                 <li><i class="fas fa-check"></i> Galería de imágenes simple</li>
-                <li><i class="fas fa-check"></i> Formulario directo a tu correo</li>
-                <li><i class="fas fa-check"></i> Diseño Responsivo (Móvil y Desktop)</li>
+                <li>
+                  <i class="fas fa-check"></i> Formulario directo a tu correo
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Diseño Responsivo (Móvil y
+                  Desktop)
+                </li>
               </ul>
             </div>
             <div class="plan-footer">
-              <button class="btn plan-btn" onclick="location.href='contacto.html'">Elegir Plan</button>
+              <button
+                class="btn plan-btn"
+                onclick="
+                  window.open('https://link.mercadopago.cl/bemaker', '_blank')
+                "
+              >
+                Elegir Plan
+              </button>
             </div>
           </div>
 
-          <div class="pricing-card popular-plan" data-aos="fade-up" data-aos-delay="150">
+          <div
+            class="pricing-card popular-plan"
+            data-aos="fade-up"
+            data-aos-delay="150"
+          >
             <div class="popular-badge">El más elegido</div>
             <div class="plan-header">
               <h3>Landing Conectada</h3>
-              <p class="plan-target">Ideal para pequeños negocios locales (Barberías, Cafeterías, Consultoras).</p>
+              <p class="plan-target">
+                Ideal para pequeños negocios locales (Barberías, Cafeterías,
+                Consultoras).
+              </p>
               <div class="plan-price">$180.000<span> CLP</span></div>
             </div>
             <div class="plan-body">
               <ul class="plan-features">
-                <li><i class="fas fa-check"></i> <strong>Todo lo del plan Express</strong></li>
-                <li><i class="fas fa-check"></i> Automatización básica de datos</li>
-                <li><i class="fas fa-check"></i> Registros guardados en Google Sheets</li>
-                <li><i class="fas fa-check"></i> Correo automático de confirmación</li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <strong>Todo lo del plan Express</strong>
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Automatización básica de datos
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Registros guardados en Google
+                  Sheets
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Correo automático de confirmación
+                </li>
                 <li><i class="fas fa-check"></i> Botón flotante de WhatsApp</li>
               </ul>
             </div>
             <div class="plan-footer">
-              <button class="hero-cta plan-btn" onclick="location.href='contacto.html'" style="width: 100%;">Elegir Plan</button>
+              <button
+                class="hero-cta plan-btn"
+                onclick="
+                  window.open('https://link.mercadopago.cl/bemaker', '_blank')
+                "
+                style="width: 100%"
+              >
+                Elegir Plan
+              </button>
             </div>
           </div>
 
           <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
             <div class="plan-header">
               <h3>Catálogo / Agenda</h3>
-              <p class="plan-target">Ideal para tiendas locales o servicios que requieren cita previa.</p>
+              <p class="plan-target">
+                Ideal para tiendas locales o servicios que requieren cita
+                previa.
+              </p>
               <div class="plan-price">$280.000<span> CLP</span></div>
             </div>
             <div class="plan-body">
               <ul class="plan-features">
-                <li><i class="fas fa-check"></i> <strong>Todo lo del plan Conectado</strong></li>
-                <li><i class="fas fa-check"></i> Catálogo de productos interactivo</li>
-                <li><i class="fas fa-check"></i> O Integración de agenda (ej. Calendly)</li>
+                <li>
+                  <i class="fas fa-check"></i>
+                  <strong>Todo lo del plan Conectado</strong>
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> Catálogo de productos interactivo
+                </li>
+                <li>
+                  <i class="fas fa-check"></i> O Integración de agenda (ej.
+                  Calendly)
+                </li>
                 <li><i class="fas fa-check"></i> Optimización SEO básica</li>
-                <li><i class="fas fa-check"></i> UX enfocado 100% en conversión</li>
+                <li>
+                  <i class="fas fa-check"></i> UX enfocado 100% en conversión
+                </li>
               </ul>
             </div>
             <div class="plan-footer">
-              <button class="btn plan-btn" onclick="location.href='contacto.html'">Elegir Plan</button>
+              <button
+                class="btn plan-btn"
+                onclick="
+                  window.open('https://link.mercadopago.cl/bemaker', '_blank')
+                "
+              >
+                Elegir Plan
+              </button>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -252,7 +450,12 @@
             <div class="idea-img-container">
               <img src="img/delacruz.png" alt="Proyecto 1" loading="lazy" />
               <div class="idea-overlay">
-                <button class="play-button btn-icon" data-video-src="media/DeLaCruz.mp4"><i class="fas fa-play"></i></button>
+                <button
+                  class="play-button btn-icon"
+                  data-video-src="media/DeLaCruz.mp4"
+                >
+                  <i class="fas fa-play"></i>
+                </button>
               </div>
             </div>
             <div class="idea-card-content">
@@ -280,36 +483,77 @@
 
           <div class="idea-card" data-aos="fade-up" data-aos-delay="200">
             <div class="idea-img-container">
-              <img src="img/img1.avif" alt="Landing Page Base" loading="lazy" style="object-fit: cover; width: 100%; height: 100%;" />
-            <div class="idea-overlay" style="gap: 15px;">
-              <button class="play-button btn-icon" data-video-src="media/LandingBase.mp4" aria-label="Reproducir video demostrativo"><i class="fas fa-play" aria-hidden="true"></i></button>
-              <a href="https://landing-page-example-bemaker.netlify.app" target="_blank" rel="noopener noreferrer" class="btn-icon" style="display: flex; justify-content: center; align-items: center; text-decoration: none;" aria-label="Ver demo interactiva"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-            </div>
+              <img
+                src="img/img1.avif"
+                alt="Landing Page Base"
+                loading="lazy"
+                style="object-fit: cover; width: 100%; height: 100%"
+              />
+              <div class="idea-overlay" style="gap: 15px">
+                <button
+                  class="play-button btn-icon"
+                  data-video-src="media/LandingBase.mp4"
+                  aria-label="Reproducir video demostrativo"
+                >
+                  <i class="fas fa-play" aria-hidden="true"></i>
+                </button>
+                <a
+                  href="https://landing-page-example-bemaker.netlify.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-icon"
+                  style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                  "
+                  aria-label="Ver demo interactiva"
+                  ><i class="fas fa-external-link-alt" aria-hidden="true"></i
+                ></a>
+              </div>
             </div>
             <div class="idea-card-content">
               <h3>Landing Page Base</h3>
               <p>
-                Plantilla estandarizada de alta conversión. Ideal para lanzar tu presencia digital rápidamente con diseño responsivo.
+                Plantilla estandarizada de alta conversión. Ideal para lanzar tu
+                presencia digital rápidamente con diseño responsivo.
               </p>
             </div>
           </div>
 
           <div class="idea-card" data-aos="fade-up" data-aos-delay="250">
             <div class="idea-img-container">
-              <img src="img/img2.avif" alt="Dashboard Base" loading="lazy" style="object-fit: cover; width: 100%; height: 100%;" />
+              <img
+                src="img/img2.avif"
+                alt="Dashboard Base"
+                loading="lazy"
+                style="object-fit: cover; width: 100%; height: 100%"
+              />
               <div class="idea-overlay">
-                <button class="play-button btn-icon" data-video-src="media/DashboardBase.mp4" aria-label="Reproducir video demostrativo"><i class="fas fa-play" aria-hidden="true"></i></button>
+                <button
+                  class="play-button btn-icon"
+                  data-video-src="media/DashboardBase.mp4"
+                  aria-label="Reproducir video demostrativo"
+                >
+                  <i class="fas fa-play" aria-hidden="true"></i>
+                </button>
               </div>
             </div>
             <div class="idea-card-content">
               <h3>Dashboard Base</h3>
               <p>
-                Panel de control base con integración de métricas clave. Perfecto para sistemas de gestión e-commerce o finanzas.
+                Panel de control base con integración de métricas clave.
+                Perfecto para sistemas de gestión e-commerce o finanzas.
               </p>
             </div>
           </div>
 
-          <div class="idea-card promo-card" data-aos="fade-up" data-aos-delay="300">
+          <div
+            class="idea-card promo-card"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             <div class="idea-card-content center-content">
               <i class="fas fa-lightbulb huge-icon"></i>
               <h3>¿El próximo proyecto?</h3>
@@ -317,10 +561,23 @@
                 Tu idea puede ser la siguiente en transformar el mundo digital.
                 ¡Cuéntanos tu visión y hagámoslo realidad juntos!
               </p>
-              <button class="btn" onclick="window.location.href = 'portafolio.html'" style="margin-top: 15px; border-color: white; color: white;">
+              <button
+                class="btn"
+                onclick="window.location.href = 'portafolio.html'"
+                style="margin-top: 15px; border-color: white; color: white"
+              >
                 Ver todos los proyectos
               </button>
-              <button class="btn" onclick="window.location.href = 'contacto.html'" style="margin-top: 15px; border-color: white; color: white; display: none;">
+              <button
+                class="btn"
+                onclick="window.location.href = 'contacto.html'"
+                style="
+                  margin-top: 15px;
+                  border-color: white;
+                  color: white;
+                  display: none;
+                "
+              >
                 Ver mi proyecto aquí
               </button>
             </div>
@@ -330,30 +587,36 @@
 
       <!-- FINAL CTA SECTION -->
       <section class="final-cta-section">
-        <div class="cta-banner-content" style="text-align: center; max-width: 800px; margin: 0 auto; padding: 60px 40px; border-radius: 20px; position: relative;">
+        <div
+          class="cta-banner-content"
+          style="
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            border-radius: 20px;
+            position: relative;
+          "
+        >
           <h2>¿Listo para construir?</h2>
-          <p>Convierte tu visión en una plataforma digital de alto impacto y escala tu negocio al siguiente nivel.</p>
-          <button class="hero-cta gradient-border-cta" onclick="location.href='contacto.html'">
+          <p>
+            Convierte tu visión en una plataforma digital de alto impacto y
+            escala tu negocio al siguiente nivel.
+          </p>
+          <button
+            class="hero-cta gradient-border-cta"
+            onclick="location.href = 'contacto.html'"
+          >
             Empezar proyecto
           </button>
         </div>
       </section>
-
     </main>
 
     <!-- =========================
          FOOTER
          ========================= -->
-    <footer class="footer">
-      <div class="footer-content">
-        <p>&copy; 2025 BeMaker. Todos los derechos reservados.</p>
-        <div class="footer-social-media">
-          <a href="https://www.linkedin.com/in/pilar-bonnault-mancilla" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/bemaker.dev" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/share/16bNj2comz/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-        </div>
-      </div>
-    </footer>
+    <app-footer></app-footer>
 
     <!-- =========================
          MODALS & CHATBOT
@@ -362,13 +625,17 @@
     <div id="video-modal" class="modal">
       <div class="modal-content">
         <button id="close-button" class="close-button">&times;</button>
-        <video id="video-player" controls></video>
+        <video id="video-player" controls preload="none"></video>
       </div>
     </div>
 
     <!-- CHATBOT -->
     <div class="chatbot-container">
-      <button class="chatbot-toggler" id="chatbot-toggler" aria-label="Abrir chat">
+      <button
+        class="chatbot-toggler"
+        id="chatbot-toggler"
+        aria-label="Abrir chat"
+      >
         <i class="fas fa-comment-dots"></i>
         <i class="fas fa-times close-icon"></i>
       </button>
@@ -379,12 +646,20 @@
         </div>
         <div class="chat-body" id="chat-body">
           <div class="message bot-message">
-            ¡Hola! 👋 Soy el asistente virtual de BeMaker. ¿En qué te puedo ayudar hoy?
+            ¡Hola! 👋 Soy el asistente virtual de BeMaker. ¿En qué te puedo
+            ayudar hoy?
           </div>
         </div>
         <div class="chat-footer">
-          <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí..." autocomplete="off" />
-          <button id="chat-send-btn" aria-label="Enviar mensaje"><i class="fas fa-paper-plane"></i></button>
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Escribe tu mensaje aquí..."
+            autocomplete="off"
+          />
+          <button id="chat-send-btn" aria-label="Enviar mensaje">
+            <i class="fas fa-paper-plane"></i>
+          </button>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 export function initPreloader() {
   const typingCodeElement = document.getElementById("typing-code");
-  const livePreviewContainer = document.getElementById("live-preview-container");
+  const livePreviewContainer = document.getElementById(
+    "live-preview-container",
+  );
   const preloader = document.getElementById("preloader");
 
   if (typingCodeElement && livePreviewContainer && preloader) {
@@ -44,7 +46,9 @@ export function initPreloader() {
         setTimeout(() => {
           livePreviewContainer.innerHTML = finalHTML;
           setTimeout(() => {
-            const card = livePreviewContainer.querySelector(".preview-result-card");
+            const card = livePreviewContainer.querySelector(
+              ".preview-result-card",
+            );
             if (card) card.style.transform = "scale(1)";
           }, 50);
           setTimeout(() => {
