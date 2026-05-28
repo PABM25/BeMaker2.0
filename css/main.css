@@ -40,7 +40,7 @@ section,
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-secondary);
   color: var(--text-color);
   margin: 0;
   padding: 0;
@@ -198,7 +198,6 @@ body.light-mode .magic-preview {
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   text-align: center;
-  font-family: "Poppins", sans-serif;
   transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   width: 80%;
 }
@@ -287,7 +286,10 @@ a {
 h1,
 h2,
 h3,
-h4,
+h4 {
+  font-family: var(--font-primary);
+  margin: 0;
+}
 p {
   margin: 0;
 }
@@ -412,7 +414,8 @@ ul {
   }
 }
 .hero-text {
-  font-size: 1.1rem;
+  font-family: var(--font-light);
+  font-size: 1.2rem;
   color: var(--text-secondary-color);
   margin-bottom: 30px;
   max-width: 600px;
@@ -834,7 +837,11 @@ body.light-mode .step-number {
   color: var(--text-secondary-color);
 }
 .promo-card {
-  background: linear-gradient(135deg, var(--blue-primary), #0a093b);
+  background: linear-gradient(
+    135deg,
+    var(--blue-secondary),
+    var(--blue-primary)
+  );
   color: white;
   justify-content: center;
   border: none;
@@ -862,7 +869,11 @@ body.light-mode .step-number {
   z-index: 1;
 }
 .cta-banner-content {
-  background: linear-gradient(45deg, var(--blue-primary), #2b2ab8);
+  background: linear-gradient(
+    45deg,
+    var(--blue-primary),
+    var(--blue-secondary)
+  );
   border-radius: 30px;
   padding: 60px 40px;
   max-width: 900px;
@@ -899,6 +910,7 @@ body.light-mode .step-number {
   background: conic-gradient(
     from 0deg,
     var(--blue-primary),
+    var(--blue-light),
     var(--red-accent),
     var(--blue-primary)
   );
@@ -1051,7 +1063,11 @@ body.light-mode .step-number {
 }
 
 .chat-header {
-  background: linear-gradient(135deg, var(--blue-primary), #0a093b);
+  background: linear-gradient(
+    135deg,
+    var(--blue-secondary),
+    var(--blue-primary)
+  );
   color: white;
   padding: 15px 20px;
   text-align: left;
