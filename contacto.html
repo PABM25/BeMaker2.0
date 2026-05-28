@@ -36,43 +36,7 @@
     <!-- =========================
          HEADER
          ========================= -->
-    <header class="header">
-      <div class="header-logo">
-        <a href="index.html">
-          <img
-            id="logo-image"
-            src="img/logo/LOGO BEMAKER-16 copy.png"
-            alt="logo BeMaker"
-          />
-        </a>
-      </div>
-      <nav class="header-nav">
-        <ul>
-          <li><a href="index.html#services-section">Nuestros Servicios</a></li>
-          <li><a href="index.html#about-us-section">Sobre Nosotros</a></li>
-          <li><a href="index.html#ideas-section">Proyectos</a></li>
-          <li><a href="portafolio.html">Portafolio</a></li>
-        </ul>
-      </nav>
-      <div class="header-actions">
-        <button
-          class="header-cta active-cta"
-          onclick="location.href = 'contacto.html'"
-        >
-          Contacto
-        </button>
-        <button
-          id="theme-switch"
-          class="theme-switch-btn"
-          aria-label="Cambiar tema"
-        >
-          🌙
-        </button>
-        <button class="mobile-menu-btn" aria-label="Abrir menú">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </header>
+    <app-header></app-header>
 
     <!-- =========================
          MAIN CONTENT
@@ -132,6 +96,19 @@
                 </div>
               </div>
             </div>
+
+            <button
+              class="hero-cta gradient-border-cta whatsapp-btn"
+              onclick="
+                window.open(
+                  'https://wa.me/56921236668?text=Hola,%20me%20interesan%20los%20servicios%20de%20BeMaker.%20Me%20gustar%C3%ADa%20cotizar%20un%20proyecto.',
+                  '_blank',
+                )
+              "
+            >
+              <i class="fab fa-whatsapp"></i>
+              Escríbenos por WhatsApp
+            </button>
           </div>
         </div>
 
@@ -150,7 +127,7 @@
           >
             <div class="form-row">
               <div class="form-group">
-                <label for="nombre">Tu Nombre</label>
+                <label for="nombre">Nombre y Apellido *</label>
                 <div class="input-wrapper">
                   <i class="fas fa-user"></i>
                   <input
@@ -163,7 +140,22 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="email">Tu Email</label>
+                <label for="empresa">Empresa / Negocio</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-building"></i>
+                  <input
+                    type="text"
+                    id="empresa"
+                    name="empresa"
+                    placeholder="Nombre de tu PYME"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Tu Email *</label>
                 <div class="input-wrapper">
                   <i class="fas fa-at"></i>
                   <input
@@ -175,32 +167,67 @@
                   />
                 </div>
               </div>
+              <div class="form-group">
+                <label for="telefono">WhatsApp / Teléfono *</label>
+                <div class="input-wrapper">
+                  <i class="fab fa-whatsapp"></i>
+                  <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="+56 9 1234 5678"
+                    required
+                  />
+                </div>
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="asunto">¿Qué necesitas?</label>
-              <div class="input-wrapper">
-                <i class="fas fa-rocket"></i>
-                <select id="asunto" name="asunto" required>
-                  <option value="" disabled selected>
-                    Selecciona un servicio...
-                  </option>
-                  <option value="Landing Express">
-                    Landing Express (Sitio rápido)
-                  </option>
-                  <option value="Landing Conectada">
-                    Landing Conectada (Con base de datos)
-                  </option>
-                  <option value="Catálogo/Agenda">
-                    Catálogo o Sistema de Agenda
-                  </option>
-                  <option value="Otro">Otro proyecto / Consultoría</option>
-                </select>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="asunto">Servicio de interés *</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-rocket"></i>
+                  <select id="asunto" name="asunto" required>
+                    <option value="" disabled selected>
+                      Selecciona un servicio...
+                    </option>
+                    <option value="Landing Express">
+                      Landing Express (Sitio rápido)
+                    </option>
+                    <option value="Landing Conectada">
+                      Landing Conectada (Con base de datos)
+                    </option>
+                    <option value="Catálogo/Agenda">
+                      Catálogo o Sistema de Agenda
+                    </option>
+                    <option value="Software/Dashboard">
+                      Desarrollo de Software / Dashboard
+                    </option>
+                    <option value="Otro">Otro proyecto / Consultoría</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="presupuesto">Presupuesto / Plazo estimado</label>
+                <div class="input-wrapper">
+                  <i class="fas fa-wallet"></i>
+                  <select id="presupuesto" name="presupuesto">
+                    <option value="No definido" selected>
+                      Aún no definido
+                    </option>
+                    <option value="Lo antes posible">
+                      Lo necesito urgente (1-2 semanas)
+                    </option>
+                    <option value="Tengo tiempo">
+                      Proyecto a mediano plazo
+                    </option>
+                  </select>
+                </div>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="mensaje">Detalles del Proyecto</label>
+              <label for="mensaje">Detalles del Proyecto *</label>
               <div class="input-wrapper textarea-wrapper">
                 <i class="fas fa-comment-alt"></i>
                 <textarea
@@ -217,7 +244,7 @@
               type="submit"
               class="hero-cta cta-final-animated form-submit-btn"
             >
-              <span>Enviar Mensaje</span>
+              <span>Enviar Solicitud</span>
               <i class="fas fa-paper-plane"></i>
             </button>
           </form>
@@ -228,31 +255,7 @@
     <!-- =========================
          FOOTER
          ========================= -->
-    <footer class="footer">
-      <div class="footer-content">
-        <p>&copy; 2025 BeMaker. Todos los derechos reservados.</p>
-        <div class="footer-social-media">
-          <a
-            href="https://www.linkedin.com/in/pilar-bonnault-mancilla"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
-          <a
-            href="https://www.instagram.com/bemaker.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a
-            href="https://www.facebook.com/share/16bNj2comz/"
-            target="_blank"
-            rel="noopener noreferrer"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-        </div>
-      </div>
-    </footer>
+    <app-footer></app-footer>
 
     <!-- SCRIPTS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
