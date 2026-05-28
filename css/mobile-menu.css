@@ -1,0 +1,46 @@
+/* Mobile Menu Styles */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+@media (max-width: 768px) {
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mobile-menu-btn {
+    display: flex;
+  }
+  .header-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background: var(--bg-color);
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  .header-nav.active {
+    right: 0;
+  }
+  .header-nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .header-cta {
+    display: none;
+  }
+}

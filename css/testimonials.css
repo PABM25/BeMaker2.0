@@ -1,0 +1,29 @@
+/* Testimonials Section Styles */
+.testimonials-section {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.testimonials-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.testimonial-card {
+  max-width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.testimonial-text {
+  font-style: italic;
+}
+
+.testimonial-author {
+  margin-top: 15px;
+  color: var(--blue-primary);
+}

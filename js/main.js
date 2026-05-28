@@ -1,11 +1,13 @@
-import { initPortfolio } from './modules/portfolio.js';
-import { initTheme } from './modules/theme.js';
-import { initHeroAnimations } from './modules/animations.js';
-import { initModals } from './modules/modals.js';
-import { initTerminal } from './modules/terminal.js';
-import { initPreloader } from './modules/preloader.js';
-import { initChatbot } from './modules/chatbot.js';
-import { initPixelCanvas } from './modules/pixel-canvas.js';
+import { initPortfolio } from "./modules/portfolio.js";
+import { initTheme } from "./modules/theme.js";
+import { initHeroAnimations } from "./modules/animations.js";
+import { initModals } from "./modules/modals.js";
+import { initTerminal } from "./modules/terminal.js";
+import { initPreloader } from "./modules/preloader.js";
+import { initChatbot } from "./modules/chatbot.js";
+import { initPixelCanvas } from "./modules/pixel-canvas.js";
+import { initMobileMenu } from "./modules/mobile-menu.js";
+import "./modules/components.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof AOS !== "undefined") {
@@ -18,5 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initPreloader();
   initChatbot();
   initPortfolio();
+  initMobileMenu();
 });
 initPixelCanvas();
