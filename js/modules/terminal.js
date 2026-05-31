@@ -53,18 +53,8 @@ export function initTerminal() {
         class: "terminal-info",
       },
       {
-        text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
-        class: "terminal-highlight",
-      },
-      {
-        text: "----------------------------------------",
-        delay: 6800,
-        class: "terminal-info",
-      },
-      {
-        text: "> System ready. Waiting for input...",
-        delay: 7500,
+        text: "> Starting counter...",
+        delay: 6000,
         class: "terminal-info",
       },
     ];
@@ -78,5 +68,45 @@ export function initTerminal() {
         terminalOutput.scrollTop = terminalOutput.scrollHeight;
       }, step.delay);
     });
+
+    // Dynamic Counter Simulation
+    setTimeout(() => {
+      const counterLine = document.createElement("div");
+      counterLine.className = "terminal-line terminal-highlight";
+      terminalOutput.appendChild(counterLine);
+
+      let count = 0;
+      const target = 150;
+      const duration = 1500; // ms
+      const intervalTime = duration / target;
+
+      const counterInterval = setInterval(() => {
+        count++;
+        counterLine.textContent = `Deploying project ${count}...`;
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+        if (count >= target) {
+          clearInterval(counterInterval);
+          setTimeout(() => {
+            counterLine.textContent =
+              "🚀 SUCCESS: 150+ proyectos desplegados con éxito.";
+
+            setTimeout(() => {
+              const separator = document.createElement("div");
+              separator.className = "terminal-line terminal-info";
+              separator.textContent =
+                "----------------------------------------";
+              terminalOutput.appendChild(separator);
+
+              const readyMsg = document.createElement("div");
+              readyMsg.className = "terminal-line terminal-info";
+              readyMsg.textContent = "> System ready. Waiting for input...";
+              terminalOutput.appendChild(readyMsg);
+              terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            }, 500);
+          }, 300);
+        }
+      }, intervalTime);
+    }, 6200);
   }
 }
