@@ -7,6 +7,7 @@ export function initHeroAnimations() {
     function typeWriter() {
       if (i < textToType.length) {
         typingElement.innerHTML += textToType.charAt(i);
+        typingElement.setAttribute("data-text", typingElement.innerHTML);
         if (Math.random() > 0.8) {
           typingElement.classList.add("glitch");
           setTimeout(() => typingElement.classList.remove("glitch"), 150);

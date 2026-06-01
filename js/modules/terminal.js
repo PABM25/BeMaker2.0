@@ -48,23 +48,38 @@ export function initTerminal() {
         class: "terminal-info",
       },
       {
+        text: "  [+] Module: Web_Core deployed.",
+        delay: 5200,
+        class: "terminal-success",
+      },
+      {
+        text: "  [+] Module: AI_Agent deployed.",
+        delay: 5400,
+        class: "terminal-success",
+      },
+      {
+        text: "  [+] Module: Sec_Shield deployed.",
+        delay: 5600,
+        class: "terminal-success",
+      },
+      {
         text: "----------------------------------------",
-        delay: 5800,
+        delay: 6000,
         class: "terminal-info",
       },
       {
         text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
+        delay: 6800,
         class: "terminal-highlight",
       },
       {
         text: "----------------------------------------",
-        delay: 6800,
+        delay: 7200,
         class: "terminal-info",
       },
       {
         text: "> System ready. Waiting for input...",
-        delay: 7500,
+        delay: 7800,
         class: "terminal-info",
       },
     ];
