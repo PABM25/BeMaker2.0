@@ -346,8 +346,8 @@ ul {
   padding-left: 20px;
 }
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 20px;
   min-height: 120px;
@@ -382,6 +382,8 @@ ul {
 }
 #cursor {
   animation: blink 1s step-end infinite;
+  color: var(--red-accent);
+  font-weight: bold;
 }
 @keyframes blink {
   50% {
@@ -418,7 +420,9 @@ ul {
   height: 450px;
   background-color: #0d0d0d;
   border-radius: 12px;
-  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.4);
+  box-shadow:
+    0 15px 35px rgba(1, 0, 102, 0.4),
+    0 0 20px var(--blue-primary);
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
@@ -493,9 +497,70 @@ ul {
 .expertise-section,
 .plans-section,
 .about-us-section,
-.ideas-section {
+.ideas-section,
+.bento-services-section {
   padding: 80px 40px;
   text-align: center;
+}
+
+/* Bento Services Section */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  gap: 20px;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+.bento-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+.bento-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(1, 0, 102, 0.4);
+  border-color: var(--blue-primary);
+}
+.bento-card.web-dev {
+  grid-column: span 2;
+}
+.bento-card.ai {
+  grid-column: span 1;
+}
+.bento-card.cyber {
+  grid-column: span 3;
+}
+.bento-icon {
+  font-size: 2rem;
+  color: var(--blue-light);
+  margin-bottom: 20px;
+}
+.bento-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+.bento-card p {
+  color: var(--text-secondary-color);
+  font-size: 1rem;
+}
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-card.web-dev,
+  .bento-card.ai,
+  .bento-card.cyber {
+    grid-column: span 1;
+  }
 }
 .subtitle {
   text-transform: uppercase;
@@ -885,7 +950,6 @@ body.light-mode .step-number {
   background: conic-gradient(
     from 0deg,
     var(--blue-primary),
-    var(--blue-light),
     var(--red-accent),
     var(--blue-primary)
   );
@@ -907,7 +971,8 @@ body.light-mode .step-number {
 }
 .gradient-border-cta:hover {
   color: white;
-  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.6);
+  text-shadow: 0px 0px 5px #000;
 }
 @keyframes rotateGradient {
   100% {
