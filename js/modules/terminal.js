@@ -69,14 +69,65 @@ export function initTerminal() {
       },
     ];
 
-    deploymentSteps.forEach((step) => {
-      setTimeout(() => {
-        const line = document.createElement("div");
-        line.className = `terminal-line ${step.class}`;
-        line.textContent = step.text;
-        terminalOutput.appendChild(line);
+    let currentStepIndex = 0;
+
+    async function typeLine(text, element, speed = 20) {
+      for (let i = 0; i < text.length; i++) {
+        element.textContent += text.charAt(i);
         terminalOutput.scrollTop = terminalOutput.scrollHeight;
-      }, step.delay);
-    });
+        await new Promise((resolve) => setTimeout(resolve, speed));
+      }
+    }
+
+    async function runTerminal() {
+      if (currentStepIndex >= deploymentSteps.length) return;
+
+      const step = deploymentSteps[currentStepIndex];
+      const delayDiff =
+        currentStepIndex === 0
+          ? step.delay
+          : step.delay - deploymentSteps[currentStepIndex - 1].delay;
+
+      await new Promise((resolve) => setTimeout(resolve, delayDiff));
+
+      const line = document.createElement("div");
+      line.className = `terminal-line ${step.class}`;
+      terminalOutput.appendChild(line);
+
+      // Typing effect for info and highlight
+      if (
+        step.class === "terminal-info" ||
+        step.class === "terminal-highlight"
+      ) {
+        let typingSpeed = step.class === "terminal-highlight" ? 40 : 15;
+        await typeLine(step.text, line, typingSpeed);
+      } else {
+        // Instant for success and separators
+        line.textContent = step.text;
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+      }
+
+      // Add simulated progress bar right after build
+      if (step.text.includes("Building application bundle")) {
+        const progressLine = document.createElement("div");
+        progressLine.className = "terminal-line terminal-info";
+        progressLine.style.color = "#ffbd2e";
+        terminalOutput.appendChild(progressLine);
+
+        let progressText = "[";
+        for (let p = 0; p < 20; p++) {
+          progressText += "=";
+          progressLine.textContent = progressText + ">] " + p * 5 + "%";
+          terminalOutput.scrollTop = terminalOutput.scrollHeight;
+          await new Promise((resolve) => setTimeout(resolve, 30));
+        }
+        progressLine.textContent = "[====================] 100%";
+      }
+
+      currentStepIndex++;
+      runTerminal();
+    }
+
+    runTerminal();
   }
 }
