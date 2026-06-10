@@ -347,7 +347,7 @@ ul {
 }
 .hero-title {
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 20px;
   min-height: 120px;
@@ -356,9 +356,15 @@ ul {
   font-family: "Courier New", Courier, monospace;
   position: relative;
   display: inline-block;
+  color: var(--blue-light);
+  text-shadow: 0 0 10px rgba(74, 176, 217, 0.5);
 }
 #typing-hero-title.glitch {
   animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: var(--red-accent);
+  text-shadow:
+    2px 0 var(--blue-primary),
+    -2px 0 var(--blue-light);
 }
 @keyframes glitch {
   0% {
@@ -418,7 +424,7 @@ ul {
   height: 450px;
   background-color: #0d0d0d;
   border-radius: 12px;
-  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.4);
+  box-shadow: 0 0 40px rgba(1, 0, 102, 0.5);
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
@@ -519,48 +525,109 @@ ul {
   margin: 0 auto 40px;
 }
 
-/* --- PROCESO --- */
-.expertise-grid {
+/* --- SERVICES BENTO GRID --- */
+.bento-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(250px, auto);
   gap: 20px;
   margin-top: 40px;
 }
-.step-card {
-  background-color: var(--surface-color);
-  padding: 40px 30px 30px 30px;
-  border-radius: 15px;
-  text-align: left;
+.bento-card {
+  background: var(--surface-color);
   border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
-  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.step-number {
-  position: absolute;
-  top: -10px;
-  right: 10px;
-  font-size: 5rem;
-  font-weight: 800;
-  color: rgba(1, 0, 102, 0.05);
-  transition: all 0.4s ease;
-  z-index: 0;
+.bento-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.15);
+  border-color: var(--blue-primary);
 }
-body.light-mode .step-number {
-  color: rgba(1, 0, 102, 0.04);
+.bento-large {
+  grid-column: span 2;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
 }
-.step-card h4,
-.step-card p {
-  position: relative;
-  z-index: 1;
+.bento-small {
+  grid-column: span 1;
 }
-.step-card h4 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
+.bento-content {
+  flex: 1;
+  z-index: 2;
+}
+.bento-icon {
+  font-size: 2rem;
+  color: var(--blue-light);
+  margin-bottom: 20px;
+  background: rgba(74, 176, 217, 0.1);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+.bento-card:hover .bento-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+.bento-card h3 {
   color: var(--text-color);
+  margin-bottom: 15px;
+  font-size: 1.5rem;
 }
-.step-card p {
+.bento-card p {
   color: var(--text-secondary-color);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.bento-visual {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  z-index: 1;
+}
+.web-visual .code-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.code-lines .line {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--border-color);
+}
+.code-lines .w-70 {
+  width: 70%;
+  background: var(--blue-light);
+}
+.code-lines .w-40 {
+  width: 40%;
+}
+.code-lines .w-90 {
+  width: 90%;
+}
+.code-lines .w-60 {
+  width: 60%;
+}
+.code-lines .w-30 {
+  width: 30%;
+  background: var(--red-accent);
+}
+.code-lines .indent-1 {
+  margin-left: 20px;
+}
+.code-lines .indent-2 {
+  margin-left: 40px;
 }
 .step-card:hover .step-number {
   color: rgba(1, 0, 102, 0.1);
@@ -885,7 +952,6 @@ body.light-mode .step-number {
   background: conic-gradient(
     from 0deg,
     var(--blue-primary),
-    var(--blue-light),
     var(--red-accent),
     var(--blue-primary)
   );
@@ -1172,8 +1238,15 @@ body.light-mode .step-number {
     width: 100%;
     padding: 0;
   }
-  .expertise-grid {
+  .bento-large {
+    flex-direction: column;
+    grid-column: span 2;
+  }
+  .bento-grid {
     grid-template-columns: 1fr 1fr;
+  }
+  .bento-small {
+    grid-column: span 1;
   }
   .pricing-grid {
     grid-template-columns: 1fr;
@@ -1204,8 +1277,12 @@ body.light-mode .step-number {
     justify-content: center;
   }
   .about-us-grid,
-  .expertise-grid {
+  .bento-grid {
     grid-template-columns: 1fr;
+  }
+  .bento-small,
+  .bento-large {
+    grid-column: span 1;
   }
   .hero-title {
     font-size: 2.5rem;

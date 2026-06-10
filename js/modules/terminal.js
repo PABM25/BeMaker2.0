@@ -53,18 +53,19 @@ export function initTerminal() {
         class: "terminal-info",
       },
       {
-        text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
-        class: "terminal-highlight",
+        text: "🚀 DEPLOYING PROJECTS...",
+        delay: 6200,
+        class: "terminal-info",
+        id: "deploy-counter",
       },
       {
         text: "----------------------------------------",
-        delay: 6800,
+        delay: 8500,
         class: "terminal-info",
       },
       {
         text: "> System ready. Waiting for input...",
-        delay: 7500,
+        delay: 9000,
         class: "terminal-info",
       },
     ];
@@ -74,6 +75,24 @@ export function initTerminal() {
         const line = document.createElement("div");
         line.className = `terminal-line ${step.class}`;
         line.textContent = step.text;
+        if (step.id) {
+          line.id = step.id;
+
+          // Animate counter
+          let count = 0;
+          const target = 150;
+          const duration = 2000;
+          const interval = duration / target;
+
+          const counterInterval = setInterval(() => {
+            count++;
+            line.innerHTML = `🚀 SUCCESS: <span style="color: var(--red-accent); font-weight: bold;">${count}+</span> proyectos desplegados con éxito.`;
+            if (count >= target) {
+              clearInterval(counterInterval);
+              line.className = "terminal-line terminal-highlight";
+            }
+          }, interval);
+        }
         terminalOutput.appendChild(line);
         terminalOutput.scrollTop = terminalOutput.scrollHeight;
       }, step.delay);
