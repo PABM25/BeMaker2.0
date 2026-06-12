@@ -47,26 +47,6 @@ export function initTerminal() {
         delay: 5000,
         class: "terminal-info",
       },
-      {
-        text: "----------------------------------------",
-        delay: 5800,
-        class: "terminal-info",
-      },
-      {
-        text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
-        class: "terminal-highlight",
-      },
-      {
-        text: "----------------------------------------",
-        delay: 6800,
-        class: "terminal-info",
-      },
-      {
-        text: "> System ready. Waiting for input...",
-        delay: 7500,
-        class: "terminal-info",
-      },
     ];
 
     deploymentSteps.forEach((step) => {
@@ -78,5 +58,55 @@ export function initTerminal() {
         terminalOutput.scrollTop = terminalOutput.scrollHeight;
       }, step.delay);
     });
+
+    // Deploy counter simulation
+    setTimeout(() => {
+      let count = 1;
+      const counterLine = document.createElement("div");
+      counterLine.className = `terminal-line terminal-info`;
+      terminalOutput.appendChild(counterLine);
+
+      const interval = setInterval(() => {
+        counterLine.textContent = `> Deploying project #${count}... [OK]`;
+        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        count += 7;
+
+        if (count >= 150) {
+          clearInterval(interval);
+          counterLine.textContent = `> Deploying project #150... [OK]`;
+
+          setTimeout(() => {
+            const finalSteps = [
+              {
+                text: "----------------------------------------",
+                class: "terminal-info",
+              },
+              {
+                text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
+                class: "terminal-highlight",
+              },
+              {
+                text: "----------------------------------------",
+                class: "terminal-info",
+              },
+              {
+                text: "> System ready. Waiting for input...",
+                class: "terminal-info",
+              },
+            ];
+
+            finalSteps.forEach((step, index) => {
+              setTimeout(() => {
+                const line = document.createElement("div");
+                line.className = `terminal-line ${step.class}`;
+                line.textContent = step.text;
+                terminalOutput.appendChild(line);
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+              }, index * 300);
+            });
+          }, 300);
+        }
+      }, 40);
+    }, 5500);
   }
 }
