@@ -6,7 +6,15 @@ export function initHeroAnimations() {
     let i = 0;
     function typeWriter() {
       if (i < textToType.length) {
-        typingElement.innerHTML += textToType.charAt(i);
+        let currentText = textToType.substring(0, i + 1);
+        if (currentText.includes("código.")) {
+          currentText = currentText.replace(
+            "código.",
+            '<span style="color: var(--red-accent);">código.</span>',
+          );
+        }
+        typingElement.innerHTML = currentText;
+
         if (Math.random() > 0.8) {
           typingElement.classList.add("glitch");
           setTimeout(() => typingElement.classList.remove("glitch"), 150);
