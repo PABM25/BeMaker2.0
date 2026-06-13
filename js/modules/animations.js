@@ -12,7 +12,8 @@ export function initHeroAnimations() {
           setTimeout(() => typingElement.classList.remove("glitch"), 150);
         }
         i++;
-        setTimeout(typeWriter, 80);
+        const typingSpeed = Math.random() * (120 - 40) + 40; // Variation between 40ms and 120ms
+        setTimeout(typeWriter, typingSpeed);
       } else {
         setInterval(() => {
           if (Math.random() > 0.95) {
