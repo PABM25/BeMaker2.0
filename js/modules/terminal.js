@@ -73,9 +73,34 @@ export function initTerminal() {
       setTimeout(() => {
         const line = document.createElement("div");
         line.className = `terminal-line ${step.class}`;
-        line.textContent = step.text;
         terminalOutput.appendChild(line);
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+        if (step.text.includes("150+ proyectos")) {
+          let count = 0;
+          const target = 150;
+          const duration = 1000;
+          const intervalTime = duration / target;
+
+          const counterInterval = setInterval(() => {
+            count++;
+            line.textContent = `🚀 SUCCESS: ${count}+ proyectos desplegados con éxito.`;
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            if (count >= target) {
+              clearInterval(counterInterval);
+            }
+          }, intervalTime);
+        } else {
+          let i = 0;
+          function typeTerminalLine() {
+            if (i < step.text.length) {
+              line.textContent += step.text.charAt(i);
+              i++;
+              terminalOutput.scrollTop = terminalOutput.scrollHeight;
+              setTimeout(typeTerminalLine, 10);
+            }
+          }
+          typeTerminalLine();
+        }
       }, step.delay);
     });
   }
