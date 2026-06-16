@@ -351,6 +351,7 @@ ul {
   line-height: 1.2;
   margin-bottom: 20px;
   min-height: 120px;
+  text-shadow: 0 0 20px rgba(1, 0, 102, 0.5), 0 0 40px rgba(1, 0, 102, 0.3);
 }
 #typing-hero-title {
   font-family: "Courier New", Courier, monospace;
@@ -396,7 +397,7 @@ ul {
   max-width: 600px;
 }
 .hero-cta {
-  background-color: var(--red-accent);
+  background-color: #ED0807;
   color: #ffffff;
   border: none;
   padding: 15px 30px;
@@ -405,21 +406,22 @@ ul {
   font-size: 1rem;
   font-weight: 600;
   transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(237, 8, 7, 0.3);
 }
 .hero-cta:hover {
-  background-color: #c40606;
+  background-color: #ff1a1a;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(237, 8, 7, 0.4);
+  box-shadow: 0 8px 25px rgba(237, 8, 7, 0.7);
 }
 
 /* Terminal Window */
 .terminal-window {
   width: 100%;
   height: 450px;
-  background-color: #0d0d0d;
+  background-color: #050505;
   border-radius: 12px;
-  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.4);
-  border: 1px solid var(--border-color);
+  box-shadow: 0 0 40px rgba(1, 0, 102, 0.6), 0 15px 35px rgba(1, 0, 102, 0.4);
+  border: 1px solid #010066;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -837,6 +839,125 @@ body.light-mode .step-number {
   opacity: 0.8;
 }
 
+/* ==================================================
+   BENTO GRID (SERVICES)
+   ================================================== */
+.bento-section {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 250px;
+  gap: 24px;
+}
+
+.bento-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.bento-large {
+  grid-column: span 3;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+.bento-large h3, .bento-large p {
+  max-width: 60%;
+}
+
+.bento-icon {
+  font-size: 2.5rem;
+  color: var(--blue-light);
+  margin-bottom: 20px;
+  z-index: 2;
+}
+.bento-large .bento-icon {
+  margin-bottom: 0;
+  font-size: 4rem;
+}
+
+.bento-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  z-index: 2;
+}
+
+.bento-card p {
+  color: var(--text-secondary-color);
+  font-size: 1rem;
+  z-index: 2;
+}
+
+.bento-decoration {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  z-index: 0;
+  opacity: 0.15;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.bento-card:hover .bento-decoration {
+  opacity: 0.4;
+  transform: scale(1.2);
+}
+
+.glow-blue {
+  background-color: #010066;
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  right: -50px;
+}
+
+.glow-red {
+  background-color: #ED0807;
+  width: 150px;
+  height: 150px;
+  top: -30px;
+  right: -30px;
+}
+
+@media (max-width: 900px) {
+  .bento-large {
+    grid-column: span 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .bento-large h3, .bento-large p {
+    max-width: 100%;
+  }
+  .bento-large .bento-icon {
+    margin-bottom: 20px;
+  }
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+}
+
 /* --- CTA FINAL (Banner) --- */
 .final-cta-section {
   padding: 80px 40px;
@@ -868,51 +989,63 @@ body.light-mode .step-number {
 }
 .gradient-border-cta {
   position: relative;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: #050505;
+  color: #ffffff;
   border: none;
   z-index: 1;
-  overflow: hidden;
-  padding: 16px 36px;
-  border-radius: 30px;
-  font-size: 1.1rem;
+  overflow: visible;
+  padding: 18px 42px;
+  border-radius: 40px;
+  font-size: 1.2rem;
+  font-weight: bold;
   margin-top: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
+
 .gradient-border-cta::before {
   content: "";
   position: absolute;
-  inset: -2px;
-  background: conic-gradient(
-    from 0deg,
-    var(--blue-primary),
-    var(--blue-light),
-    var(--red-accent),
-    var(--blue-primary)
+  inset: -4px;
+  background: linear-gradient(
+    90deg,
+    #010066,
+    #ED0807,
+    #010066
   );
+  background-size: 200% 200%;
   z-index: -2;
-  border-radius: 32px;
-  animation: rotateGradient 3s linear infinite;
+  border-radius: 44px;
+  animation: gradientPan 3s ease infinite;
+  filter: blur(10px);
+  opacity: 0.8;
+  transition: opacity 0.3s ease, filter 0.3s ease;
 }
+
 .gradient-border-cta::after {
   content: "";
   position: absolute;
-  inset: 2px;
-  background-color: var(--bg-color);
+  inset: 0;
+  background-color: #050505;
   z-index: -1;
-  border-radius: 28px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: background-color 0.3s ease;
 }
-.gradient-border-cta:hover::after {
-  background-color: transparent;
-}
+
 .gradient-border-cta:hover {
-  color: white;
-  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+  transform: translateY(-3px);
 }
-@keyframes rotateGradient {
-  100% {
-    transform: rotate(360deg);
-  }
+
+.gradient-border-cta:hover::before {
+  opacity: 1;
+  filter: blur(15px);
+}
+
+@keyframes gradientPan {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Modal de Video */
