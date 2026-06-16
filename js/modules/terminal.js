@@ -47,27 +47,48 @@ export function initTerminal() {
         delay: 5000,
         class: "terminal-info",
       },
+    ];
+
+    let currentDelay = 5800;
+
+    // Simulate real-time deployment of 150 projects
+    for (let i = 1; i <= 150; i += Math.floor(Math.random() * 15) + 5) {
+      const deployNum = Math.min(i, 150);
+      deploymentSteps.push({
+        text: `> Deploying project ${deployNum}/150... [${"#".repeat(Math.floor(deployNum / 15))}${".".repeat(10 - Math.floor(deployNum / 15))}]`,
+        delay: currentDelay,
+        class: "terminal-info",
+      });
+      currentDelay += Math.floor(Math.random() * 100) + 50;
+    }
+
+    deploymentSteps.push(
+      {
+        text: "[OK] All 150 projects deployed successfully.",
+        delay: currentDelay + 200,
+        class: "terminal-success",
+      },
       {
         text: "----------------------------------------",
-        delay: 5800,
+        delay: currentDelay + 500,
         class: "terminal-info",
       },
       {
         text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
+        delay: currentDelay + 1000,
         class: "terminal-highlight",
       },
       {
         text: "----------------------------------------",
-        delay: 6800,
+        delay: currentDelay + 1300,
         class: "terminal-info",
       },
       {
         text: "> System ready. Waiting for input...",
-        delay: 7500,
+        delay: currentDelay + 1800,
         class: "terminal-info",
       },
-    ];
+    );
 
     deploymentSteps.forEach((step) => {
       setTimeout(() => {
