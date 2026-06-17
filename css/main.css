@@ -346,11 +346,12 @@ ul {
   padding-left: 20px;
 }
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 20px;
   min-height: 120px;
+  text-shadow: 0 0 20px rgba(1, 0, 102, 0.5);
 }
 #typing-hero-title {
   font-family: "Courier New", Courier, monospace;
@@ -359,6 +360,10 @@ ul {
 }
 #typing-hero-title.glitch {
   animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  text-shadow:
+    3px 0 var(--red-accent),
+    -3px 0 var(--blue-primary);
+  color: white;
 }
 @keyframes glitch {
   0% {
@@ -609,6 +614,87 @@ body.light-mode .step-number {
 .icon-wrapper img {
   width: 40px;
   margin: 0;
+}
+
+/* --- BENTO GRID SERVICES --- */
+.services-bento-section {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+.bento-card {
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: left;
+  border: 1px solid var(--border-color);
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.web-dev-card {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.ai-card,
+.cyber-card {
+  grid-column: span 1;
+}
+
+.bento-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: var(--blue-primary);
+  box-shadow: 0 0 30px rgba(1, 0, 102, 0.3);
+}
+
+.bento-icon {
+  font-size: 2.5rem;
+  color: var(--blue-light);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
+
+.bento-card:hover .bento-icon {
+  transform: scale(1.1);
+  color: var(--red-accent);
+}
+
+.bento-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.bento-card p {
+  color: var(--text-secondary-color);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .web-dev-card,
+  .ai-card,
+  .cyber-card {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
 }
 
 /* --- PLANES PYME --- */
@@ -877,6 +963,10 @@ body.light-mode .step-number {
   border-radius: 30px;
   font-size: 1.1rem;
   margin-top: 20px;
+  box-shadow: 0 0 15px var(--blue-primary);
+  transition:
+    box-shadow 0.3s ease,
+    color 0.3s ease;
 }
 .gradient-border-cta::before {
   content: "";
@@ -885,7 +975,8 @@ body.light-mode .step-number {
   background: conic-gradient(
     from 0deg,
     var(--blue-primary),
-    var(--blue-light),
+    var(--red-accent),
+    var(--blue-primary),
     var(--red-accent),
     var(--blue-primary)
   );
@@ -907,7 +998,7 @@ body.light-mode .step-number {
 }
 .gradient-border-cta:hover {
   color: white;
-  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+  box-shadow: 0 0 25px var(--red-accent);
 }
 @keyframes rotateGradient {
   100% {
