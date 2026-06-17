@@ -1,6 +1,14 @@
 export function initTerminal() {
   const terminalOutput = document.getElementById("terminal-output");
   if (terminalOutput) {
+    const projectNames = [
+      "ecommerce-v2",
+      "crm-dashboard",
+      "landing-lawyer",
+      "clinic-app",
+      "portfolio-site",
+      "inventory-sys",
+    ];
     const deploymentSteps = [
       {
         text: "> Initializing deployment process...",
@@ -33,41 +41,50 @@ export function initTerminal() {
         class: "terminal-success",
       },
       {
-        text: "> Running test suite (142 tests)...",
+        text: "> Deploying recent projects to cloud nodes...",
         delay: 3200,
         class: "terminal-info",
       },
-      {
-        text: "[OK] All tests passed.",
-        delay: 4500,
+    ];
+
+    // Dynamically generate simulated project deployment logs
+    let currentDelay = 3500;
+    for (let i = 0; i < 5; i++) {
+      const randProject =
+        projectNames[Math.floor(Math.random() * projectNames.length)];
+      const randId = Math.floor(Math.random() * 10000)
+        .toString()
+        .padStart(4, "0");
+      deploymentSteps.push({
+        text: `[OK] Node ${randId} deployed: ${randProject}...`,
+        delay: currentDelay,
         class: "terminal-success",
-      },
-      {
-        text: "> Deploying to production server...",
-        delay: 5000,
-        class: "terminal-info",
-      },
+      });
+      currentDelay += 300 + Math.random() * 200;
+    }
+
+    deploymentSteps.push(
       {
         text: "----------------------------------------",
-        delay: 5800,
+        delay: currentDelay + 500,
         class: "terminal-info",
       },
       {
         text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
+        delay: currentDelay + 1200,
         class: "terminal-highlight",
       },
       {
         text: "----------------------------------------",
-        delay: 6800,
+        delay: currentDelay + 1500,
         class: "terminal-info",
       },
       {
         text: "> System ready. Waiting for input...",
-        delay: 7500,
+        delay: currentDelay + 2200,
         class: "terminal-info",
       },
-    ];
+    );
 
     deploymentSteps.forEach((step) => {
       setTimeout(() => {
