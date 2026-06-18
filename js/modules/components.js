@@ -9,7 +9,8 @@ class AppHeader extends HTMLElement {
         </div>
         <nav class="header-nav">
           <ul>
-            <li><a href="index.html#services-section">Planes PYME</a></li>
+            <li><a href="index.html#services-section">Soluciones</a></li>
+            <li><a href="index.html#pricing-section">Planes PYME</a></li>
             <li><a href="index.html#about-us-section">Sobre Nosotros</a></li>
             <li><a href="portafolio.html">Portafolio</a></li>
             <li><a href="contacto.html">Contacto</a></li>

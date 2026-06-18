@@ -73,9 +73,19 @@ export function initTerminal() {
       setTimeout(() => {
         const line = document.createElement("div");
         line.className = `terminal-line ${step.class}`;
-        line.textContent = step.text;
         terminalOutput.appendChild(line);
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+        // Character-by-character typing effect
+        let charIndex = 0;
+        const typeInterval = setInterval(() => {
+          if (charIndex < step.text.length) {
+            line.textContent += step.text.charAt(charIndex);
+            charIndex++;
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+          } else {
+            clearInterval(typeInterval);
+          }
+        }, 15); // Adjust typing speed here
       }, step.delay);
     });
   }
