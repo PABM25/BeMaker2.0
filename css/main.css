@@ -356,6 +356,10 @@ ul {
   font-family: "Courier New", Courier, monospace;
   position: relative;
   display: inline-block;
+  background: linear-gradient(90deg, var(--text-color), var(--blue-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 #typing-hero-title.glitch {
   animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
@@ -381,6 +385,7 @@ ul {
   }
 }
 #cursor {
+  color: var(--red-accent);
   animation: blink 1s step-end infinite;
 }
 @keyframes blink {
@@ -493,6 +498,7 @@ ul {
 .expertise-section,
 .plans-section,
 .about-us-section,
+.solutions-section,
 .ideas-section {
   padding: 80px 40px;
   text-align: center;
@@ -517,6 +523,61 @@ ul {
   font-size: 1.1rem;
   max-width: 700px;
   margin: 0 auto 40px;
+}
+
+/* --- BENTO GRID (Soluciones) --- */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bento-item {
+  position: relative;
+  overflow: hidden;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(1, 0, 102, 0.4); /* Deep Blue glow */
+}
+
+.bento-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.bento-content h3 {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.bento-content p {
+  font-family: var(--font-light);
+  font-size: 1.1rem;
+  color: var(--text-secondary-color);
+  line-height: 1.6;
+}
+
+.bento-icon {
+  align-self: flex-end;
+  font-size: 3rem;
+  color: var(--blue-light);
+  opacity: 0.8;
+  margin-top: 20px;
 }
 
 /* --- PROCESO --- */
@@ -884,10 +945,10 @@ body.light-mode .step-number {
   inset: -2px;
   background: conic-gradient(
     from 0deg,
-    var(--blue-primary),
-    var(--blue-light),
-    var(--red-accent),
-    var(--blue-primary)
+    #010066,
+    /* Deep Blue */ #1b65a6,
+    #ed0807,
+    /* Vibrant Red */ #010066
   );
   z-index: -2;
   border-radius: 32px;
@@ -1175,6 +1236,13 @@ body.light-mode .step-number {
   .expertise-grid {
     grid-template-columns: 1fr 1fr;
   }
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-large {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
   .pricing-grid {
     grid-template-columns: 1fr;
     max-width: 500px;
@@ -1204,7 +1272,8 @@ body.light-mode .step-number {
     justify-content: center;
   }
   .about-us-grid,
-  .expertise-grid {
+  .expertise-grid,
+  .bento-grid {
     grid-template-columns: 1fr;
   }
   .hero-title {

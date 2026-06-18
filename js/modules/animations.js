@@ -12,7 +12,8 @@ export function initHeroAnimations() {
           setTimeout(() => typingElement.classList.remove("glitch"), 150);
         }
         i++;
-        setTimeout(typeWriter, 80);
+        const randomSpeed = Math.floor(Math.random() * (100 - 30 + 1)) + 30; // Variable speed to simulate real typing
+        setTimeout(typeWriter, randomSpeed);
       } else {
         setInterval(() => {
           if (Math.random() > 0.95) {
