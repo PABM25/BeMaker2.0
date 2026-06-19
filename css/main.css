@@ -346,8 +346,8 @@ ul {
   padding-left: 20px;
 }
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 900;
   line-height: 1.2;
   margin-bottom: 20px;
   min-height: 120px;
@@ -365,16 +365,16 @@ ul {
     transform: translate(0);
   }
   20% {
-    transform: translate(-2px, 2px);
+    transform: translate(-3px, 3px);
   }
   40% {
-    transform: translate(-2px, -2px);
+    transform: translate(-3px, -3px);
   }
   60% {
-    transform: translate(2px, 2px);
+    transform: translate(3px, 3px);
   }
   80% {
-    transform: translate(2px, -2px);
+    transform: translate(3px, -3px);
   }
   100% {
     transform: translate(0);
@@ -405,6 +405,7 @@ ul {
   font-size: 1rem;
   font-weight: 600;
   transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(1, 0, 102, 0.6);
 }
 .hero-cta:hover {
   background-color: #c40606;
@@ -418,7 +419,7 @@ ul {
   height: 450px;
   background-color: #0d0d0d;
   border-radius: 12px;
-  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.4);
+  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.6);
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
@@ -493,7 +494,8 @@ ul {
 .expertise-section,
 .plans-section,
 .about-us-section,
-.ideas-section {
+.ideas-section,
+.services-bento-section {
   padding: 80px 40px;
   text-align: center;
 }
@@ -609,6 +611,51 @@ body.light-mode .step-number {
 .icon-wrapper img {
   width: 40px;
   margin: 0;
+}
+
+/* Services Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.bento-item {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 30px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.bento-item h3 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.bento-item p {
+  color: var(--text-secondary-color);
+  margin-bottom: 20px;
+}
+
+.bento-item i {
+  font-size: 2rem;
+  color: var(--blue-light);
+}
+
+.bento-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 30px rgba(1, 0, 102, 0.3);
+}
+
+.bento-item-large {
+  grid-column: span 2;
 }
 
 /* --- PLANES PYME --- */
@@ -885,7 +932,6 @@ body.light-mode .step-number {
   background: conic-gradient(
     from 0deg,
     var(--blue-primary),
-    var(--blue-light),
     var(--red-accent),
     var(--blue-primary)
   );
@@ -907,7 +953,9 @@ body.light-mode .step-number {
 }
 .gradient-border-cta:hover {
   color: white;
-  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+  box-shadow:
+    0 10px 30px rgba(237, 8, 7, 0.5),
+    0 0 20px rgba(1, 0, 102, 0.5);
 }
 @keyframes rotateGradient {
   100% {
@@ -1178,6 +1226,12 @@ body.light-mode .step-number {
   .pricing-grid {
     grid-template-columns: 1fr;
     max-width: 500px;
+  }
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-item-large {
+    grid-column: span 1;
   }
   .popular-plan {
     transform: scale(1);
