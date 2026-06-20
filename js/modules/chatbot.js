@@ -55,6 +55,20 @@ export function initChatbot() {
           },
           {
             keywords: [
+              "kits",
+              "kit",
+              "diy",
+              "niños",
+              "adolescentes",
+              "adultos",
+              "robotica",
+              "electronica",
+            ],
+            reply:
+              "¡Tenemos Kits DIY de robótica y electrónica para todas las edades! Puedes verlos y comprarlos en la sección 'Kits DIY' en nuestro menú.",
+          },
+          {
+            keywords: [
               "contacto",
               "hablar",
               "cotizar",

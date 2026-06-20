@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kits DIY de BeMaker. Kits de robótica, programación y electrónica para niños, adolescentes y adultos."
+    />
+    <meta property="og:title" content="Kits DIY - BeMaker" />
+    <meta
+      property="og:description"
+      content="Kits de robótica, programación y electrónica para niños, adolescentes y adultos."
+    />
+    <meta property="og:image" content="img/logo/LOGO BEMAKER-24.png" />
+    <meta property="og:type" content="website" />
+    <title>Kits DIY - BeMaker</title>
+    <link rel="icon" type="image/x-icon" href="img/logo/LOGO BEMAKER-24.png" />
+
+    <link rel="stylesheet" href="css/main.min.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+      .kits-page {
+        padding: 100px 40px 60px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================
+         BACKGROUND ANIMATION
+         ========================= -->
+    <div class="animated-background"></div>
+
+    <!-- =========================
+         HEADER
+         ========================= -->
+    <app-header></app-header>
+
+    <!-- =========================
+         MAIN CONTENT
+         ========================= -->
+    <main class="kits-page">
+      <h1 class="title">Kits DIY</h1>
+      <p class="description">
+        Descubre nuestros Kits "Hazlo tú mismo" (DIY) diseñados para todas las
+        edades. Aprende programación, electrónica y robótica de forma divertida.
+      </p>
+
+      <div class="pricing-grid" style="margin-top: 50px">
+        <!-- Niños -->
+        <div class="pricing-card" data-aos="fade-up">
+          <div class="plan-header">
+            <h3>Kit Kids</h3>
+            <p class="plan-target">
+              Para niños (6 a 12 años). Primeros pasos en la tecnología y
+              lógica.
+            </p>
+            <div class="plan-price">$45.000<span> CLP</span></div>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li>
+                <i class="fas fa-check"></i> Experimentos de electrónica básica
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Proyectos con luces LED y motores
+              </li>
+              <li><i class="fas fa-check"></i> Manual interactivo ilustrado</li>
+              <li><i class="fas fa-check"></i> Enfoque lúdico y seguro</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <button
+              class="btn plan-btn"
+              onclick="
+                window.open('https://link.mercadopago.cl/bemaker', '_blank')
+              "
+            >
+              Comprar Kit
+            </button>
+          </div>
+        </div>
+
+        <!-- Adolescentes -->
+        <div
+          class="pricing-card popular-plan"
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
+          <div class="popular-badge">El más popular</div>
+          <div class="plan-header">
+            <h3>Kit Teens</h3>
+            <p class="plan-target">
+              Para adolescentes (13 a 17 años). Robótica y programación inicial.
+            </p>
+            <div class="plan-price">$75.000<span> CLP</span></div>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Placa base estilo Arduino</li>
+              <li>
+                <i class="fas fa-check"></i> Sensores (luz, movimiento, sonido)
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Programación en bloques y código
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Creación de un robot funcional
+              </li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <button
+              class="hero-cta plan-btn"
+              onclick="
+                window.open('https://link.mercadopago.cl/bemaker', '_blank')
+              "
+              style="width: 100%"
+            >
+              Comprar Kit
+            </button>
+          </div>
+        </div>
+
+        <!-- Adultos -->
+        <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="plan-header">
+            <h3>Kit Pro (Adultos)</h3>
+            <p class="plan-target">
+              Para adultos (+18 años). Domótica y proyectos avanzados IoT.
+            </p>
+            <div class="plan-price">$110.000<span> CLP</span></div>
+          </div>
+          <div class="plan-body">
+            <ul class="plan-features">
+              <li>
+                <i class="fas fa-check"></i> Módulo ESP32 con Wi-Fi y Bluetooth
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Creación de dispositivos Smart Home
+              </li>
+              <li><i class="fas fa-check"></i> Integración con APIs y web</li>
+              <li><i class="fas fa-check"></i> Casos de uso reales</li>
+            </ul>
+          </div>
+          <div class="plan-footer">
+            <button
+              class="btn plan-btn"
+              onclick="
+                window.open('https://link.mercadopago.cl/bemaker', '_blank')
+              "
+            >
+              Comprar Kit
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- =========================
+         FOOTER
+         ========================= -->
+    <app-footer></app-footer>
+
+    <!-- =========================
+         MODALS & CHATBOT
+         ========================= -->
+    <!-- CHATBOT -->
+    <div class="chatbot-container">
+      <button
+        class="chatbot-toggler"
+        id="chatbot-toggler"
+        aria-label="Abrir chat"
+      >
+        <i class="fas fa-comment-dots" aria-hidden="true"></i>
+        <i class="fas fa-times close-icon" aria-hidden="true"></i>
+      </button>
+      <div class="chatbot-window" id="chatbot-window">
+        <div class="chat-header">
+          <h3>BeMaker Bot</h3>
+          <p><span class="online-dot"></span> En línea</p>
+        </div>
+        <div class="chat-body" id="chat-body">
+          <div class="message bot-message">
+            ¡Hola! 👋 Soy el asistente virtual de BeMaker. ¿En qué te puedo
+            ayudar hoy?
+          </div>
+        </div>
+        <div class="chat-footer">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Escribe tu mensaje aquí..."
+            autocomplete="off"
+            aria-label="Mensaje"
+          />
+          <button id="chat-send-btn" aria-label="Enviar mensaje">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
