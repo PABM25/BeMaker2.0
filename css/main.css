@@ -779,6 +779,35 @@ body.light-mode .step-number {
 .idea-card:hover .idea-overlay {
   opacity: 1;
 }
+
+/* Touch-friendly overlay for mobile screens */
+@media (hover: none) and (pointer: coarse) {
+  .idea-overlay {
+    opacity: 1;
+    background: transparent;
+    align-items: flex-end;
+    padding: 15px;
+  }
+
+  .idea-card:hover .idea-overlay {
+    background: rgba(1, 0, 102, 0.4);
+    align-items: center;
+  }
+
+  .btn-icon {
+    transform: translateY(0);
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+
+  .idea-card:hover .btn-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+}
+
 .btn-icon {
   background: var(--red-accent);
   color: white;
