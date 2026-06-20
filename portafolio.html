@@ -30,13 +30,28 @@
         padding: 100px 40px 60px;
         text-align: center;
       }
+
       .portfolio-filters {
         margin-bottom: 40px;
         display: flex;
         justify-content: center;
         gap: 15px;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
       }
+
+      .portfolio-filters::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      .portfolio-filters::-webkit-scrollbar-thumb {
+        background-color: var(--blue-primary);
+        border-radius: 10px;
+      }
+
       .filter-btn {
         background: transparent;
         border: 1px solid var(--border-color);
@@ -46,18 +61,38 @@
         cursor: pointer;
         transition: all 0.3s;
         font-family: "Poppins", sans-serif;
+        white-space: nowrap;
+        flex-shrink: 0;
       }
+
       .filter-btn.active,
       .filter-btn:hover {
         background: var(--blue-primary);
         border-color: var(--blue-primary);
         color: white;
       }
+
       .portfolio-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: 1fr; /* Mobile: 1 col */
         gap: 30px;
       }
+
+      @media (min-width: 768px) {
+        .portfolio-grid {
+          grid-template-columns: repeat(2, 1fr); /* Tablet: 2 cols */
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .portfolio-grid {
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(300px, 1fr)
+          ); /* Desktop: 3+ cols */
+        }
+      }
+
       .portfolio-item {
         transition:
           transform 0.4s ease,

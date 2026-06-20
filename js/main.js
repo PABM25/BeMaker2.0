@@ -4,6 +4,7 @@ import { initModals } from "./modules/modals.js";
 import { initTerminal } from "./modules/terminal.js";
 import { initChatbot } from "./modules/chatbot.js";
 import { initPixelCanvas } from "./modules/pixel-canvas.js";
+import { initCart } from "./modules/cart.js";
 import "./modules/components.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,5 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initTerminal();
   initChatbot();
   initPortfolio();
+  initCart();
 });
 initPixelCanvas();
