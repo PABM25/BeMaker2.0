@@ -1,3 +1,4 @@
+@import url("bento.css");
 @import url("mobile-menu.css");
 @import url("testimonials.css");
 @import url("contact.css");
@@ -357,8 +358,14 @@ ul {
   position: relative;
   display: inline-block;
 }
-#typing-hero-title.glitch {
+.hero-emphasis {
+  color: var(--red-accent);
+  display: inline-block;
+  position: relative;
+}
+.hero-emphasis.glitch {
   animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  text-shadow: 2px 0 var(--blue-primary), -2px 0 var(--blue-light);
 }
 @keyframes glitch {
   0% {
@@ -877,29 +884,31 @@ body.light-mode .step-number {
   border-radius: 30px;
   font-size: 1.1rem;
   margin-top: 20px;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(1, 0, 102, 0.5); /* Diffuse blue glow */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 .gradient-border-cta::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -3px; /* Bolder border */
   background: conic-gradient(
     from 0deg,
     var(--blue-primary),
-    var(--blue-light),
     var(--red-accent),
     var(--blue-primary)
   );
   z-index: -2;
-  border-radius: 32px;
-  animation: rotateGradient 3s linear infinite;
+  border-radius: 33px;
+  animation: rotateGradient 2s linear infinite; /* Faster animation */
 }
 .gradient-border-cta::after {
   content: "";
   position: absolute;
-  inset: 2px;
+  inset: 3px;
   background-color: var(--bg-color);
   z-index: -1;
-  border-radius: 28px;
+  border-radius: 27px;
   transition: background-color 0.3s ease;
 }
 .gradient-border-cta:hover::after {
@@ -907,7 +916,8 @@ body.light-mode .step-number {
 }
 .gradient-border-cta:hover {
   color: white;
-  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+  box-shadow: 0 0 35px rgba(1, 0, 102, 0.8), 0 0 15px rgba(237, 8, 7, 0.4);
+  transform: scale(1.05);
 }
 @keyframes rotateGradient {
   100% {
