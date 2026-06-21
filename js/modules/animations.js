@@ -7,17 +7,22 @@ export function initHeroAnimations() {
     function typeWriter() {
       if (i < textToType.length) {
         typingElement.innerHTML += textToType.charAt(i);
+        typingElement.setAttribute("data-text", typingElement.innerHTML);
         if (Math.random() > 0.8) {
           typingElement.classList.add("glitch");
-          setTimeout(() => typingElement.classList.remove("glitch"), 150);
+          setTimeout(() => {
+            typingElement.classList.remove("glitch");
+          }, 150);
         }
         i++;
-        setTimeout(typeWriter, 80);
+        setTimeout(typeWriter, 50);
       } else {
         setInterval(() => {
           if (Math.random() > 0.95) {
             typingElement.classList.add("glitch");
-            setTimeout(() => typingElement.classList.remove("glitch"), 200);
+            setTimeout(() => {
+              typingElement.classList.remove("glitch");
+            }, 200);
           }
         }, 1000);
       }
