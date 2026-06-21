@@ -1,5 +1,6 @@
 @import url("mobile-menu.css");
 @import url("testimonials.css");
+@import url("bento.css");
 @import url("contact.css");
 @import url("carousel.css");
 @import url("variables.css");
@@ -353,19 +354,44 @@ ul {
   padding-left: 20px;
 }
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 20px;
   min-height: 120px;
 }
 #typing-hero-title {
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--font-primary);
   position: relative;
   display: inline-block;
 }
+#typing-hero-title.glitch::before,
+#typing-hero-title.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#typing-hero-title.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--red-accent);
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+#typing-hero-title.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--blue-primary);
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
 #typing-hero-title.glitch {
   animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  text-shadow:
+    2px 0 var(--red-accent),
+    -2px 0 var(--blue-primary);
 }
 @keyframes glitch {
   0% {
@@ -488,6 +514,10 @@ ul {
 }
 .terminal-highlight {
   color: #ed0807;
+  font-weight: bold;
+}
+.terminal-progress {
+  color: var(--blue-light);
   font-weight: bold;
 }
 @keyframes fadeIn {
@@ -911,7 +941,8 @@ body.light-mode .step-number {
   overflow: hidden;
   padding: 16px 36px;
   border-radius: 30px;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
   margin-top: 20px;
 }
 .gradient-border-cta::before {
@@ -939,11 +970,13 @@ body.light-mode .step-number {
   transition: background-color 0.3s ease;
 }
 .gradient-border-cta:hover::after {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .gradient-border-cta:hover {
   color: white;
-  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+  box-shadow:
+    0 10px 30px rgba(237, 8, 7, 0.5),
+    0 0 20px rgba(1, 0, 102, 0.6);
 }
 @keyframes rotateGradient {
   100% {
