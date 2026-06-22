@@ -1,7 +1,7 @@
 export function initTerminal() {
   const terminalOutput = document.getElementById("terminal-output");
   if (terminalOutput) {
-    const deploymentSteps = [
+    let deploymentSteps = [
       {
         text: "> Initializing deployment process...",
         delay: 500,
@@ -47,27 +47,41 @@ export function initTerminal() {
         delay: 5000,
         class: "terminal-info",
       },
+    ];
+
+    let currentDelay = 5000;
+    for (let i = 1; i <= 15; i++) {
+      currentDelay += 50;
+      deploymentSteps.push({
+        text: `> Deploying project module_${i}... [OK]`,
+        delay: currentDelay,
+        class: "terminal-success",
+      });
+    }
+
+    currentDelay += 300;
+    deploymentSteps.push(
       {
         text: "----------------------------------------",
-        delay: 5800,
+        delay: currentDelay,
         class: "terminal-info",
       },
       {
         text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
+        delay: currentDelay + 500,
         class: "terminal-highlight",
       },
       {
         text: "----------------------------------------",
-        delay: 6800,
+        delay: currentDelay + 800,
         class: "terminal-info",
       },
       {
         text: "> System ready. Waiting for input...",
-        delay: 7500,
+        delay: currentDelay + 1500,
         class: "terminal-info",
       },
-    ];
+    );
 
     deploymentSteps.forEach((step) => {
       setTimeout(() => {
