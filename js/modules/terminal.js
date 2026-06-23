@@ -3,69 +3,74 @@ export function initTerminal() {
   if (terminalOutput) {
     const deploymentSteps = [
       {
-        text: "> Initializing deployment process...",
+        text: "> Initializing BeMaker Deploy Dashboard...",
         delay: 500,
         class: "terminal-info",
       },
       {
-        text: "> Fetching latest commits from branch 'main'...",
+        text: "> Establishing secure connection to production nodes...",
         delay: 800,
         class: "terminal-info",
       },
       {
-        text: "> Resolving dependencies...",
+        text: "[OK] Connection established (Latency: 12ms)",
         delay: 1200,
-        class: "terminal-info",
-      },
-      {
-        text: "[OK] Dependencies resolved.",
-        delay: 1500,
         class: "terminal-success",
       },
       {
-        text: "> Building application bundle...",
-        delay: 2000,
+        text: "> Syncing real-time project metrics...",
+        delay: 1800,
         class: "terminal-info",
       },
       {
-        text: "[OK] Build completed in 2.4s.",
-        delay: 2800,
+        text: "> Analyzing infrastructure load...",
+        delay: 2400,
+        class: "terminal-info",
+      },
+      {
+        text: "[OK] Load optimal. Scalability systems active.",
+        delay: 3000,
         class: "terminal-success",
       },
       {
-        text: "> Running test suite (142 tests)...",
-        delay: 3200,
+        text: "> Verifying active digital deployments...",
+        delay: 3500,
         class: "terminal-info",
       },
       {
-        text: "[OK] All tests passed.",
+        text: "  - Fetching web platforms [OK]",
+        delay: 4000,
+        class: "terminal-info",
+      },
+      {
+        text: "  - Fetching AI modules [OK]",
         delay: 4500,
-        class: "terminal-success",
+        class: "terminal-info",
       },
       {
-        text: "> Deploying to production server...",
+        text: "  - Auditing cybersecurity [OK]",
         delay: 5000,
         class: "terminal-info",
       },
       {
         text: "----------------------------------------",
-        delay: 5800,
+        delay: 5500,
         class: "terminal-info",
       },
       {
-        text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
+        text: "🚀 SUCCESS: Desplegando el éxito de los 150+ proyectos en tiempo real.",
+        delay: 6200,
         class: "terminal-highlight",
       },
       {
         text: "----------------------------------------",
-        delay: 6800,
+        delay: 6500,
         class: "terminal-info",
       },
       {
-        text: "> System ready. Waiting for input...",
-        delay: 7500,
-        class: "terminal-info",
+        text: "> System operational. Ready to transform your idea.",
+        delay: 7200,
+        class: "terminal-success",
       },
     ];
 

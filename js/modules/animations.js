@@ -12,14 +12,14 @@ export function initHeroAnimations() {
           setTimeout(() => typingElement.classList.remove("glitch"), 150);
         }
         i++;
-        setTimeout(typeWriter, 80);
+        setTimeout(typeWriter, 70);
       } else {
         setInterval(() => {
-          if (Math.random() > 0.95) {
+          if (Math.random() > 0.9) {
             typingElement.classList.add("glitch");
             setTimeout(() => typingElement.classList.remove("glitch"), 200);
           }
-        }, 1000);
+        }, 800);
       }
     }
     setTimeout(typeWriter, 500);
