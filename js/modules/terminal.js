@@ -63,20 +63,35 @@ export function initTerminal() {
         class: "terminal-info",
       },
       {
-        text: "> System ready. Waiting for input...",
+        text: "> System ready. Listening for new deployments...",
         delay: 7500,
         class: "terminal-info",
       },
     ];
 
-    deploymentSteps.forEach((step) => {
+    const totalDelay = 7500;
+
+    const runDeploymentCycle = () => {
+      deploymentSteps.forEach((step) => {
+        setTimeout(() => {
+          const line = document.createElement("div");
+          line.className = `terminal-line ${step.class}`;
+          line.textContent = step.text;
+          terminalOutput.appendChild(line);
+          terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }, step.delay);
+      });
+
+      // Loop the terminal animation
       setTimeout(() => {
-        const line = document.createElement("div");
-        line.className = `terminal-line ${step.class}`;
-        line.textContent = step.text;
-        terminalOutput.appendChild(line);
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
-      }, step.delay);
-    });
+        // Only keep the last 50 lines to prevent DOM bloat
+        while (terminalOutput.children.length > 50) {
+            terminalOutput.removeChild(terminalOutput.firstChild);
+        }
+        runDeploymentCycle();
+      }, totalDelay + 2000);
+    };
+
+    runDeploymentCycle();
   }
 }
