@@ -1,5 +1,5 @@
 export function initHeroAnimations() {
-  const textToType = "Transformamos ideas en código.";
+  const textToType = "> Transformamos ideas en código_";
   const typingElement = document.getElementById("typing-hero-title");
 
   if (typingElement) {
