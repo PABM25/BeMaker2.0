@@ -3,47 +3,47 @@ export function initTerminal() {
   if (terminalOutput) {
     const deploymentSteps = [
       {
-        text: "> Initializing deployment process...",
+        text: "> root@bemaker:~# ./deploy.sh --target=production",
         delay: 500,
         class: "terminal-info",
       },
       {
-        text: "> Fetching latest commits from branch 'main'...",
+        text: "> Initializing high-impact deployment process...",
         delay: 800,
         class: "terminal-info",
       },
       {
-        text: "> Resolving dependencies...",
+        text: "> Resolving Web, AI & Cybersecurity dependencies...",
         delay: 1200,
         class: "terminal-info",
       },
       {
-        text: "[OK] Dependencies resolved.",
+        text: "[OK] Dependencies resolved. 100% optimized.",
         delay: 1500,
         class: "terminal-success",
       },
       {
-        text: "> Building application bundle...",
+        text: "> Compiling Dark Mode aesthetics...",
         delay: 2000,
         class: "terminal-info",
       },
       {
-        text: "[OK] Build completed in 2.4s.",
+        text: "[OK] UI/UX patterns injected successfully.",
         delay: 2800,
         class: "terminal-success",
       },
       {
-        text: "> Running test suite (142 tests)...",
+        text: "> Connecting to global infrastructure (142 nodes)...",
         delay: 3200,
         class: "terminal-info",
       },
       {
-        text: "[OK] All tests passed.",
+        text: "[OK] Secure connection established.",
         delay: 4500,
         class: "terminal-success",
       },
       {
-        text: "> Deploying to production server...",
+        text: "> Launching innovation protocol...",
         delay: 5000,
         class: "terminal-info",
       },
@@ -53,7 +53,7 @@ export function initTerminal() {
         class: "terminal-info",
       },
       {
-        text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
+        text: "🚀 SUCCESS: 150+ proyectos de innovación desplegados con éxito en tiempo real.",
         delay: 6500,
         class: "terminal-highlight",
       },
@@ -63,7 +63,7 @@ export function initTerminal() {
         class: "terminal-info",
       },
       {
-        text: "> System ready. Waiting for input...",
+        text: "> System operational. Awaiting new ideas...",
         delay: 7500,
         class: "terminal-info",
       },
