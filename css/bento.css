@@ -1,0 +1,159 @@
+/* =========================
+   BENTO GRID LAYOUT
+   ========================= */
+
+.bento-section {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bento-section .subtitle {
+  color: var(--light-blue);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.bento-section .title {
+  font-size: 2.5rem;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.bento-section .description {
+  color: #a0a0a0;
+  max-width: 600px;
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 24px;
+}
+
+/* Base Bento Card */
+.bento-card {
+  background-color: var(--card-bg);
+  border-radius: 20px;
+  padding: 32px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 1;
+}
+
+/* Micro-interactions: Framer Motion-like pure CSS */
+.bento-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(1, 0, 102, 0.3), 0 0 20px rgba(1, 0, 102, 0.2) inset;
+  border-color: rgba(1, 0, 102, 0.5);
+  z-index: 2;
+}
+
+/* Internal Elements */
+.bento-card-icon {
+  font-size: 2.5rem;
+  color: var(--red-accent);
+  margin-bottom: 24px;
+  transition: transform 0.3s ease;
+}
+
+.bento-card:hover .bento-card-icon {
+  transform: scale(1.1);
+}
+
+.bento-card h3 {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.bento-card p {
+  color: #b0b0b0;
+  font-size: 1rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Gradient background on hover */
+.bento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(1, 0, 102, 0.1), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+/* Visual Weights / Grid Spanning */
+/* Web Development gets more weight (spans 2 columns) */
+.bento-card.web-dev {
+  grid-column: span 2;
+}
+
+.bento-card.ai {
+  grid-column: span 1;
+}
+
+/* Cyber Security spans full width below */
+.bento-card.cyber {
+  grid-column: span 3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+.bento-card.cyber .bento-content {
+  flex: 1;
+}
+
+.bento-card.cyber .bento-card-icon {
+  font-size: 4rem;
+  margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento-card.web-dev, .bento-card.ai, .bento-card.cyber {
+    grid-column: span 2;
+  }
+  .bento-card.cyber {
+    flex-direction: column;
+    text-align: center;
+  }
+  .bento-card.cyber .bento-card-icon {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-card.web-dev, .bento-card.ai, .bento-card.cyber {
+    grid-column: span 1;
+  }
+}

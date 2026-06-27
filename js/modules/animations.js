@@ -7,21 +7,22 @@ export function initHeroAnimations() {
     function typeWriter() {
       if (i < textToType.length) {
         typingElement.innerHTML += textToType.charAt(i);
-        if (Math.random() > 0.8) {
+        typingElement.setAttribute("data-text", typingElement.textContent);
+        if (Math.random() > 0.6) { // Increased glitch probability
           typingElement.classList.add("glitch");
-          setTimeout(() => typingElement.classList.remove("glitch"), 150);
+          setTimeout(() => typingElement.classList.remove("glitch"), 200);
         }
         i++;
-        setTimeout(typeWriter, 80);
+        setTimeout(typeWriter, 50); // Faster typing speed
       } else {
         setInterval(() => {
-          if (Math.random() > 0.95) {
+          if (Math.random() > 0.7) { // Increased frequency of glitch after typing
             typingElement.classList.add("glitch");
-            setTimeout(() => typingElement.classList.remove("glitch"), 200);
+            setTimeout(() => typingElement.classList.remove("glitch"), 300);
           }
-        }, 1000);
+        }, 1500);
       }
     }
-    setTimeout(typeWriter, 500);
+    setTimeout(typeWriter, 300);
   }
 }

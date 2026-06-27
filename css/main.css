@@ -2,6 +2,7 @@
 @import url("testimonials.css");
 @import url("contact.css");
 @import url("carousel.css");
+@import url("bento.css");
 @import url("variables.css");
 
 /* Extracted from inline styles */
@@ -365,26 +366,76 @@ ul {
   display: inline-block;
 }
 #typing-hero-title.glitch {
-  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  animation: glitch-anim 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: var(--text-color);
+  position: relative;
+  display: inline-block;
 }
-@keyframes glitch {
+#typing-hero-title.glitch::before,
+#typing-hero-title.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#typing-hero-title.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #ED0807;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+#typing-hero-title.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #010066;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+@keyframes glitch-anim {
   0% {
+    clip: rect(13px, 9999px, 83px, 0);
     transform: translate(0);
   }
   20% {
+    clip: rect(78px, 9999px, 73px, 0);
     transform: translate(-2px, 2px);
   }
   40% {
+    clip: rect(24px, 9999px, 88px, 0);
     transform: translate(-2px, -2px);
   }
   60% {
+    clip: rect(11px, 9999px, 54px, 0);
     transform: translate(2px, 2px);
   }
   80% {
+    clip: rect(18px, 9999px, 55px, 0);
     transform: translate(2px, -2px);
   }
   100% {
+    clip: rect(11px, 9999px, 70px, 0);
     transform: translate(0);
+  }
+}
+@keyframes glitch-anim-2 {
+  0% {
+    clip: rect(83px, 9999px, 13px, 0);
+  }
+  20% {
+    clip: rect(73px, 9999px, 78px, 0);
+  }
+  40% {
+    clip: rect(88px, 9999px, 24px, 0);
+  }
+  60% {
+    clip: rect(54px, 9999px, 11px, 0);
+  }
+  80% {
+    clip: rect(55px, 9999px, 18px, 0);
+  }
+  100% {
+    clip: rect(70px, 9999px, 11px, 0);
   }
 }
 #cursor {
@@ -417,6 +468,54 @@ ul {
   background-color: #c40606;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(237, 8, 7, 0.4);
+}
+
+/* Animated Gradient Border CTA */
+.gradient-border-cta {
+  position: relative;
+  background: transparent;
+  color: #fff;
+  z-index: 1;
+  overflow: hidden;
+}
+.gradient-border-cta::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #010066, #ED0807, #010066, #ED0807);
+  background-size: 400% 400%;
+  z-index: -1;
+  border-radius: 32px;
+  animation: gradientBorder 5s ease infinite;
+}
+.gradient-border-cta::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background-color: var(--bg-color);
+  z-index: -1;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+.gradient-border-cta:hover::after {
+  background-color: rgba(5, 5, 5, 0.8);
+}
+@keyframes gradientBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Terminal Window */
@@ -482,6 +581,9 @@ ul {
 }
 .terminal-success {
   color: #00ff00;
+}
+.terminal-warning {
+  color: #f1fa8c;
 }
 .terminal-info {
   color: #3b82f6;
