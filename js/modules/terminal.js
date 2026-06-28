@@ -4,67 +4,67 @@ export function initTerminal() {
     const deploymentSteps = [
       {
         text: "> Initializing deployment process...",
-        delay: 500,
+        delay: 250,
         class: "terminal-info",
       },
       {
         text: "> Fetching latest commits from branch 'main'...",
-        delay: 800,
+        delay: 400,
         class: "terminal-info",
       },
       {
         text: "> Resolving dependencies...",
-        delay: 1200,
+        delay: 600,
         class: "terminal-info",
       },
       {
         text: "[OK] Dependencies resolved.",
-        delay: 1500,
+        delay: 750,
         class: "terminal-success",
       },
       {
         text: "> Building application bundle...",
-        delay: 2000,
+        delay: 1000,
         class: "terminal-info",
       },
       {
         text: "[OK] Build completed in 2.4s.",
-        delay: 2800,
+        delay: 1400,
         class: "terminal-success",
       },
       {
         text: "> Running test suite (142 tests)...",
-        delay: 3200,
+        delay: 1600,
         class: "terminal-info",
       },
       {
         text: "[OK] All tests passed.",
-        delay: 4500,
+        delay: 2250,
         class: "terminal-success",
       },
       {
         text: "> Deploying to production server...",
-        delay: 5000,
+        delay: 2500,
         class: "terminal-info",
       },
       {
         text: "----------------------------------------",
-        delay: 5800,
+        delay: 2900,
         class: "terminal-info",
       },
       {
         text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
-        class: "terminal-highlight",
+        delay: 3250,
+        class: "terminal-highlight-bold",
       },
       {
         text: "----------------------------------------",
-        delay: 6800,
+        delay: 3400,
         class: "terminal-info",
       },
       {
         text: "> System ready. Waiting for input...",
-        delay: 7500,
+        delay: 3750,
         class: "terminal-info",
       },
     ];
