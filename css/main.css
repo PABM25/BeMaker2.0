@@ -3,6 +3,7 @@
 @import url("contact.css");
 @import url("carousel.css");
 @import url("variables.css");
+@import url("bento.css");
 
 /* Extracted from inline styles */
 .portfolio-btn-container {
@@ -366,6 +367,9 @@ ul {
 }
 #typing-hero-title.glitch {
   animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  text-shadow:
+    2px 0 var(--red-accent),
+    -2px 0 var(--blue-light);
 }
 @keyframes glitch {
   0% {
@@ -425,7 +429,7 @@ ul {
   height: 450px;
   background-color: #0d0d0d;
   border-radius: 12px;
-  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.4);
+  box-shadow: 0 0 20px rgba(1, 0, 102, 0.5);
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
@@ -923,7 +927,7 @@ body.light-mode .step-number {
     var(--blue-primary),
     var(--blue-light),
     var(--red-accent),
-    var(--blue-primary)
+    var(--red-accent)
   );
   z-index: -2;
   border-radius: 32px;
@@ -943,7 +947,7 @@ body.light-mode .step-number {
 }
 .gradient-border-cta:hover {
   color: white;
-  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.8);
 }
 @keyframes rotateGradient {
   100% {

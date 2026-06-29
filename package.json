@@ -4,7 +4,7 @@
   "description": "BeMaker Landing Page",
   "scripts": {
     "build:css": "cleancss -o css/main.min.css css/main.css",
-    "format": "prettier --write \"**/*.{js,css,html}\""
+    "format": "prettier --write \"**/*.{js,css,html}\" --ignore-path .gitignore"
   },
   "devDependencies": {
     "clean-css-cli": "^5.6.3",
