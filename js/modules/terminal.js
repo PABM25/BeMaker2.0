@@ -4,70 +4,90 @@ export function initTerminal() {
     const deploymentSteps = [
       {
         text: "> Initializing deployment process...",
-        delay: 500,
+        delay: 200,
         class: "terminal-info",
       },
       {
         text: "> Fetching latest commits from branch 'main'...",
-        delay: 800,
+        delay: 500,
         class: "terminal-info",
       },
       {
         text: "> Resolving dependencies...",
-        delay: 1200,
+        delay: 800,
         class: "terminal-info",
       },
       {
         text: "[OK] Dependencies resolved.",
-        delay: 1500,
+        delay: 1100,
         class: "terminal-success",
       },
       {
         text: "> Building application bundle...",
-        delay: 2000,
+        delay: 1400,
         class: "terminal-info",
       },
       {
         text: "[OK] Build completed in 2.4s.",
-        delay: 2800,
+        delay: 2000,
         class: "terminal-success",
       },
       {
         text: "> Running test suite (142 tests)...",
-        delay: 3200,
+        delay: 2200,
         class: "terminal-info",
       },
       {
         text: "[OK] All tests passed.",
-        delay: 4500,
+        delay: 2800,
+        class: "terminal-success",
+      },
+      { text: "> Optimizing assets...", delay: 3000, class: "terminal-info" },
+      {
+        text: "[OK] Assets optimized.",
+        delay: 3300,
         class: "terminal-success",
       },
       {
-        text: "> Deploying to production server...",
-        delay: 5000,
+        text: "> Deploying to production cluster...",
+        delay: 3500,
         class: "terminal-info",
       },
+    ];
+
+    // Rapid deployment simulation
+    let currentDelay = 3800;
+    for (let i = 1; i <= 20; i++) {
+      deploymentSteps.push({
+        text: `> Deploying module ${i}/20... [OK]`,
+        delay: currentDelay,
+        class: "terminal-info",
+      });
+      currentDelay += 80; // Fast progression
+    }
+
+    deploymentSteps.push(
       {
         text: "----------------------------------------",
-        delay: 5800,
+        delay: currentDelay + 200,
         class: "terminal-info",
       },
       {
         text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
+        delay: currentDelay + 600,
         class: "terminal-highlight",
       },
       {
         text: "----------------------------------------",
-        delay: 6800,
+        delay: currentDelay + 900,
         class: "terminal-info",
       },
       {
         text: "> System ready. Waiting for input...",
-        delay: 7500,
+        delay: currentDelay + 1500,
         class: "terminal-info",
       },
-    ];
+    );
 
     deploymentSteps.forEach((step) => {
       setTimeout(() => {
