@@ -1,3 +1,4 @@
+@import url("bento.css");
 @import url("mobile-menu.css");
 @import url("testimonials.css");
 @import url("contact.css");
@@ -370,22 +371,38 @@ ul {
 @keyframes glitch {
   0% {
     transform: translate(0);
+    opacity: 1;
   }
   20% {
-    transform: translate(-2px, 2px);
+    transform: translate(-4px, 4px);
+    opacity: 0.8;
   }
   40% {
-    transform: translate(-2px, -2px);
+    transform: translate(-4px, -4px);
+    opacity: 1;
   }
   60% {
-    transform: translate(2px, 2px);
+    transform: translate(4px, 4px);
+    opacity: 0.9;
   }
   80% {
-    transform: translate(2px, -2px);
+    transform: translate(4px, -4px);
+    opacity: 1;
   }
   100% {
     transform: translate(0);
+    opacity: 1;
   }
+}
+
+.highlight-code {
+  color: var(--red-accent);
+  text-shadow: 0 0 8px rgba(237, 8, 7, 0.6);
+  font-weight: bold;
+}
+
+.terminal-glow {
+  text-shadow: 0 0 10px rgba(74, 176, 217, 0.8);
 }
 #cursor {
   animation: blink 1s step-end infinite;
@@ -917,25 +934,26 @@ body.light-mode .step-number {
 .gradient-border-cta::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -3px;
   background: conic-gradient(
     from 0deg,
     var(--blue-primary),
-    var(--blue-light),
+    var(--red-accent),
+    var(--blue-primary),
     var(--red-accent),
     var(--blue-primary)
   );
   z-index: -2;
-  border-radius: 32px;
+  border-radius: 33px;
   animation: rotateGradient 3s linear infinite;
 }
 .gradient-border-cta::after {
   content: "";
   position: absolute;
-  inset: 2px;
+  inset: 3px;
   background-color: var(--bg-color);
   z-index: -1;
-  border-radius: 28px;
+  border-radius: 27px;
   transition: background-color 0.3s ease;
 }
 .gradient-border-cta:hover::after {
@@ -943,7 +961,10 @@ body.light-mode .step-number {
 }
 .gradient-border-cta:hover {
   color: white;
-  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+  box-shadow:
+    0 15px 35px rgba(237, 8, 7, 0.6),
+    0 0 20px rgba(1, 0, 102, 0.5);
+  font-weight: bold;
 }
 @keyframes rotateGradient {
   100% {
