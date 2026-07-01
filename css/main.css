@@ -3,6 +3,7 @@
 @import url("contact.css");
 @import url("carousel.css");
 @import url("variables.css");
+@import url("bento.css");
 
 /* Extracted from inline styles */
 .portfolio-btn-container {
@@ -363,6 +364,8 @@ ul {
   font-family: "Courier New", Courier, monospace;
   position: relative;
   display: inline-block;
+  font-weight: 800; /* Increased visual weight */
+  text-shadow: 0 0 20px rgba(1, 0, 102, 0.5); /* Subtle Deep Blue glow */
 }
 #typing-hero-title.glitch {
   animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
@@ -403,7 +406,7 @@ ul {
   max-width: 600px;
 }
 .hero-cta {
-  background-color: var(--red-accent);
+  background-color: #ed0807; /* Vibrant Red */
   color: #ffffff;
   border: none;
   padding: 15px 30px;
@@ -416,7 +419,7 @@ ul {
 .hero-cta:hover {
   background-color: #c40606;
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(237, 8, 7, 0.4);
+  box-shadow: 0 5px 15px rgba(237, 8, 7, 0.4); /* Vibrant Red shadow */
 }
 
 /* Terminal Window */
@@ -489,6 +492,17 @@ ul {
 .terminal-highlight {
   color: #ed0807;
   font-weight: bold;
+  text-shadow: 0 0 10px rgba(237, 8, 7, 0.6);
+  font-size: 1.05rem;
+}
+.terminal-cursor {
+  display: inline-block;
+  animation: blinkCursor 1s step-end infinite;
+}
+@keyframes blinkCursor {
+  50% {
+    opacity: 0;
+  }
 }
 @keyframes fadeIn {
   to {
@@ -920,10 +934,9 @@ body.light-mode .step-number {
   inset: -2px;
   background: conic-gradient(
     from 0deg,
-    var(--blue-primary),
-    var(--blue-light),
-    var(--red-accent),
-    var(--blue-primary)
+    #010066,
+    /* Deep Blue */ #ed0807,
+    /* Vibrant Red */ #010066 /* Deep Blue */
   );
   z-index: -2;
   border-radius: 32px;

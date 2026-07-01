@@ -73,9 +73,25 @@ export function initTerminal() {
       setTimeout(() => {
         const line = document.createElement("div");
         line.className = `terminal-line ${step.class}`;
-        line.textContent = step.text;
         terminalOutput.appendChild(line);
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+
+        // Typing effect for each line
+        let i = 0;
+        const typeChar = () => {
+          if (i < step.text.length) {
+            line.textContent += step.text.charAt(i);
+            i++;
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            setTimeout(typeChar, Math.random() * 30 + 10); // Random delay for realistic typing
+          } else {
+            // Add a blinking cursor effect after "System ready."
+            if (step.text.includes("System ready")) {
+              line.innerHTML =
+                step.text + '<span class="terminal-cursor">_</span>';
+            }
+          }
+        };
+        typeChar();
       }, step.delay);
     });
   }
