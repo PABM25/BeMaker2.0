@@ -1,0 +1,97 @@
+/* Bento Grid System */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 250px);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 50px auto 0;
+}
+
+.bento-card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bento-card:hover {
+  transform: scale(1.02);
+  border-color: var(--blue-primary);
+  box-shadow: 0 15px 40px rgba(1, 0, 102, 0.2);
+}
+
+.bento-card h3 {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.bento-card p {
+  color: var(--text-secondary-color);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+}
+
+.bento-icon {
+  font-size: 2.5rem;
+  color: var(--blue-primary);
+  margin-bottom: 20px;
+}
+
+/* Card Specific Weights */
+.bento-card.web-dev {
+  grid-column: span 2;
+  grid-row: span 2;
+  background: linear-gradient(
+    135deg,
+    var(--surface-color),
+    rgba(1, 0, 102, 0.05)
+  );
+}
+.bento-card.web-dev .bento-icon {
+  font-size: 3.5rem;
+}
+.bento-card.web-dev h3 {
+  font-size: 2.5rem;
+}
+
+.bento-card.ai-integration {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.bento-card.cybersecurity {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .bento-card.web-dev,
+  .bento-card.ai-integration,
+  .bento-card.cybersecurity {
+    grid-column: span 1;
+    grid-row: auto;
+    min-height: 250px;
+  }
+}

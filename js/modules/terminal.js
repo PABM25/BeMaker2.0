@@ -3,67 +3,67 @@ export function initTerminal() {
   if (terminalOutput) {
     const deploymentSteps = [
       {
-        text: "> Initializing deployment process...",
+        text: "[10:42:01] > Initializing deployment process...",
         delay: 500,
         class: "terminal-info",
       },
       {
-        text: "> Fetching latest commits from branch 'main'...",
+        text: "[10:42:02] > Fetching latest commits from branch 'main'...",
         delay: 800,
         class: "terminal-info",
       },
       {
-        text: "> Resolving dependencies...",
+        text: "[10:42:03] > Resolving dependencies... [===>       ]",
         delay: 1200,
         class: "terminal-info",
       },
       {
-        text: "[OK] Dependencies resolved.",
+        text: "[10:42:03] [OK] Dependencies resolved. [==========]",
         delay: 1500,
         class: "terminal-success",
       },
       {
-        text: "> Building application bundle...",
+        text: "[10:42:04] > Building application bundle... [=====>    ]",
         delay: 2000,
         class: "terminal-info",
       },
       {
-        text: "[OK] Build completed in 2.4s.",
+        text: "[10:42:05] [OK] Build completed in 2.4s.    [==========]",
         delay: 2800,
         class: "terminal-success",
       },
       {
-        text: "> Running test suite (142 tests)...",
+        text: "[10:42:06] > Running test suite (142 tests)...",
         delay: 3200,
         class: "terminal-info",
       },
       {
-        text: "[OK] All tests passed.",
+        text: "[10:42:08] [OK] All tests passed.",
         delay: 4500,
         class: "terminal-success",
       },
       {
-        text: "> Deploying to production server...",
+        text: "[10:42:09] > Deploying to production server... [========> ]",
         delay: 5000,
         class: "terminal-info",
       },
       {
-        text: "----------------------------------------",
+        text: "--------------------------------------------------",
         delay: 5800,
         class: "terminal-info",
       },
       {
-        text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
+        text: "[10:42:11] 🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
         delay: 6500,
         class: "terminal-highlight",
       },
       {
-        text: "----------------------------------------",
+        text: "--------------------------------------------------",
         delay: 6800,
         class: "terminal-info",
       },
       {
-        text: "> System ready. Waiting for input...",
+        text: "[10:42:12] > System ready. Waiting for input...",
         delay: 7500,
         class: "terminal-info",
       },
