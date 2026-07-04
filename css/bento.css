@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Bento Grid Component (Services)
+   ========================================================================== */
+
+.bento-section {
+  padding: 80px 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.bento-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 1;
+}
+
+/* Card Sizes for Asymmetry */
+.bento-card.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.bento-card.medium {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* Hover Micro-interactions (Framer Motion style) */
+.bento-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow:
+    0 15px 30px rgba(1, 0, 102, 0.3),
+    0 5px 15px rgba(0, 0, 0, 0.2);
+  border-color: rgba(74, 176, 217, 0.4);
+}
+
+.bento-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at top right,
+    rgba(27, 101, 166, 0.1),
+    transparent 70%
+  );
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+/* Typography inside Bento Cards */
+.bento-card h3 {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.bento-card.large h3 {
+  font-size: 2.2rem;
+}
+
+.bento-card p {
+  color: var(--text-secondary-color);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.bento-icon {
+  font-size: 2.5rem;
+  color: var(--blue-light);
+  margin-bottom: 20px;
+}
+
+.bento-card.large .bento-icon {
+  font-size: 3.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .bento-card.large {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  .bento-card.large {
+    grid-column: span 1;
+  }
+}
