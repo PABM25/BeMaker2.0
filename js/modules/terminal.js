@@ -39,32 +39,52 @@ export function initTerminal() {
       },
       {
         text: "[OK] All tests passed.",
-        delay: 4500,
+        delay: 4200,
         class: "terminal-success",
       },
       {
-        text: "> Deploying to production server...",
-        delay: 5000,
+        text: "> Deploying to production servers...",
+        delay: 4800,
         class: "terminal-info",
       },
       {
+        text: "[==>        ] 20%",
+        delay: 5100,
+        class: "terminal-info",
+      },
+      {
+        text: "[=====>     ] 50%",
+        delay: 5400,
+        class: "terminal-info",
+      },
+      {
+        text: "[========>  ] 80%",
+        delay: 5700,
+        class: "terminal-info",
+      },
+      {
+        text: "[==========] 100%",
+        delay: 6000,
+        class: "terminal-success",
+      },
+      {
         text: "----------------------------------------",
-        delay: 5800,
+        delay: 6400,
         class: "terminal-info",
       },
       {
         text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
+        delay: 6900,
         class: "terminal-highlight",
       },
       {
         text: "----------------------------------------",
-        delay: 6800,
+        delay: 7200,
         class: "terminal-info",
       },
       {
         text: "> System ready. Waiting for input...",
-        delay: 7500,
+        delay: 7800,
         class: "terminal-info",
       },
     ];
