@@ -4,20 +4,25 @@ export function initHeroAnimations() {
 
   if (typingElement) {
     let i = 0;
+    let currentText = "";
     function typeWriter() {
       if (i < textToType.length) {
-        typingElement.innerHTML += textToType.charAt(i);
-        if (Math.random() > 0.8) {
+        currentText += textToType.charAt(i);
+        typingElement.innerHTML = currentText;
+        typingElement.setAttribute("data-text", currentText);
+
+        if (Math.random() > 0.6) {
           typingElement.classList.add("glitch");
-          setTimeout(() => typingElement.classList.remove("glitch"), 150);
+          setTimeout(() => typingElement.classList.remove("glitch"), 200);
         }
         i++;
         setTimeout(typeWriter, 80);
       } else {
+        typingElement.setAttribute("data-text", currentText);
         setInterval(() => {
-          if (Math.random() > 0.95) {
+          if (Math.random() > 0.7) {
             typingElement.classList.add("glitch");
-            setTimeout(() => typingElement.classList.remove("glitch"), 200);
+            setTimeout(() => typingElement.classList.remove("glitch"), 300);
           }
         }, 1000);
       }
