@@ -1,3 +1,4 @@
+@import url("bento.css");
 @import url("mobile-menu.css");
 @import url("testimonials.css");
 @import url("contact.css");
@@ -358,6 +359,7 @@ ul {
   line-height: 1.2;
   margin-bottom: 20px;
   min-height: 120px;
+  text-shadow: 0 0 20px rgba(1, 0, 102, 0.5); /* blue primary diffuse */
 }
 #typing-hero-title {
   font-family: "Courier New", Courier, monospace;
@@ -388,9 +390,14 @@ ul {
   }
 }
 #cursor {
+  color: var(--red-accent);
   animation: blink 1s step-end infinite;
 }
 @keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
   50% {
     opacity: 0;
   }
@@ -921,7 +928,8 @@ body.light-mode .step-number {
   background: conic-gradient(
     from 0deg,
     var(--blue-primary),
-    var(--blue-light),
+    var(--red-accent),
+    var(--blue-primary),
     var(--red-accent),
     var(--blue-primary)
   );
@@ -943,7 +951,9 @@ body.light-mode .step-number {
 }
 .gradient-border-cta:hover {
   color: white;
-  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+  box-shadow:
+    0 10px 25px rgba(237, 8, 7, 0.6),
+    0 0 20px rgba(1, 0, 102, 0.8); /* dual-color glow */
 }
 @keyframes rotateGradient {
   100% {
