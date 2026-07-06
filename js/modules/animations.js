@@ -14,6 +14,10 @@ export function initHeroAnimations() {
         i++;
         setTimeout(typeWriter, 80);
       } else {
+        typingElement.innerHTML = typingElement.innerHTML.replace(
+          "código",
+          '<span style="color: var(--red-accent)">código</span>',
+        );
         setInterval(() => {
           if (Math.random() > 0.95) {
             typingElement.classList.add("glitch");
