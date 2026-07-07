@@ -1,3 +1,4 @@
+@import url("bento.css");
 @import url("mobile-menu.css");
 @import url("testimonials.css");
 @import url("contact.css");
@@ -358,6 +359,7 @@ ul {
   line-height: 1.2;
   margin-bottom: 20px;
   min-height: 120px;
+  text-shadow: 0 0 15px rgba(1, 0, 102, 0.5);
 }
 #typing-hero-title {
   font-family: "Courier New", Courier, monospace;
@@ -921,7 +923,9 @@ body.light-mode .step-number {
   background: conic-gradient(
     from 0deg,
     var(--blue-primary),
-    var(--blue-light),
+    var(--red-accent),
+    var(--blue-primary),
+    var(--blue-secondary),
     var(--red-accent),
     var(--blue-primary)
   );
