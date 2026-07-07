@@ -1,0 +1,101 @@
+/* ==================================================
+   BENTO GRID STYLES
+   ================================================== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Make sure bento grid columns are explicitly defined for the "wide" item if screen is wide enough */
+@media (min-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .bento-wide {
+    grid-column: span 2;
+  }
+}
+
+.bento-card {
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.bento-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  background: radial-gradient(
+    800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(1, 0, 102, 0.1),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bento-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.25);
+  border-color: var(--blue-primary);
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}
+
+.bento-card .icon-wrapper {
+  background-color: rgba(1, 0, 102, 0.1);
+  color: var(--blue-light);
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+body.light-mode .bento-card .icon-wrapper {
+  background-color: rgba(74, 176, 217, 0.15);
+  color: var(--blue-secondary);
+}
+
+.bento-card h4 {
+  font-family: var(--font-primary);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.bento-card p {
+  color: var(--text-secondary-color);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}

@@ -9,15 +9,15 @@ export function initHeroAnimations() {
         typingElement.innerHTML += textToType.charAt(i);
         if (Math.random() > 0.8) {
           typingElement.classList.add("glitch");
-          setTimeout(() => typingElement.classList.remove("glitch"), 150);
+          setTimeout(() => typingElement.classList.remove("glitch"), 100);
         }
         i++;
-        setTimeout(typeWriter, 80);
+        setTimeout(typeWriter, 50);
       } else {
         setInterval(() => {
           if (Math.random() > 0.95) {
             typingElement.classList.add("glitch");
-            setTimeout(() => typingElement.classList.remove("glitch"), 200);
+            setTimeout(() => typingElement.classList.remove("glitch"), 100);
           }
         }, 1000);
       }
