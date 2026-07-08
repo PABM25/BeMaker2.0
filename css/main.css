@@ -1,3 +1,4 @@
+@import url("bento.css");
 @import url("mobile-menu.css");
 @import url("testimonials.css");
 @import url("contact.css");
@@ -353,35 +354,54 @@ ul {
   padding-left: 20px;
 }
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1.1;
   margin-bottom: 20px;
-  min-height: 120px;
+  min-height: 140px;
+  background: linear-gradient(90deg, #ffffff, #b0b0b0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(1, 0, 102, 0.5);
+  letter-spacing: -1px;
 }
+
+body.light-mode .hero-title {
+  background: linear-gradient(90deg, #000000, #444444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
 #typing-hero-title {
-  font-family: "Courier New", Courier, monospace;
+  font-family: var(--font-primary);
   position: relative;
   display: inline-block;
 }
+
 #typing-hero-title.glitch {
   animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: var(--blue-light);
+  text-shadow:
+    2px 0 var(--red-accent),
+    -2px 0 var(--blue-primary);
 }
+
 @keyframes glitch {
   0% {
     transform: translate(0);
   }
   20% {
-    transform: translate(-2px, 2px);
+    transform: translate(-3px, 3px);
   }
   40% {
-    transform: translate(-2px, -2px);
+    transform: translate(-3px, -3px);
   }
   60% {
-    transform: translate(2px, 2px);
+    transform: translate(3px, 3px);
   }
   80% {
-    transform: translate(2px, -2px);
+    transform: translate(3px, -3px);
   }
   100% {
     transform: translate(0);
@@ -914,20 +934,28 @@ body.light-mode .step-number {
   font-size: 1.1rem;
   margin-top: 20px;
 }
+.gradient-border-cta {
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 .gradient-border-cta::before {
   content: "";
   position: absolute;
-  inset: -2px;
+  inset: -3px;
   background: conic-gradient(
     from 0deg,
     var(--blue-primary),
-    var(--blue-light),
+    var(--red-accent),
+    var(--blue-primary),
     var(--red-accent),
     var(--blue-primary)
   );
   z-index: -2;
   border-radius: 32px;
   animation: rotateGradient 3s linear infinite;
+  filter: blur(2px);
 }
 .gradient-border-cta::after {
   content: "";
