@@ -3,79 +3,104 @@ export function initTerminal() {
   if (terminalOutput) {
     const deploymentSteps = [
       {
-        text: "> Initializing deployment process...",
+        text: "> Initializing build process...",
         delay: 500,
         class: "terminal-info",
       },
       {
-        text: "> Fetching latest commits from branch 'main'...",
-        delay: 800,
+        text: "> Fetching latest commits from 'main'...",
+        delay: 1000,
         class: "terminal-info",
       },
       {
         text: "> Resolving dependencies...",
-        delay: 1200,
+        delay: 1600,
         class: "terminal-info",
       },
       {
         text: "[OK] Dependencies resolved.",
-        delay: 1500,
-        class: "terminal-success",
-      },
-      {
-        text: "> Building application bundle...",
         delay: 2000,
-        class: "terminal-info",
-      },
-      {
-        text: "[OK] Build completed in 2.4s.",
-        delay: 2800,
         class: "terminal-success",
       },
       {
-        text: "> Running test suite (142 tests)...",
-        delay: 3200,
+        text: "> Compiling React components...",
+        delay: 2500,
         class: "terminal-info",
       },
       {
-        text: "[OK] All tests passed.",
-        delay: 4500,
+        text: "> Bundling assets with Vite...",
+        delay: 3000,
+        class: "terminal-info",
+      },
+      {
+        text: "[OK] Build completed successfully in 3.2s.",
+        delay: 3800,
         class: "terminal-success",
       },
       {
-        text: "> Deploying to production server...",
-        delay: 5000,
+        text: "> Running security audits...",
+        delay: 4200,
+        class: "terminal-info",
+      },
+      {
+        text: "[OK] 0 vulnerabilities found.",
+        delay: 4800,
+        class: "terminal-success",
+      },
+      {
+        text: "> Deploying to edge network...",
+        delay: 5300,
         class: "terminal-info",
       },
       {
         text: "----------------------------------------",
-        delay: 5800,
+        delay: 6000,
         class: "terminal-info",
       },
       {
-        text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
+        text: "🚀 SUCCESS: Despliegue completado.",
         delay: 6500,
         class: "terminal-highlight",
       },
+      { text: "   Status: Online", delay: 6700, class: "terminal-success" },
+      {
+        text: "   Projects Deployed: 150+",
+        delay: 6900,
+        class: "terminal-info",
+      },
       {
         text: "----------------------------------------",
-        delay: 6800,
+        delay: 7200,
         class: "terminal-info",
       },
       {
         text: "> System ready. Waiting for input...",
-        delay: 7500,
+        delay: 7800,
         class: "terminal-info",
       },
     ];
+
+    terminalOutput.innerHTML = ""; // Clear initial state
 
     deploymentSteps.forEach((step) => {
       setTimeout(() => {
         const line = document.createElement("div");
         line.className = `terminal-line ${step.class}`;
-        line.textContent = step.text;
+
+        // Typing effect for lines
+        let i = 0;
+        function typeTerminalLine() {
+          if (i < step.text.length) {
+            line.textContent += step.text.charAt(i);
+            i++;
+            setTimeout(typeTerminalLine, 15); // Fast typing speed
+          } else {
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+          }
+        }
+
         terminalOutput.appendChild(line);
-        terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        typeTerminalLine();
       }, step.delay);
     });
   }
