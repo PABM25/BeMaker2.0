@@ -7,19 +7,21 @@ export function initHeroAnimations() {
     function typeWriter() {
       if (i < textToType.length) {
         typingElement.innerHTML += textToType.charAt(i);
-        if (Math.random() > 0.8) {
+        if (Math.random() > 0.85) {
           typingElement.classList.add("glitch");
-          setTimeout(() => typingElement.classList.remove("glitch"), 150);
+          setTimeout(() => typingElement.classList.remove("glitch"), 200);
         }
         i++;
-        setTimeout(typeWriter, 80);
+        // Hacer el tipado más dinámico (algunas letras más rápidas que otras)
+        const delay = Math.random() > 0.5 ? 40 : 100;
+        setTimeout(typeWriter, delay);
       } else {
         setInterval(() => {
-          if (Math.random() > 0.95) {
+          if (Math.random() > 0.9) {
             typingElement.classList.add("glitch");
-            setTimeout(() => typingElement.classList.remove("glitch"), 200);
+            setTimeout(() => typingElement.classList.remove("glitch"), 300);
           }
-        }, 1000);
+        }, 2000);
       }
     }
     setTimeout(typeWriter, 500);
