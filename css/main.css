@@ -2,6 +2,7 @@
 @import url("testimonials.css");
 @import url("contact.css");
 @import url("carousel.css");
+@import url("bento.css");
 @import url("variables.css");
 
 /* Extracted from inline styles */
@@ -358,11 +359,15 @@ ul {
   line-height: 1.2;
   margin-bottom: 20px;
   min-height: 120px;
+  text-shadow: 0 0 20px rgba(1, 0, 102, 0.5);
 }
 #typing-hero-title {
   font-family: "Courier New", Courier, monospace;
   position: relative;
   display: inline-block;
+}
+#cursor {
+  color: var(--red-accent);
 }
 #typing-hero-title.glitch {
   animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
@@ -921,7 +926,6 @@ body.light-mode .step-number {
   background: conic-gradient(
     from 0deg,
     var(--blue-primary),
-    var(--blue-light),
     var(--red-accent),
     var(--blue-primary)
   );
