@@ -3,68 +3,68 @@ export function initTerminal() {
   if (terminalOutput) {
     const deploymentSteps = [
       {
-        text: "> Initializing deployment process...",
-        delay: 500,
+        text: "> Starting BeMaker deploy engine v2.0...",
+        delay: 300,
         class: "terminal-info",
       },
       {
-        text: "> Fetching latest commits from branch 'main'...",
+        text: "> [==================  ] 90% Compiling assets...",
         delay: 800,
         class: "terminal-info",
       },
       {
-        text: "> Resolving dependencies...",
+        text: "> [====================] 100% Build complete.",
         delay: 1200,
-        class: "terminal-info",
-      },
-      {
-        text: "[OK] Dependencies resolved.",
-        delay: 1500,
         class: "terminal-success",
       },
       {
-        text: "> Building application bundle...",
-        delay: 2000,
+        text: "> Securing endpoints and connecting to CDN...",
+        delay: 1600,
         class: "terminal-info",
       },
       {
-        text: "[OK] Build completed in 2.4s.",
-        delay: 2800,
+        text: "[OK] SSL certificates provisioned.",
+        delay: 1900,
         class: "terminal-success",
       },
       {
-        text: "> Running test suite (142 tests)...",
-        delay: 3200,
+        text: "> Running advanced optimizations...",
+        delay: 2200,
         class: "terminal-info",
       },
       {
-        text: "[OK] All tests passed.",
-        delay: 4500,
-        class: "terminal-success",
-      },
-      {
-        text: "> Deploying to production server...",
-        delay: 5000,
+        text: "  - Minifying JS... Done.",
+        delay: 2400,
         class: "terminal-info",
       },
       {
-        text: "----------------------------------------",
-        delay: 5800,
+        text: "  - Compressing Images... Done.",
+        delay: 2600,
         class: "terminal-info",
       },
       {
-        text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
+        text: "> Launching to production...",
+        delay: 3100,
+        class: "terminal-info",
+      },
+      {
+        text: "--------------------------------------------------",
+        delay: 3600,
+        class: "terminal-info",
+      },
+      {
+        text: "🚀 SUCCESS: 150+ proyectos transformados y en línea.",
+        delay: 4200,
         class: "terminal-highlight",
       },
       {
-        text: "----------------------------------------",
-        delay: 6800,
+        text: "--------------------------------------------------",
+        delay: 4500,
         class: "terminal-info",
       },
       {
-        text: "> System ready. Waiting for input...",
-        delay: 7500,
+        text: "> Ready for the next big idea. _",
+        delay: 5000,
         class: "terminal-info",
       },
     ];
