@@ -1,0 +1,127 @@
+/* ==================================================
+   BENTO GRID (SERVICES SECTION)
+   ================================================== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Base style for Bento Cards */
+.bento-card {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: left;
+  z-index: 1;
+}
+
+/* Hover effects mimicking Framer Motion */
+.bento-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.25); /* Deep blue diffuse shadow */
+  border-color: var(--blue-primary);
+  z-index: 2;
+}
+
+/* Icon styling */
+.bento-card .bento-icon {
+  font-size: 2.5rem;
+  color: var(--blue-primary);
+  margin-bottom: 20px;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.bento-card:hover .bento-icon {
+  color: var(--red-accent);
+  transform: scale(1.1);
+}
+
+/* Content styling */
+.bento-card h3 {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+.bento-card p {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary-color);
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* CTA inside card */
+.bento-card .bento-link {
+  font-family: var(--font-secondary);
+  font-weight: bold;
+  color: var(--blue-light);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s ease;
+}
+
+.bento-card .bento-link i {
+  transition: transform 0.3s ease;
+}
+
+.bento-card:hover .bento-link {
+  color: var(--red-accent);
+}
+
+.bento-card:hover .bento-link i {
+  transform: translateX(5px);
+}
+
+/* Specific weights/sizes (Optional for asymmetric grid if desired) */
+/* Large card (spans more columns if space permits) */
+@media (min-width: 900px) {
+  .bento-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .bento-card.large {
+    grid-column: span 2;
+  }
+}
+
+/* Decorative background elements */
+.bento-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(1, 0, 102, 0.1) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bento-card:hover::before {
+  opacity: 1;
+}

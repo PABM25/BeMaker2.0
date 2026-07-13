@@ -13,38 +13,53 @@ export function initTerminal() {
         class: "terminal-info",
       },
       {
-        text: "> Resolving dependencies...",
+        text: "> Resolving dependencies... [████████░░] 80%",
         delay: 1200,
         class: "terminal-info",
       },
       {
-        text: "[OK] Dependencies resolved.",
-        delay: 1500,
+        text: "[OK] Dependencies resolved. 1432 packages audited.",
+        delay: 1600,
         class: "terminal-success",
       },
       {
         text: "> Building application bundle...",
-        delay: 2000,
+        delay: 2100,
+        class: "terminal-info",
+      },
+      {
+        text: "  - Compiling assets... [Done]",
+        delay: 2400,
+        class: "terminal-info",
+      },
+      {
+        text: "  - Minifying code... [Done]",
+        delay: 2700,
         class: "terminal-info",
       },
       {
         text: "[OK] Build completed in 2.4s.",
-        delay: 2800,
+        delay: 3000,
         class: "terminal-success",
       },
       {
         text: "> Running test suite (142 tests)...",
-        delay: 3200,
+        delay: 3400,
         class: "terminal-info",
       },
       {
-        text: "[OK] All tests passed.",
-        delay: 4500,
+        text: "[OK] All tests passed (142/142).",
+        delay: 4200,
         class: "terminal-success",
       },
       {
         text: "> Deploying to production server...",
-        delay: 5000,
+        delay: 4800,
+        class: "terminal-info",
+      },
+      {
+        text: "> Uploading build artifacts [██████████] 100%",
+        delay: 5300,
         class: "terminal-info",
       },
       {
@@ -54,16 +69,21 @@ export function initTerminal() {
       },
       {
         text: "🚀 SUCCESS: 150+ proyectos desplegados con éxito.",
-        delay: 6500,
+        delay: 6300,
         class: "terminal-highlight",
       },
       {
+        text: "   Live at: https://bemaker.dev",
+        delay: 6600,
+        class: "terminal-success",
+      },
+      {
         text: "----------------------------------------",
-        delay: 6800,
+        delay: 6900,
         class: "terminal-info",
       },
       {
-        text: "> System ready. Waiting for input...",
+        text: "> System ready. Listening on port 3000...",
         delay: 7500,
         class: "terminal-info",
       },
