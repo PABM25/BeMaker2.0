@@ -2,6 +2,7 @@
 @import url("testimonials.css");
 @import url("contact.css");
 @import url("carousel.css");
+@import url("bento.css");
 @import url("variables.css");
 
 /* Extracted from inline styles */
@@ -353,11 +354,12 @@ ul {
   padding-left: 20px;
 }
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 20px;
   min-height: 120px;
+  text-shadow: 0 0 10px rgba(1, 0, 102, 0.5);
 }
 #typing-hero-title {
   font-family: "Courier New", Courier, monospace;
@@ -366,22 +368,25 @@ ul {
 }
 #typing-hero-title.glitch {
   animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  text-shadow:
+    2px 0 var(--red-accent),
+    -2px 0 var(--blue-primary);
 }
 @keyframes glitch {
   0% {
     transform: translate(0);
   }
   20% {
-    transform: translate(-2px, 2px);
+    transform: translate(-4px, 4px);
   }
   40% {
-    transform: translate(-2px, -2px);
+    transform: translate(-4px, -4px);
   }
   60% {
-    transform: translate(2px, 2px);
+    transform: translate(4px, 4px);
   }
   80% {
-    transform: translate(2px, -2px);
+    transform: translate(4px, -4px);
   }
   100% {
     transform: translate(0);
@@ -423,14 +428,14 @@ ul {
 .terminal-window {
   width: 100%;
   height: 450px;
-  background-color: #0d0d0d;
+  background-color: #0d1117;
   border-radius: 12px;
   box-shadow: 0 15px 35px rgba(1, 0, 102, 0.4);
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  font-family: "Courier New", Courier, monospace;
+  font-family: monospace;
 }
 .terminal-header {
   background-color: #2d2d2d;
@@ -468,7 +473,7 @@ ul {
 }
 .terminal-body {
   padding: 20px;
-  color: #00ff00;
+  color: #c9d1d9;
   font-size: 0.95rem;
   line-height: 1.5;
   flex-grow: 1;
@@ -481,10 +486,10 @@ ul {
   animation: fadeIn 0.1s forwards;
 }
 .terminal-success {
-  color: #00ff00;
+  color: #7ee787;
 }
 .terminal-info {
-  color: #3b82f6;
+  color: #79c0ff;
 }
 .terminal-highlight {
   color: #ed0807;
@@ -1267,5 +1272,58 @@ body.light-mode .step-number {
   .chat-body {
     height: calc(100vh - 140px);
     padding-bottom: 80px;
+  }
+}
+
+.animated-gradient-btn {
+  position: relative;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border: none;
+  z-index: 1;
+  overflow: hidden;
+  padding: 16px 36px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.animated-gradient-btn::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(
+    90deg,
+    var(--blue-primary),
+    var(--red-accent),
+    var(--blue-primary)
+  );
+  background-size: 200% 100%;
+  z-index: -2;
+  border-radius: 33px;
+  animation: moveGradient 3s linear infinite;
+}
+.animated-gradient-btn::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background-color: var(--bg-color);
+  z-index: -1;
+  border-radius: 27px;
+  transition: background-color 0.3s ease;
+}
+.animated-gradient-btn:hover::after {
+  background-color: transparent;
+}
+.animated-gradient-btn:hover {
+  color: white;
+  box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
+}
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
   }
 }
