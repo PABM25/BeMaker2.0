@@ -69,7 +69,45 @@ export function initTerminal() {
       },
     ];
 
+    const projectNames = [
+      "crm-dashboard-v2",
+      "ecommerce-backend",
+      "analytics-engine",
+      "auth-service",
+      "mobile-api-gateway",
+      "billing-system",
+      "inventory-sync",
+      "user-portal",
+    ];
+
+    let rapidDeployActive = false;
+
     deploymentSteps.forEach((step) => {
+      if (
+        step.text === "----------------------------------------" &&
+        step.delay === 5800
+      ) {
+        setTimeout(() => {
+          rapidDeployActive = true;
+          let count = 1;
+          const deployInterval = setInterval(() => {
+            if (count > 150) {
+              clearInterval(deployInterval);
+              rapidDeployActive = false;
+            } else {
+              const proj =
+                projectNames[Math.floor(Math.random() * projectNames.length)];
+              const line = document.createElement("div");
+              line.className = `terminal-line terminal-info`;
+              line.textContent = `> Deploying project #${count}: ${proj}... [OK]`;
+              terminalOutput.appendChild(line);
+              terminalOutput.scrollTop = terminalOutput.scrollHeight;
+              count += Math.floor(Math.random() * 5) + 1; // Increment by 1-5 to speed up visually
+            }
+          }, 30);
+        }, 5100);
+      }
+
       setTimeout(() => {
         const line = document.createElement("div");
         line.className = `terminal-line ${step.class}`;
