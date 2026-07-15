@@ -47,6 +47,21 @@
       <!-- HERO SECTION -->
       <section class="hero-section">
         <div class="hero-left-panel">
+          <h1 class="hero-title">
+            <span id="typing-hero-title" class="glitch-text"></span
+            ><span id="cursor">|</span>
+          </h1>
+          <p class="hero-text">
+            Soluciones web y móviles personalizadas para pequeñas empresas.
+            Optimiza operaciones, llega a más clientes y escala con tecnología
+            diseñada para tus necesidades.
+          </p>
+          <button class="hero-cta" onclick="location.href = 'contacto.html'">
+            Empieza ahora
+          </button>
+        </div>
+
+        <div class="hero-right-panel">
           <div class="terminal-window">
             <div class="terminal-header">
               <div class="terminal-buttons">
@@ -58,20 +73,6 @@
             </div>
             <div class="terminal-body" id="terminal-output"></div>
           </div>
-        </div>
-
-        <div class="hero-right-panel">
-          <h1 class="hero-title">
-            <span id="typing-hero-title"></span><span id="cursor">|</span>
-          </h1>
-          <p class="hero-text">
-            Soluciones web y móviles personalizadas para pequeñas empresas.
-            Optimiza operaciones, llega a más clientes y escala con tecnología
-            diseñada para tus necesidades.
-          </p>
-          <button class="hero-cta" onclick="location.href = 'contacto.html'">
-            Empieza ahora
-          </button>
         </div>
       </section>
 
@@ -263,139 +264,53 @@
         </div>
       </section>
 
-      <!-- PRICING PLANS SECTION -->
+      <!-- SERVICES BENTO GRID SECTION -->
       <section id="services-section" class="plans-section">
-        <h2 class="title">Planes PYME Digital</h2>
+        <h2 class="title">Nuestros Servicios</h2>
         <p class="description">
-          Desarrollo web de calidad superior diseñado para entregarse en tiempo
-          récord. Estandarizamos procesos para que tu inversión sea rentable.
+          Soluciones digitales integrales diseñadas con ingeniería de precisión
+          para escalar tu negocio.
         </p>
 
-        <div class="pricing-grid">
-          <div class="pricing-card" data-aos="fade-up">
-            <div class="plan-header">
-              <h3>Landing Express</h3>
-              <p class="plan-target">
-                Ideal para profesionales independientes (Abogados, Contadores,
-                Terapeutas).
-              </p>
-              <div class="plan-price">$120.000<span> CLP</span></div>
+        <div class="bento-grid">
+          <!-- Web Development - Large Weight -->
+          <div class="bento-card large" data-aos="fade-up">
+            <div class="bento-header">
+              <i class="fas fa-laptop-code bento-icon"></i>
             </div>
-            <div class="plan-body">
-              <ul class="plan-features">
-                <li>
-                  <i class="fas fa-check"></i> Diseño Single Page (Una página)
-                </li>
-                <li>
-                  <i class="fas fa-check"></i> Sección "Quiénes somos" y
-                  Servicios
-                </li>
-                <li><i class="fas fa-check"></i> Galería de imágenes simple</li>
-                <li>
-                  <i class="fas fa-check"></i> Formulario directo a tu correo
-                </li>
-                <li>
-                  <i class="fas fa-check"></i> Diseño Responsivo (Móvil y
-                  Desktop)
-                </li>
-              </ul>
-            </div>
-            <div class="plan-footer">
-              <button
-                class="btn plan-btn"
-                onclick="
-                  window.open('https://link.mercadopago.cl/bemaker', '_blank')
-                "
-              >
-                Elegir Plan
-              </button>
-            </div>
+            <h3 class="bento-title">Desarrollo Web & Móvil</h3>
+            <p class="bento-text">
+              Creamos plataformas digitales de alto rendimiento con
+              arquitecturas escalables. Desde Single Page Applications (SPAs)
+              hasta complejas tiendas e-commerce, nos aseguramos de que tu
+              presencia en línea sea rápida, segura y orientada a la conversión.
+            </p>
           </div>
 
-          <div
-            class="pricing-card popular-plan"
-            data-aos="fade-up"
-            data-aos-delay="150"
-          >
-            <div class="popular-badge">El más elegido</div>
-            <div class="plan-header">
-              <h3>Landing Conectada</h3>
-              <p class="plan-target">
-                Ideal para pequeños negocios locales (Barberías, Cafeterías,
-                Consultoras).
-              </p>
-              <div class="plan-price">$180.000<span> CLP</span></div>
+          <!-- Artificial Intelligence -->
+          <div class="bento-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="bento-header">
+              <i class="fas fa-brain bento-icon"></i>
             </div>
-            <div class="plan-body">
-              <ul class="plan-features">
-                <li>
-                  <i class="fas fa-check"></i>
-                  <strong>Todo lo del plan Express</strong>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i> Automatización básica de datos
-                </li>
-                <li>
-                  <i class="fas fa-check"></i> Registros guardados en Google
-                  Sheets
-                </li>
-                <li>
-                  <i class="fas fa-check"></i> Correo automático de confirmación
-                </li>
-                <li><i class="fas fa-check"></i> Botón flotante de WhatsApp</li>
-              </ul>
-            </div>
-            <div class="plan-footer">
-              <button
-                class="hero-cta plan-btn"
-                onclick="
-                  window.open('https://link.mercadopago.cl/bemaker', '_blank')
-                "
-                style="width: 100%"
-              >
-                Elegir Plan
-              </button>
-            </div>
+            <h3 class="bento-title">Inteligencia Artificial</h3>
+            <p class="bento-text">
+              Integramos soluciones de IA y automatización para optimizar tus
+              procesos operativos. Implementamos chatbots avanzados y análisis
+              de datos en tiempo real.
+            </p>
           </div>
 
-          <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
-            <div class="plan-header">
-              <h3>Catálogo / Agenda</h3>
-              <p class="plan-target">
-                Ideal para tiendas locales o servicios que requieren cita
-                previa.
-              </p>
-              <div class="plan-price">$280.000<span> CLP</span></div>
+          <!-- Cybersecurity -->
+          <div class="bento-card tall" data-aos="fade-up" data-aos-delay="300">
+            <div class="bento-header">
+              <i class="fas fa-shield-alt bento-icon"></i>
             </div>
-            <div class="plan-body">
-              <ul class="plan-features">
-                <li>
-                  <i class="fas fa-check"></i>
-                  <strong>Todo lo del plan Conectado</strong>
-                </li>
-                <li>
-                  <i class="fas fa-check"></i> Catálogo de productos interactivo
-                </li>
-                <li>
-                  <i class="fas fa-check"></i> O Integración de agenda (ej.
-                  Calendly)
-                </li>
-                <li><i class="fas fa-check"></i> Optimización SEO básica</li>
-                <li>
-                  <i class="fas fa-check"></i> UX enfocado 100% en conversión
-                </li>
-              </ul>
-            </div>
-            <div class="plan-footer">
-              <button
-                class="btn plan-btn"
-                onclick="
-                  window.open('https://link.mercadopago.cl/bemaker', '_blank')
-                "
-              >
-                Elegir Plan
-              </button>
-            </div>
+            <h3 class="bento-title">Ciberseguridad</h3>
+            <p class="bento-text">
+              Protegemos tus activos digitales con las últimas metodologías de
+              seguridad. Realizamos auditorías de código, pruebas de penetración
+              y aseguramos el cumplimiento normativo de tus aplicaciones.
+            </p>
           </div>
         </div>
       </section>
@@ -515,7 +430,7 @@
             escala tu negocio al siguiente nivel.
           </p>
           <button
-            class="hero-cta gradient-border-cta"
+            class="hero-cta gradient-border-cta animated-gradient-border"
             onclick="location.href = 'contacto.html'"
           >
             Empezar proyecto

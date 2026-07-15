@@ -2,6 +2,7 @@
 @import url("testimonials.css");
 @import url("contact.css");
 @import url("carousel.css");
+@import url("bento.css");
 @import url("variables.css");
 
 /* Extracted from inline styles */
@@ -353,8 +354,8 @@ ul {
   padding-left: 20px;
 }
 .hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 800;
   line-height: 1.2;
   margin-bottom: 20px;
   min-height: 120px;
@@ -363,25 +364,31 @@ ul {
   font-family: "Courier New", Courier, monospace;
   position: relative;
   display: inline-block;
+  color: var(--blue-light);
 }
-#typing-hero-title.glitch {
-  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+#typing-hero-title.glitch,
+#typing-hero-title.glitch-text.glitch {
+  animation: glitch 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: var(--red-accent);
+  text-shadow:
+    2px 2px var(--blue-primary),
+    -2px -2px var(--blue-light);
 }
 @keyframes glitch {
   0% {
     transform: translate(0);
   }
   20% {
-    transform: translate(-2px, 2px);
+    transform: translate(-4px, 4px);
   }
   40% {
-    transform: translate(-2px, -2px);
+    transform: translate(-4px, -4px);
   }
   60% {
-    transform: translate(2px, 2px);
+    transform: translate(4px, 4px);
   }
   80% {
-    transform: translate(2px, -2px);
+    transform: translate(4px, -4px);
   }
   100% {
     transform: translate(0);
@@ -423,9 +430,11 @@ ul {
 .terminal-window {
   width: 100%;
   height: 450px;
-  background-color: #0d0d0d;
+  background-color: #050505;
   border-radius: 12px;
-  box-shadow: 0 15px 35px rgba(1, 0, 102, 0.4);
+  box-shadow:
+    0 15px 40px rgba(1, 0, 102, 0.6),
+    0 0 20px rgba(74, 176, 217, 0.2);
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
@@ -433,11 +442,11 @@ ul {
   font-family: "Courier New", Courier, monospace;
 }
 .terminal-header {
-  background-color: #2d2d2d;
+  background-color: #1a1a1a;
   padding: 12px 15px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #1a1a1a;
+  border-bottom: 1px solid #333;
 }
 .terminal-buttons {
   display: flex;
@@ -468,12 +477,13 @@ ul {
 }
 .terminal-body {
   padding: 20px;
-  color: #00ff00;
+  color: var(--blue-light);
   font-size: 0.95rem;
   line-height: 1.5;
   flex-grow: 1;
   overflow-y: auto;
   text-align: left;
+  text-shadow: 0 0 5px var(--blue-light);
 }
 .terminal-line {
   margin-bottom: 8px;
@@ -481,14 +491,16 @@ ul {
   animation: fadeIn 0.1s forwards;
 }
 .terminal-success {
-  color: #00ff00;
+  color: #27c93f;
+  text-shadow: 0 0 5px #27c93f;
 }
 .terminal-info {
-  color: #3b82f6;
+  color: var(--blue-light);
 }
 .terminal-highlight {
-  color: #ed0807;
+  color: var(--red-accent);
   font-weight: bold;
+  text-shadow: 0 0 8px var(--red-accent);
 }
 @keyframes fadeIn {
   to {
@@ -945,6 +957,67 @@ body.light-mode .step-number {
   color: white;
   box-shadow: 0 10px 25px rgba(237, 8, 7, 0.4);
 }
+@keyframes rotateGradient {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.animated-gradient-border {
+  position: relative;
+  background-color: transparent;
+  color: var(--text-color);
+  border: none;
+  z-index: 1;
+  overflow: hidden;
+  padding: 16px 36px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.animated-gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: conic-gradient(
+    from 0deg,
+    var(--blue-primary),
+    var(--red-accent),
+    var(--blue-primary),
+    var(--red-accent),
+    var(--blue-primary)
+  );
+  z-index: -2;
+  border-radius: 34px;
+  animation: rotateGradient 3s linear infinite;
+}
+
+.animated-gradient-border::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background-color: var(--bg-color);
+  z-index: -1;
+  border-radius: 27px;
+  transition: background-color 0.3s ease;
+}
+
+.animated-gradient-border:hover::after {
+  background-color: transparent;
+}
+
+.animated-gradient-border:hover {
+  color: white;
+  transform: scale(1.05);
+  box-shadow:
+    0 0 20px rgba(237, 8, 7, 0.6),
+    0 0 30px rgba(1, 0, 102, 0.6);
+}
+
 @keyframes rotateGradient {
   100% {
     transform: rotate(360deg);
