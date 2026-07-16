@@ -14,12 +14,13 @@ export function initHeroAnimations() {
         i++;
         setTimeout(typeWriter, 80);
       } else {
+        // Sporadically trigger a more pronounced glitch effect after finishing typing
         setInterval(() => {
-          if (Math.random() > 0.95) {
+          if (Math.random() > 0.85) {
             typingElement.classList.add("glitch");
-            setTimeout(() => typingElement.classList.remove("glitch"), 200);
+            setTimeout(() => typingElement.classList.remove("glitch"), 300);
           }
-        }, 1000);
+        }, 1500);
       }
     }
     setTimeout(typeWriter, 500);
